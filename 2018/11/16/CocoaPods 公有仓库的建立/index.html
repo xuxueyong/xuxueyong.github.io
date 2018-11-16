@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>CocoaPods 公有仓库的建立 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CocoaPods 公有仓库的建立 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CocoaPods 公有仓库的建立 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/11/16/CocoaPods 公有仓库的建立/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-11-16T07:19:31.763Z" class="post-list__meta--date date">2018-11-16</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">CocoaPods 公有仓库的建立</h1>
+  </header>
+
+  <section class="post">
+    <p>##查看 cocoapods  Specs 索引目录</p>
+<p>###两种方式</p>
+<p>1.终端:   cd ~/.cocoapods/repos/master </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open .   </span><br><span class="line">. 代表当前目录</span><br><span class="line">.. 代表上级目录</span><br></pre></td></tr></table></figure>
+<p> 2.finder: 显示隐藏文件<br>       先在终端执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -boolean true</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-af8709254aa66b77.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270005307052.jpg"></p>
+<h3 id="查看远程-Specs-仓库"><a href="#查看远程-Specs-仓库" class="headerlink" title="查看远程 Specs 仓库"></a>查看远程 Specs 仓库</h3><p>你会发现master是一个git仓库<br>    远程仓库的地址 git remote -v </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 输入浏览器查看</span><br><span class="line">origin	https://github.com/CocoaPods/Specs.git (fetch)</span><br><span class="line">origin	https://github.com/CocoaPods/Specs.git (push)</span><br></pre></td></tr></table></figure>
+<h3 id="继续查看文件目录-Specs"><a href="#继续查看文件目录-Specs" class="headerlink" title="继续查看文件目录 Specs"></a>继续查看文件目录 Specs</h3><p><img src="https://upload-images.jianshu.io/upload_images/4075144-3b32a66ca68cc710.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270010438920.jpg"></p>
+<p>这个时候我们输入 pod search Defaultskit  (通过json文件获取)<br><img src="https://upload-images.jianshu.io/upload_images/4075144-385cae59503e424e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270513422794.jpg"></p>
+<p>可以看到里面有源码的下载地址 source   versions  有多少个版本 等配置信息</p>
+<p>我们在用cocoaPods  发布源码时, 需要将仓库的描述信息push到远程仓库中,  使用pod命令即可实现</p>
+<h2 id="创建-cocoaPods-账户"><a href="#创建-cocoaPods-账户" class="headerlink" title="创建 cocoaPods 账户"></a>创建 cocoaPods 账户</h2><p>要想通过cocoaPods 上传我们的仓库配置信息, 需要注册cocoaPods账号</p>
+<p>1.在终端执行命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register github_email &apos;user_name&apos; --verbose</span><br></pre></td></tr></table></figure>
+<p>github_email  你的github账号注册时用的邮箱地址  user_name 自定义</p>
+<p>出现下面的这条信息时, 说明账号注册成功,  到邮箱点击链接, 进行验证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please verify the session by clicking the link in the verification email that has been sent to you_email</span><br></pre></td></tr></table></figure>
+<p>2.验证成功如下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-f1f681b2bfc9fb57.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270541636638.jpg"></p>
+<p>3.确认注册信息后, 在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk me</span><br></pre></td></tr></table></figure>
+<p>可看到注册信息如下图<br><img src="https://upload-images.jianshu.io/upload_images/4075144-d00d1c7e037e0e41.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270542412370.jpg"></p>
+<p>到此, 注册账号完成</p>
+<h2 id="创建git仓库-用来存放源码"><a href="#创建git仓库-用来存放源码" class="headerlink" title="创建git仓库 (用来存放源码)"></a>创建git仓库 (用来存放源码)</h2><p>下来我们在github上 创建一个放我们要共享代码的仓库<br>    如无github账号,先注册github账号</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-cfc6274f9d832761.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270551935742.jpg"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-4b7d19a50c321665.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270553579723.jpg"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-98fa86fcc7a75990.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270554163107.jpg"></p>
+<p>点击第二步之后, 复制了git仓库的地址</p>
+<p>接下来在终端执行</p>
+<p>cd  到你想要存放代码的目录</p>
+<p><strong>将github上创建的项目clone到本地</strong><br>git clone <a href="https://github.com/xuxueyong/TestDemo.git" target="_blank" rel="noopener">https://github.com/xuxueyong/TestDemo.git</a></p>
+<p>###在testDemo目录下创建 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* code 文件夹  用来存放我们的代码</span><br><span class="line">* LICENSE   文件许可证</span><br><span class="line">* READ.me 是创建仓库的时候就存在的 (仓库使用说明)</span><br><span class="line">* podspec文件  用来描述和配置仓库信息 (非常重要)</span><br></pre></td></tr></table></figure>
+<h2 id="创建podspec文件"><a href="#创建podspec文件" class="headerlink" title="创建podspec文件"></a><strong>创建podspec文件</strong></h2><p>在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec create code</span><br></pre></td></tr></table></figure>
+<p>出现 Specification created at code.podspec<br>表示 code.podspec 创建成功</p>
+<p>查看该文件有什么内容  发现很多字段, 我这里有整理好的字段  (ruby脚本语言)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line">  s.name         = &quot;code&quot;         # 项目名称</span><br><span class="line">  s.version      = &quot;1.0.0&quot;        # 版本号 与 你仓库的 标签号 对应</span><br><span class="line">  s.license      = &quot;MIT&quot;          # 开源证书</span><br><span class="line">  s.summary      = &quot;A delightful TextField of PhoneNumber&quot; # 项目简介</span><br><span class="line"></span><br><span class="line">  s.homepage     = &quot;https://github.com/xuxueyong&quot; # 你的主页</span><br><span class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/xuxueyong/TestDemo.git&quot;, :tag =&gt; &quot;#&#123;s.version&#125;&quot; &#125;#你的仓库地址，不能用SSH地址</span><br><span class="line">  s.source_files = &quot;code/*.&#123;h,m&#125;&quot; # 你代码的位置， code/*.&#123;h,m&#125; 表示 code 文件夹下所有的.h和.m文件</span><br><span class="line">  s.requires_arc = true # 是否启用ARC</span><br><span class="line">  s.platform     = :ios, &quot;9.0&quot; #平台及支持的最低版本</span><br><span class="line">  s.frameworks   = &quot;UIKit&quot;, &quot;Foundation&quot; #支持的框架</span><br><span class="line">  # s.dependency   = &quot;AFNetworking&quot; # 依赖库</span><br><span class="line">  </span><br><span class="line">  # User</span><br><span class="line">  s.author             = &#123; &quot;xueyong&quot; =&gt; &quot;794334810@qq.com&quot; &#125; # 作者信息</span><br><span class="line">  s.social_media_url   = &quot;https://github.com/xuxueyong&quot; # 个人主页</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="验证-本地的-podspec-文件是否正确"><a href="#验证-本地的-podspec-文件是否正确" class="headerlink" title="验证  本地的.podspec 文件是否正确"></a>验证  本地的.podspec 文件是否正确</h3><p><img src="https://upload-images.jianshu.io/upload_images/4075144-2a9c26b0a6abf412.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270578234504.jpg"></p>
+<p>异常情况  如果使用swift 语言的时候, 可能会出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[!] BYPhoneNumTF did not pass validation, due to 1 warning (but you can use `--allow-warnings` to ignore it) and all results apply only to public specs, but you can use `--private` to ignore them if linting the specification for a private pod.</span><br><span class="line">[!] The validator for Swift projects uses Swift 3.0 by default, if you are using a different version of swift you can use a `.swift-version` file to set the version for your Pod. For example to use Swift 2.3, run: </span><br><span class="line">    `echo &quot;2.3&quot; &gt; .swift-version`.</span><br><span class="line">You can use the `--no-clean` option to inspect any issue.</span><br></pre></td></tr></table></figure>
+<p>从异常信息可以看出, 我们需要使用 –allow-warnings 参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib lint --allow-warnings</span><br></pre></td></tr></table></figure>
+<p>##给仓库打上标签</p>
+<p>###在打标签之前 先提交我们刚才创建的那些文件到远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;测试公有库创建&apos;</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">// 初次提交代码, 是需要登录的</span><br><span class="line">Username for &apos;https://github.com&apos;: 794334810@qq.com</span><br><span class="line">Password for &apos;https://794334810@qq.com@github.com&apos;:</span><br></pre></td></tr></table></figure>
+<p>###给仓库打上标签  也就是之前看到的版本号<br>仓库版本号 要与.podspec 文件中的  s.version = ‘1.0.0’ 相对应</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 打标签</span><br><span class="line"> git tag -a &apos;1.0.0&apos; -m &apos;仓库打标签&apos;</span><br><span class="line"> 	 -a 表示添加标签  -m 表示 注释信息  comment </span><br><span class="line"> 	 </span><br><span class="line">// 推送到远程仓库</span><br><span class="line"> git push origin --tags</span><br><span class="line"> 提示  * [new tag]         1.0.0 -&gt; 1.0.0  说明推送成功</span><br></pre></td></tr></table></figure>
+<h2 id="发布-podspec文件"><a href="#发布-podspec文件" class="headerlink" title="发布 .podspec文件"></a>发布 .podspec文件</h2><p>将code.podspec文件发布到公有spec上</p>
+<p><strong>在终端执行命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push code.podspec</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">提示错误信息</span><br><span class="line">You (794334810@qq.com) are not allowed to push new versions for this pod. The owners of this pod are 1069156011@qq.com.</span><br></pre></td></tr></table></figure>
+<p>说明公有库的拥有者有错, 移除公有库的拥有者 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk remove-owner code.pospec 1069156011@qq.com</span><br></pre></td></tr></table></figure>
+<p>发生了那些操作:</p>
+<ul>
+<li>Updating spec repo <code>master</code></li>
+<li>将 .podspec 文件转成 JSON 格式</li>
+<li>对 master 仓库 进行合并 ,再次提交master仓库</li>
+</ul>
+<p>产生异常信息  {“name”=&gt;[“is already taken”]}</p>
+<p>说明这个名字 已经被别人使用了</p>
+<p>将名字改为  yongTestCocoaPodsShare</p>
+<p><strong>提交成功后</strong></p>
+<p><a href="https://cocoapods.org/pods/yongTestCocoaPodsShare" target="_blank" rel="noopener">https://cocoapods.org/pods/yongTestCocoaPodsShare</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4075144-33c2299473fa9631.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270620746178.jpg"></p>
+<p>说明发布成功 可以通过上面的URL查看<br><img src="https://upload-images.jianshu.io/upload_images/4075144-d13ff78c78660910.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="15270622224580.jpg"></p>
+<h2 id="更新-pods"><a href="#更新-pods" class="headerlink" title="更新 pods"></a>更新 pods</h2><p>在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod setup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search yongTestCocoaPodsShare</span><br></pre></td></tr></table></figure>
+<p>   出现异常  Unable to find a pod with name, author, summary, or description matching <code>yongTestCocoaPodsShare</code></p>
+<p>   估计是更新不及时</p>
+<p>在 <a href="https://github.com/CocoaPods/Specs/commits/master" target="_blank" rel="noopener">https://github.com/CocoaPods/Specs/commits/master</a>   </p>
+<p>因为在这里可以看到提交记录</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><strong>新建立一个项目</strong></p>
+<p>在 Podfie 文件中使用 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;yongTestCocoaPodsShare&apos;, &apos;1.0.2&apos;</span><br></pre></td></tr></table></figure>
+<p>报异常信息  [!] CocoaPods could not find compatible versions for pod “yongTestCocoaPodsShare”:<br>  In Podfile:<br>    yongTestCocoaPodsShare (= 1.0.2)</p>
+<p>Specs satisfying the <code>yongTestCocoaPodsShare (= 1.0.2)</code> dependency were found, but they required a higher minimum deployment target.</p>
+<p><strong>解决方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pod setup </span><br><span class="line">如果还是异常</span><br><span class="line">执行 删除缓存操作 rm -fr ~/.cocoapods/repos/master</span><br><span class="line">再次执行 pod setup</span><br></pre></td></tr></table></figure>
+<h2 id="更新维护"><a href="#更新维护" class="headerlink" title="更新维护"></a>更新维护</h2><ul>
+<li>修改 代码</li>
+<li>修改 .podspec 文件</li>
+<li>打标签</li>
+<li>推送到 pods 远程库</li>
+</ul>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/11/16/iOS_unity_AR/" title="在iOS项目中集成Unity(AR识别)">在iOS项目中集成Unity(AR识别)</a></h2>
+                <p class="excerpt">
+                
+                提示: 在集成之前确保demo项目可以运行 (导出demo项目是最好用mac版Unity)
+1.新建立文件 Unity.xconfig
+12345678910111213141516171819202122232425262728293031323334353637383940// 写入自己的unt
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-11-16T05:45:43.849Z" class="post-list__meta--date date">2018-11-16</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/11/16/iOS_unity_AR/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
