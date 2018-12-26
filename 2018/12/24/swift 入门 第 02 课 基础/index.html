@@ -330,6 +330,7 @@
 <blockquote>
 <p>注意<br>如果你使用 unchecked 模式（-Ounchecked）编译代码，先决条件将不会进行检查。编译器假设所有的先决条件总是为 true（真），他将优化你的代码。然而，fatalError(<em>:file:line:) 函数总是中断执行，无论你怎么进行优化设定。<br>你能使用 fatalError(</em>:file:line:) 函数在设计原型和早期开发阶段，这个阶段只有方法的声明，但是没有具体实现，你可以在方法体&gt;中写上 fatalError(“Unimplemented”)作为具体实现。因为 fatalError 不会像断言和先决条件那样被优化掉，<strong>所以你可以确保当代码执行到一个没有被实现的方法时，程序会被中断。</strong></p>
 </blockquote>
+<p>【 参考 梁杰 极客学院 】</p>
 
   </section>
 
