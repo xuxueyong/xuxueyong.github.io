@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 5 课 集合-数组 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 5 课 集合-数组 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 5 课 集合-数组 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/26/Swift-入门-第-5-课-集合-数组/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-26T03:55:29.861Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 5 课 集合-数组</h1>
+  </header>
+
+  <section class="post">
+    <p>Swift 提供了 <code>Array</code> <code>Dictionary</code> <code>Set</code> 3 种集合类型。 Array 是有序集合， Dictionary 是键值对集合，Set 是无需集合。</p>
+<p>Swift 集合中存储的数据类型必须明确， 这意味着我们存储数据和取数据都不会出类型错误。 </p>
+<p>三种集合类型， 都被实现为泛型集合， 后面会讲到泛型。</p>
+<h4 id="集合可变性"><a href="#集合可变性" class="headerlink" title="集合可变性"></a>集合可变性</h4><p>三种类型被声明为 var, 可以往集合中添加数据， 和从集合中删除和更新数据。 若被声明为 let 则不能改变集合的大小和内容。</p>
+<blockquote>
+<p>注意<br>我们不需要集合的内容发生改变时， 就可以声明为 let，Swift 编译器优化创建的集合。</p>
+</blockquote>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>可以存储相同类型的数据， 相同的数据可以存储多份。</p>
+<p>Array 类型 可以被桥接到 NSArray</p>
+<p>数组类型的声明 <code>Array&lt;Element&gt;</code> <code>[Element]</code>  <strong>Element</strong>代表存储的数据类型， 推荐使用 [Element]</p>
+<h4 id="创建一个空数组"><a href="#创建一个空数组" class="headerlink" title="创建一个空数组"></a>创建一个空数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var someInts = [Int]()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var someInts: [Int] = []</span><br></pre></td></tr></table></figure>
+<h5 id="创建一个带有默认值得数组"><a href="#创建一个带有默认值得数组" class="headerlink" title="创建一个带有默认值得数组"></a>创建一个带有默认值得数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var someInts = Array(repeating: 0.0, count: 3)</span><br><span class="line">// 默认值为 0.0 数组元素个数为 3</span><br></pre></td></tr></table></figure>
+<h5 id="通过两个数组相加创建一个数组"><a href="#通过两个数组相加创建一个数组" class="headerlink" title="通过两个数组相加创建一个数组"></a>通过两个数组相加创建一个数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let threeDoubles = Array(repeating: 0.0, count: 3)</span><br><span class="line">// threeDoubles 是一种 [Double] 数组，等价于 [0.0, 0.0, 0.0]</span><br><span class="line"></span><br><span class="line">let anotherThreeDoubles = Array(repeating: 2.5, count: 3)</span><br><span class="line">// anotherThreeDoubles 被推断为 [Double]，等价于 [2.5, 2.5, 2.5]</span><br><span class="line"></span><br><span class="line">let sixDoubles = threeDoubles + anotherThreeDoubles</span><br><span class="line">// sixDoubles 被推断为 [Double]，等价于 [0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span><br></pre></td></tr></table></figure>
+<h5 id="用数组字面量构造数组"><a href="#用数组字面量构造数组" class="headerlink" title="用数组字面量构造数组"></a>用数组字面量构造数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var shoppingList = [&quot;Eggs&quot;, &quot;Milk&quot;]</span><br></pre></td></tr></table></figure>
+<p>因为所有数组字面量中的值都是相同的类型，Swift 可以推断出 [String] 是 shoppingList 中变量的正确类型。</p>
+<h4 id="访问和修改数组"><a href="#访问和修改数组" class="headerlink" title="访问和修改数组"></a>访问和修改数组</h4><p>我们可以通过数组的方法和属性来访问和修改数组，或者使用下标语法。</p>
+<p>数组元素个数 count 属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;The shopping list contains \(shoppingList.count) items.&quot;)</span><br><span class="line">// 输出 &quot;The shopping list contains 2 items.&quot;（这个数组有2个项）</span><br></pre></td></tr></table></figure>
+<p>isEmpty 判断数组是否为空 是 count == 0 的简写形似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if shoppingList.isEmpty &#123;</span><br><span class="line">    print(&quot;The shopping list is empty.&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;The shopping list is not empty.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;The shopping list is not empty.&quot;（shoppinglist 不是空的）</span><br></pre></td></tr></table></figure>
+<p>append 在数组后面添加元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shoppingList.append(&quot;Flour&quot;)</span><br><span class="line">// shoppingList 现在有3个数据项，有人在摊煎饼</span><br></pre></td></tr></table></figure>
+<p>+= 可以在数组后面添加一个或多个项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shoppingList += [&quot;Baking Powder&quot;]</span><br><span class="line">// shoppingList 现在有四项了</span><br><span class="line">shoppingList += [&quot;Chocolate Spread&quot;, &quot;Cheese&quot;, &quot;Butter&quot;]</span><br><span class="line">// shoppingList 现在有七项了</span><br></pre></td></tr></table></figure>
+<p>使用下标语法来访问和修改数组中的元素， 索引从 0 开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var firstItem = shoppingList[0]</span><br><span class="line">// 第一项是 &quot;Eggs&quot;</span><br><span class="line"></span><br><span class="line">shoppingList[0] = &quot;Six eggs&quot;</span><br><span class="line">// 其中的第一项现在是 &quot;Six eggs&quot; 而不是 &quot;Eggs&quot;</span><br></pre></td></tr></table></figure>
+<p>通过下边区间修改数组中的多个值， 但是索引不可以越界， 否则产生运行时错误（崩溃）<br>下面的例子把 “Chocolate Spread”、”Cheese” 和 “Butter” 替换为 “Bananas” 和 “Apples”：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shoppingList[4...6] = [&quot;Bananas&quot;, &quot;Apples&quot;]</span><br><span class="line">// shoppingList 现在有6项</span><br></pre></td></tr></table></figure>
+<p>调用数组的 insert(_:at:) 方法， 在某个索引值前面插入元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var someInts = Array(repeating: 0.0, count: 3)</span><br><span class="line">someInts.insert(2.0, at: 1)</span><br><span class="line">print(someInts)</span><br><span class="line">// [0.0, 2.0, 0.0, 0.0]</span><br></pre></td></tr></table></figure>
+<p>remove(at:) 方法来移除数组中的某一项, </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var someInts = [1, 2, 3, 4]</span><br><span class="line">let value = someInts.remove(at: 3)</span><br><span class="line">print(someInts)</span><br><span class="line">print(value) </span><br><span class="line">// [1, 2, 3]</span><br><span class="line">// 4</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>用索引的方式去操作数组的时候， 会引起运行时错误， 我们要判断 isEmpty（数组是否为空） 和 索引最大值 count - 1。</p>
+</blockquote>
+<p>可以试试 removeFirst() removeLast()  remove 的方法， 都有返回值， 要注意数组为空， 和索引值越界引起的运行时问题。</p>
+<p>关于更多数组操作的方法， 将在 Swift 进阶的课程讲到</p>
+<h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><p>用 for in 来实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let someInts = [1, 2, 3, 4]</span><br><span class="line">for item in someInts &#123;</span><br><span class="line">    print(item)</span><br><span class="line">&#125;</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br><span class="line">// 3</span><br><span class="line">// 4</span><br></pre></td></tr></table></figure>
+<p>如果想遍历出数组的索引值， 用 enumerated() 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let someStrings = [&quot;hello&quot;, &quot;tyler&quot;, &quot;Bob&quot;]</span><br><span class="line">for (index, value) in someStrings.enumerated() &#123;</span><br><span class="line">	print(index,value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于更多 for 循环的用法， 将在 for 循环讲到</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/26/Swift-入门-第-4-课-字符串和字符/" title="Swift 入门 第 4 课 字符串和字符">Swift 入门 第 4 课 字符串和字符</a></h2>
+                <p class="excerpt">
+                
+                Swift 的 String 和 Character 类型提供了快速和兼容 Unicode 的方式供你的代码使用。每一个字符串都是由编码无关的 Unicode 字符组成，并支持访问字符的多种 Unicode 表示形式。
+
+注意：Swift 的 String 类型 与 NSString 进行了无缝桥接
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-26T03:38:32.954Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/26/Swift-入门-第-4-课-字符串和字符/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
