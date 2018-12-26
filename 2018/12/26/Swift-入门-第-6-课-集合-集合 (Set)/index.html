@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 6 课 集合-集合（Set) | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 6 课 集合-集合（Set) | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 6 课 集合-集合（Set) | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/26/Swift-入门-第-6-课-集合-集合 (Set)/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-26T06:14:01.423Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 6 课 集合-集合（Set)</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="集合（Set）"><a href="#集合（Set）" class="headerlink" title="集合（Set）"></a>集合（Set）</h4><p>数据要求不按顺序， 且不能有重复的元素出现， 用Set。</p>
+<p>Swift 的 Set 可以被桥接到 Objective-C 的 NSSet </p>
+<h4 id="集合类型的哈希值"><a href="#集合类型的哈希值" class="headerlink" title="集合类型的哈希值"></a>集合类型的哈希值</h4><p>一个类型为了存储在集合中，该类型必须是可哈希化的–也就是说，该类型必须提供一个方法来计算它的哈希值。一个哈希值是 Int 类型的，相等的对象哈希值必须相同，比如 a==b,因此必须 a.hashValue == b.hashValue。</p>
+<p>Swift 的所有基本类型（比如 String,Int,Double 和 Bool）默认都是可哈希化的，可以作为集合的值的类型或者字典的键的类型。没有关联值的枚举成员值（在枚举有讲述）默认也是可哈希化的。</p>
+<blockquote>
+<p>注意:<br>你可以使用你自定义的类型作为集合的值的类型或者是字典的键的类型，但你需要使你的自定义类型符合</p>
+<p> Swift 标准库中的 Hashable 协议。符合 Hashable 协议的类型需要提供一个类型为 Int 的可读属&gt;性 hashValue。由类型的 hashValue 属性返回的值不需要在同一程序的不同执行周期或者不同程序之间保持相同。</p>
+</blockquote>
+<blockquote>
+<p>因为 Hashable 协议符合 Equatable 协议，所以遵循该协议的类型也必须提供一个“是否相等”运算符（==）的实现。这个 Equatable 协议要求任何符合 == 实现的实例间都是一种相等的关系。也就是说，对于 a,b,c 三个值来说，== 的实现必须满足下面三种情况：</p>
+</blockquote>
+<blockquote>
+<p>a == a(自反性)<br>a == b 意味着 b == a(对称性)<br>a == b &amp;&amp; b == c 意味着 a == c(传递性)</p>
+</blockquote>
+<blockquote>
+<p>要实现自定义类型的集合， 请看完后面类的创建和声明之后， 回过来再看， 就一目了然了。</p>
+</blockquote>
+<h4 id="集合类型语法"><a href="#集合类型语法" class="headerlink" title="集合类型语法"></a>集合类型语法</h4><p>Set<element> <code>Element</code> 表示集合的类型。</element></p>
+<p>空集合的声明, 集合类型为 Character</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var letters = Set&lt;Character&gt;()</span><br><span class="line">print(&quot;letters is of type Set&lt;Character&gt; with \(letters.count) items.&quot;)</span><br><span class="line">// 打印 &quot;letters is of type Set&lt;Character&gt; with 0 items.&quot;</span><br></pre></td></tr></table></figure>
+<p>也可以将已创建的集合，置空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">letters = []</span><br><span class="line">// 因为上面已经定义了集合的类型</span><br></pre></td></tr></table></figure>
+<h4 id="用数组字面量创建集合"><a href="#用数组字面量创建集合" class="headerlink" title="用数组字面量创建集合"></a>用数组字面量创建集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var favoriteGenres: Set&lt;String&gt; = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]</span><br><span class="line">// favoriteGenres 被构造成含有三个初始值的集合</span><br></pre></td></tr></table></figure>
+<p>一个字面量无法推断出集合的类型， 与数组有歧义， 不显示声明 Set<string>, 将被 Swift 类型推断为 [String] 的数组类型</string></p>
+<p>当然也可以简化的写一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var favoriteGenres: Set = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]</span><br></pre></td></tr></table></figure>
+<h4 id="访问和修改一个集合"><a href="#访问和修改一个集合" class="headerlink" title="访问和修改一个集合"></a>访问和修改一个集合</h4><p>你可以通过 Set 的属性和方法来访问和修改一个 Set。</p>
+<p>count 属性， 计算 Set 个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;I have \(favoriteGenres.count) favorite music genres.&quot;)</span><br><span class="line">// 打印 &quot;I have 3 favorite music genres.&quot;</span><br></pre></td></tr></table></figure>
+<p>isEmpty 判断集合是否为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if favoriteGenres.isEmpty &#123;</span><br><span class="line">    print(&quot;As far as music goes, I&apos;m not picky.&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;I have particular music preferences.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;I have particular music preferences.&quot;</span><br></pre></td></tr></table></figure>
+<p>insert(_:) 方法来添加一个新元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">favoriteGenres.insert(&quot;Jazz&quot;)</span><br><span class="line">// favoriteGenres 现在包含4个元素</span><br></pre></td></tr></table></figure>
+<p>remove 方法可以删除对应元素， 如果删除的元素在集合中不存在， 则返回 nil</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if let removedGenre = favoriteGenres.remove(&quot;Rock&quot;) &#123;</span><br><span class="line">    print(&quot;\(removedGenre)? I&apos;m over it.&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;I never much cared for that.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;Rock? I&apos;m over it.&quot;</span><br></pre></td></tr></table></figure>
+<p>contains 方法用来判断集合中 是否有指定的值存在， 数组也可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if favoriteGenres.contains(&quot;Funk&quot;) &#123;</span><br><span class="line">    print(&quot;I get up on the good foot.&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;It&apos;s too funky in here.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;It&apos;s too funky in here.&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="遍历一个集合"><a href="#遍历一个集合" class="headerlink" title="遍历一个集合"></a>遍历一个集合</h4><p>使用 for in </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for genre in favoriteGenres &#123;</span><br><span class="line">    print(&quot;\(genre)&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// Classical</span><br><span class="line">// Jazz</span><br><span class="line">// Hip hop</span><br></pre></td></tr></table></figure>
+<p>如果要有序遍历一个集合中的元素， 可以使用 sorted() 方法将集合转化为数组。</p>
+<h4 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h4><p>判断两个集合之间的关系，操作等。 例如: 并集， 交集， 差集， 子集</p>
+<h4 id="基本集合操作"><a href="#基本集合操作" class="headerlink" title="基本集合操作"></a>基本集合操作</h4><p>union  并集<br>intersection 交集<br>symmetricDifference 交集的相反结果<br>subtracting 差集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">oddDigits.union(evenDigits).sorted()</span><br><span class="line">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line">oddDigits. intersection(evenDigits).sorted()</span><br><span class="line">// []</span><br><span class="line">oddDigits.subtracting(singleDigitPrimeNumbers).sorted()</span><br><span class="line">// [1, 9]</span><br><span class="line">oddDigits. symmetricDifference(singleDigitPrimeNumbers).sorted()</span><br><span class="line">// [1, 2, 9]</span><br></pre></td></tr></table></figure>
+<h4 id="集合成员关系和相等"><a href="#集合成员关系和相等" class="headerlink" title="集合成员关系和相等"></a>集合成员关系和相等</h4><p>==  相等</p>
+<p>isSubset(of:) 子集</p>
+<p>isSuperset(of:) 父集</p>
+<p>isStrictSubset(of:)  真子集</p>
+<p>isStrictSuperset(of:) 真父集</p>
+<p>isDisjoint(with:) 方法来判断两个集合是否不含有相同的值（是否没有交集）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let houseAnimals: Set = [&quot;🐶&quot;, &quot;🐱&quot;]</span><br><span class="line">let farmAnimals: Set = [&quot;🐮&quot;, &quot;🐔&quot;, &quot;🐑&quot;, &quot;🐶&quot;, &quot;🐱&quot;]</span><br><span class="line">let cityAnimals: Set = [&quot;🐦&quot;, &quot;🐭&quot;]</span><br><span class="line"></span><br><span class="line">houseAnimals.isSubset(of: farmAnimals)</span><br><span class="line">// true</span><br><span class="line">farmAnimals.isSuperset(of: houseAnimals)</span><br><span class="line">// true</span><br><span class="line">farmAnimals.isDisjoint(with: cityAnimals)</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/26/Swift-入门-第-5-课-集合-数组/" title="Swift 入门 第 5 课 集合-数组">Swift 入门 第 5 课 集合-数组</a></h2>
+                <p class="excerpt">
+                
+                Swift 提供了 Array Dictionary Set 3 种集合类型。 Array 是有序集合， Dictionary 是键值对集合，Set 是无需集合。
+Swift 集合中存储的数据类型必须明确， 这意味着我们存储数据和取数据都不会出类型错误。 
+三种集合类型， 都被实现为泛型集合， 后面
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-26T03:55:29.861Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/26/Swift-入门-第-5-课-集合-数组/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
