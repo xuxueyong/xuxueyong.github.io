@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 9 课 函数 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 9 课 函数 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 9 课 函数 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/27/Swift-入门-第-9-课-函数/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-27T02:14:23.308Z" class="post-list__meta--date date">2018-12-27</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 9 课 函数</h1>
+  </header>
+
+  <section class="post">
+    <p>函数是一个完成独立功能的代码块， 名称可以表示出函数的功能，且名称可以在其他需要调用的地方使用。</p>
+<p>Swift 提供了无参函数、内部参数函数、外部参数函数（函数可以修改传入参数的值）、有默认值的函数（可以简化函数的调用）</p>
+<p>Swift 每个函数都有参数类型和返回值类型。 你可以将函数当做像一个变量类型来处理， 这样就可以将函数当做其他函数的参数，可以当做其他函数的返回值。函数的定义可以写在其他函数中， 这样的函数叫做嵌套函数。</p>
+<h4 id="函数的定义与调用"><a href="#函数的定义与调用" class="headerlink" title="函数的定义与调用"></a>函数的定义与调用</h4><p>在函数定义时， 用一个或多个名字加类型指定函数的参数（也叫形参）， 用一个 -&gt; 类型 指定函数的执行结果类型， 叫做返回类型。</p>
+<p>用关键字 func 作为函数的开头， 函数名指定函数的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func greet(person: String) -&gt; String &#123;</span><br><span class="line">    let greeting = &quot;Hello, &quot; + person + &quot;!&quot;</span><br><span class="line">    return greeting</span><br><span class="line">    // 使用 return 结束函数的执行， 并返回函数执行结果</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 greet 值函数的名称（描述函数的功能）person 指函数的参数（形参） <code>-&gt; String</code> 函数的返回类型。</p>
+<p>调用时， 用函数名，传入参数的值（实参）， 得到函数的执行结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(greet(person: &quot;Anna&quot;))</span><br><span class="line">// 打印 &quot;Hello, Anna!&quot;</span><br><span class="line">print(greet(person: &quot;Brian&quot;))</span><br><span class="line">// 打印 &quot;Hello, Brian!&quot;</span><br></pre></td></tr></table></figure>
+<p>函数简化版</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func greetAgain(person: String) -&gt; String &#123;</span><br><span class="line">    return &quot;Hello again, &quot; + person + &quot;!&quot;</span><br><span class="line">&#125;</span><br><span class="line">print(greetAgain(person: &quot;Anna&quot;))</span><br><span class="line">// 打印 &quot;Hello again, Anna!&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="无参数函数"><a href="#无参数函数" class="headerlink" title="无参数函数"></a>无参数函数</h4><p>无参数， 有返回类型 String 的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func sayHelloWorld() -&gt; String &#123;</span><br><span class="line">    return &quot;hello, world&quot;</span><br><span class="line">&#125;</span><br><span class="line">print(sayHelloWorld())</span><br><span class="line">// 打印 &quot;hello, world&quot;</span><br></pre></td></tr></table></figure>
+<p>无参函数调用， 也需要加 （）</p>
+<h4 id="多参数函数"><a href="#多参数函数" class="headerlink" title="多参数函数"></a>多参数函数</h4><p>多个参数之间以 <code>,</code> 分割</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func greet(person: String, alreadyGreeted: Bool) -&gt; String &#123;</span><br><span class="line">    if alreadyGreeted &#123;</span><br><span class="line">        return greetAgain(person: person)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return greet(person: person)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">print(greet(person: &quot;Tim&quot;, alreadyGreeted: true))</span><br><span class="line">// 打印 &quot;Hello again, Tim!&quot;</span><br></pre></td></tr></table></figure>
+<p>注意这个函数和上面 greet(person:) 是不同的。虽然它们都有着同样的名字 greet，但是 greet(person:alreadyGreeted:) 函数需要两个参数，而 greet(person:) 只需要一个参数。</p>
+<h4 id="无返回值函数"><a href="#无返回值函数" class="headerlink" title="无返回值函数"></a>无返回值函数</h4><p>函数可以没有返回值， 函数直接打印一个 String 值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func greet(person: String) &#123;</span><br><span class="line">    print(&quot;Hello, \(person)!&quot;)</span><br><span class="line">&#125;</span><br><span class="line">greet(person: &quot;Dave&quot;)</span><br><span class="line">// 打印 &quot;Hello, Dave!&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>严格上来说，虽然没有返回值被定义，greet(person:) 函数依然返回了值。没有定义返回类型的函数会返回一个特殊的 Void 值。它其实是一个空的元组，没有任何元素，可以写成 ()。</p>
+</blockquote>
+<p>被调用时，函数返回值可以被忽略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func printAndCount(string: String) -&gt; Int &#123;</span><br><span class="line">    print(string)</span><br><span class="line">    return string.count</span><br><span class="line">&#125;</span><br><span class="line">func printWithoutCounting(string: String) &#123;</span><br><span class="line">    let _ = printAndCount(string: string)</span><br><span class="line">&#125;</span><br><span class="line">printAndCount(string: &quot;hello, world&quot;)</span><br><span class="line">// 打印 &quot;hello, world&quot; 并且返回值 12</span><br><span class="line">printWithoutCounting(string: &quot;hello, world&quot;)</span><br><span class="line">// 打印 &quot;hello, world&quot; 但是没有返回任何值</span><br></pre></td></tr></table></figure>
+<p>想要消除没有使用返回值的警告， 可以使用 <code>@discardableResult</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@discardableResult</span><br><span class="line">func printWithoutCounting(string: String) &#123;</span><br><span class="line">    let _ = printAndCount(string: string)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>返回值可以被忽略，但定义了有返回值的函数必须返回一个值，如果在函数定义底部没有返回任何值，将导致编译时错误。</p>
+</blockquote>
+<h4 id="多重返回值函数"><a href="#多重返回值函数" class="headerlink" title="多重返回值函数"></a>多重返回值函数</h4><p>你可以用元组（tuple）类型让多个值作为一个复合值从函数中返回。</p>
+<p>下例中定义了一个名为 minMax(array:) 的函数，作用是在一个 Int 类型的数组中找出最小值与最大值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func minMax(array: [Int]) -&gt; (min: Int, max: Int) &#123;</span><br><span class="line">    var currentMin = array[0]</span><br><span class="line">    var currentMax = array[0]</span><br><span class="line">    for value in array[1..&lt;array.count] &#123;</span><br><span class="line">        if value &lt; currentMin &#123;</span><br><span class="line">            currentMin = value</span><br><span class="line">        &#125; else if value &gt; currentMax &#123;</span><br><span class="line">            currentMax = value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return (currentMin, currentMax)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为元组的成员值已被命名，因此可以通过 . 语法来检索找到的最小值与最大值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let bounds = minMax(array: [8, -6, 2, 109, 3, 71])</span><br><span class="line">print(&quot;min is \(bounds.min) and max is \(bounds.max)&quot;)</span><br><span class="line">// 打印 &quot;min is -6 and max is 109&quot;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，元组的成员不需要在元组从函数中返回时命名，因为它们的名字已经在函数返回类型中指定了。</p>
+<p>实际使用时， 数组的最大最小值， 可以更简便的得到， 这里只是举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let numbers = [2, 343, 33, 22, 53, 9, 7]</span><br><span class="line">let max = numbers.max()</span><br><span class="line">let min = numbers.min()</span><br><span class="line">print(max, min)</span><br><span class="line">// Optional(343) Optional(2)</span><br></pre></td></tr></table></figure>
+<h4 id="可选元组返回类型"><a href="#可选元组返回类型" class="headerlink" title="可选元组返回类型"></a>可选元组返回类型</h4><p>如果整个元组都没有值， 可以将返回元组类型声明为可选类型。(Int, Int)?</p>
+<blockquote>
+<p>注意：<br>(Int? Int?) 和 (Int, Int)? 是不一样的。 一个是元组中的每个值都是可选类型， 后面是指整个元组是可选类型。</p>
+</blockquote>
+<p>前面的 minMax(array:) 函数返回了一个包含两个 Int 值的元组。但是函数不会对传入的数组执行任何安全检查，如果 array 参数是一个空数组，如上定义的 minMax(array:) 在试图访问 array[0] 时会触发一个运行时错误。</p>
+<p>为了安全地处理这个“空数组”问题，将 minMax(array:) 函数改写为使用可选元组返回类型，并且当数组为空时返回 nil：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func minMax(array: [Int]) -&gt; (min: Int, max: Int)? &#123;</span><br><span class="line">    if array.isEmpty &#123; return nil &#125;</span><br><span class="line">    var currentMin = array[0]</span><br><span class="line">    var currentMax = array[0]</span><br><span class="line">    for value in array[1..&lt;array.count] &#123;</span><br><span class="line">        if value &lt; currentMin &#123;</span><br><span class="line">            currentMin = value</span><br><span class="line">        &#125; else if value &gt; currentMax &#123;</span><br><span class="line">            currentMax = value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return (currentMin, currentMax)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后使用可选绑定，看执行后的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) &#123;</span><br><span class="line">    print(&quot;min is \(bounds.min) and max is \(bounds.max)&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;min is -6 and max is 109&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="函数参数标签和参数名称"><a href="#函数参数标签和参数名称" class="headerlink" title="函数参数标签和参数名称"></a>函数参数标签和参数名称</h4><p>每个函数都有参数名称和参数标签， 函数调用时， 使用参数标签进行传值，函数内部使用参数名称进行运算处理等。如果不另外定义参数标签， 函数标签使用默认的函数名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func someFunction(firstParameterName: Int, secondParameterName: Int) &#123;</span><br><span class="line">    // 在函数体内，firstParameterName 和 secondParameterName 代表参数中的第一个和第二个参数值</span><br><span class="line">&#125;</span><br><span class="line">someFunction(firstParameterName: 1, secondParameterName: 2)</span><br></pre></td></tr></table></figure>
+<h4 id="指定参数标签"><a href="#指定参数标签" class="headerlink" title="指定参数标签"></a>指定参数标签</h4><p>所有的参数名称必须在函数内是唯一的， 参数标签可以相同， 但不建议这么做， 为了增加代码可读性， 一般使用不同的标签</p>
+<p>参数标签放在参数名称前面使用空格隔开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func someFunction(argumentLabel parameterName: Int) &#123;</span><br><span class="line">    // 在函数体内，parameterName 代表参数值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>argumentLabel 是指参数标签<br>参数标签的作用就是增加代码的可读性， 使得更像自然语言一样表达程序的思想。</p>
+<h4 id="忽略参数标签"><a href="#忽略参数标签" class="headerlink" title="忽略参数标签"></a>忽略参数标签</h4><p>使用一个 下划线 <code>_</code> ， 在调用时直接传入参数值， 不需要标签名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func someFunction(_ firstParameterName: Int, secondParameterName: Int) &#123;</span><br><span class="line">     // 在函数体内，firstParameterName 和 secondParameterName 代表参数中的第一个和第二个参数值</span><br><span class="line">&#125;</span><br><span class="line">someFunction(1, secondParameterName: 2)</span><br></pre></td></tr></table></figure>
+<p>目的也是为了代码的可读性好。</p>
+<h4 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h4><p>当一个参数被指定给默认值，调用时，你可以忽略它，不传值也可以。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func someFunction(parameterWithoutDefault: Int, parameterWithDefault: Int = 12) &#123;</span><br><span class="line">    // 如果你在调用时候不传第二个参数，parameterWithDefault 会值为 12 传入到函数体中。</span><br><span class="line">&#125;</span><br><span class="line">someFunction(parameterWithoutDefault: 3, parameterWithDefault: 6) // parameterWithDefault = 6</span><br><span class="line">someFunction(parameterWithoutDefault: 4) // parameterWithDefault = 12</span><br></pre></td></tr></table></figure>
+<p>一般非默认值的参数值， 是比较重要的， 一般将非默认值参数放在前面， 带有默认值的参数放在后面。<br>这样可以保证调用时， 非默认参数值的顺序是一致的。</p>
+<h4 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h4><p>参数有一个或多个同类型的时候，就是指参数个数不确定时， 使用可变参数。使用 在类型后面添加 <code>...</code> 定义可变参数。在函数内将被当做该类型的一个数组常量。</p>
+<p>下面的这个函数用来计算一组任意长度数字的 算术平均数（arithmetic mean)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func arithmeticMean(_ numbers: Double...) -&gt; Double &#123;</span><br><span class="line">    var total: Double = 0</span><br><span class="line">    for number in numbers &#123;</span><br><span class="line">        total += number</span><br><span class="line">    &#125;</span><br><span class="line">    return total / Double(numbers.count)</span><br><span class="line">&#125;</span><br><span class="line">arithmeticMean(1, 2, 3, 4, 5)</span><br><span class="line">// 返回 3.0, 是这 5 个数的平均数。</span><br><span class="line">arithmeticMean(3, 8.25, 18.75)</span><br><span class="line">// 返回 10.0, 是这 3 个数的平均数。</span><br></pre></td></tr></table></figure>
+<p>numbers 是个 [Double] 类型的常量</p>
+<blockquote>
+<p>注意：<br>一个函数最多只能有一个可变参数</p>
+</blockquote>
+<h4 id="输入输出参数"><a href="#输入输出参数" class="headerlink" title="输入输出参数"></a>输入输出参数</h4><p>默认的输入参数是常量， 在函数内是不能被修改的。 想成为输入输出参数，在定义时，在参数名称前加 <code>inout</code> 关键字，并用空格隔开。 在函数内部修改它的值， 在调用（输出）时， 就可以使用修改后的值。</p>
+<p>在调用时， 传的参数（实参）必须是变的， 不能是常量或者字面量， 并且在参数前加上 <code>&amp;</code> 。</p>
+<p>下例中，swapTwoInts(_:_:) 函数有两个分别叫做 a 和 b 的输入输出参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func swapTwoInts(_ a: inout Int, _ b: inout Int) &#123;</span><br><span class="line">    let temporaryA = a</span><br><span class="line">    a = b</span><br><span class="line">    b = temporaryA</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以用两个 Int 型的变量来调用 swapTwoInts(_:<em>:)。需要注意的是，someInt 和 anotherInt 在传入 swapTwoInts(</em>:_:) 函数前，都加了 &amp; 的前缀：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var someInt = 3</span><br><span class="line">var anotherInt = 107</span><br><span class="line">swapTwoInts(&amp;someInt, &amp;anotherInt)</span><br><span class="line">print(&quot;someInt is now \(someInt), and anotherInt is now \(anotherInt)&quot;)</span><br><span class="line">// 打印 &quot;someInt is now 107, and anotherInt is now 3&quot;</span><br></pre></td></tr></table></figure>
+<p>从上面这个例子中，我们可以看到 someInt 和 anotherInt 的原始值在 swapTwoInts(_:_:) 函数中被修改，尽管它们的定义在函数体外。</p>
+<blockquote>
+<p>注意：<br>输入输出参数和返回值是不一样的。上面的 swapTwoInts 函数并没有定义任何返回值，但仍然修改了 someInt 和 anotherInt 的值。<strong>输入输出参数是函数对函数体外产生影响的另一种方式</strong>。</p>
+</blockquote>
+<h4 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h4><p>每个函数都有类型， 函数的类型有函数的参数类型和返回类型组成。</p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func addTwoInts(_ a: Int, _ b: Int) -&gt; Int &#123;</span><br><span class="line">    return a + b</span><br><span class="line">&#125;</span><br><span class="line">func multiplyTwoInts(_ a: Int, _ b: Int) -&gt; Int &#123;</span><br><span class="line">    return a * b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个函数的类型是 (Int, Int) -&gt; Int，可以解读为:</p>
+<p>“这个函数类型有两个 Int 型的参数并返回一个 Int 型的值”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func printHelloWorld() &#123;</span><br><span class="line">    print(&quot;hello, world&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个函数的类型是：() -&gt; Void，或者叫“没有参数，并返回 Void 类型的函数”。</p>
+<h4 id="使用函数类型"><a href="#使用函数类型" class="headerlink" title="使用函数类型"></a>使用函数类型</h4><p>可以将一个函数类型定义为常量或变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var mathFunction: (Int, Int) -&gt; Int = addTwoInts</span><br></pre></td></tr></table></figure>
+<p>”定义一个叫做 mathFunction 的变量，类型是‘一个有两个 Int 型的参数并返回一个 Int 型的值的函数’，并让这个新变量指向 addTwoInts 函数”。</p>
+<p>现在，你可以用 mathFunction 来调用被赋值的函数了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Result: \(mathFunction(2, 3))&quot;)</span><br><span class="line">// Prints &quot;Result: 5&quot;</span><br></pre></td></tr></table></figure>
+<p>有相同匹配类型的不同函数可以被赋值给同一个变量，就像非函数类型的变量一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mathFunction = multiplyTwoInts</span><br><span class="line">print(&quot;Result: \(mathFunction(2, 3))&quot;)</span><br><span class="line">// Prints &quot;Result: 6&quot;</span><br></pre></td></tr></table></figure>
+<p>就像其他类型一样，当赋值一个函数给常量或变量时，你可以让 Swift 来推断其函数类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let anotherMathFunction = addTwoInts</span><br><span class="line">// anotherMathFunction 被推断为 (Int, Int) -&gt; Int 类型</span><br></pre></td></tr></table></figure>
+<h3 id="函数类型作为参数类型"><a href="#函数类型作为参数类型" class="headerlink" title="函数类型作为参数类型"></a>函数类型作为参数类型</h3><p>你可以将函数的一部分实现留给函数的调用者来提供。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func printMathResult(_ mathFunction: (Int, Int) -&gt; Int, _ a: Int, _ b: Int) &#123;</span><br><span class="line">    print(&quot;Result: \(mathFunction(a, b))&quot;)</span><br><span class="line">&#125;</span><br><span class="line">printMathResult(addTwoInts, 3, 5)</span><br><span class="line">// 打印 &quot;Result: 8&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="函数类型作为返回类型"><a href="#函数类型作为返回类型" class="headerlink" title="函数类型作为返回类型"></a>函数类型作为返回类型</h4><p>你需要做的是在返回箭头（-&gt;）后写一个完整的函数类型。</p>
+<p>下面的这个例子中定义了两个简单函数，分别是 stepForward(<em>:) 和 stepBackward(</em>:)。stepForward(<em>:) 函数返回一个比输入值大 1 的值。stepBackward(</em>:) 函数返回一个比输入值小 1 的值。这两个函数的类型都是 (Int) -&gt; Int：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func stepForward(_ input: Int) -&gt; Int &#123;</span><br><span class="line">    return input + 1</span><br><span class="line">&#125;</span><br><span class="line">func stepBackward(_ input: Int) -&gt; Int &#123;</span><br><span class="line">    return input - 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如下名为 chooseStepFunction(backward:) 的函数，它的返回类型是 (Int) -&gt; Int 类型的函数。chooseStepFunction(backward:) 根据布尔值 backwards 来返回 stepForward(<em>:) 函数或 stepBackward(</em>:) 函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func chooseStepFunction(backward: Bool) -&gt; (Int) -&gt; Int &#123;</span><br><span class="line">    return backward ? stepBackward : stepForward</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你现在可以用 chooseStepFunction(backward:) 来获得两个函数其中的一个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var currentValue = 3</span><br><span class="line">let moveNearerToZero = chooseStepFunction(backward: currentValue &gt; 0)</span><br><span class="line">// moveNearerToZero 现在指向 stepBackward() 函数。</span><br></pre></td></tr></table></figure>
+<p>上面这个例子中计算出从 currentValue 逐渐接近到0是需要向正数走还是向负数走。currentValue 的初始值是 3，这意味着 currentValue &gt; 0 为真（true），这将使得 chooseStepFunction(<em>:) 返回 stepBackward(</em>:) 函数。一个指向返回的函数的引用保存在了 moveNearerToZero 常量中。</p>
+<p>现在，moveNearerToZero 指向了正确的函数，它可以被用来数到零：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Counting to zero:&quot;)</span><br><span class="line">// Counting to zero:</span><br><span class="line">while currentValue != 0 &#123;</span><br><span class="line">    print(&quot;\(currentValue)... &quot;)</span><br><span class="line">    currentValue = moveNearerToZero(currentValue)</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;zero!&quot;)</span><br><span class="line">// 3...</span><br><span class="line">// 2...</span><br><span class="line">// 1...</span><br><span class="line">// zero!</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套函数"><a href="#嵌套函数" class="headerlink" title="嵌套函数"></a>嵌套函数</h4><p>到目前为止本章中你所见到的所有函数都叫全局函数（global functions），它们定义在全局域中。你也可以把函数定义在别的函数体中，称作 嵌套函数（nested functions）。</p>
+<p>默认情况下，嵌套函数是对外界不可见的，但是可以被它们的外围函数（enclosing function）调用。一个外围函数也可以返回它的某一个嵌套函数，使得这个函数可以在其他域中被使用。</p>
+<p>你可以用返回嵌套函数的方式重写 chooseStepFunction(backward:) 函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">func chooseStepFunction(backward: Bool) -&gt; (Int) -&gt; Int &#123;</span><br><span class="line">    func stepForward(input: Int) -&gt; Int &#123; return input + 1 &#125;</span><br><span class="line">    func stepBackward(input: Int) -&gt; Int &#123; return input - 1 &#125;</span><br><span class="line">    return backward ? stepBackward : stepForward</span><br><span class="line">&#125;</span><br><span class="line">var currentValue = -4</span><br><span class="line">let moveNearerToZero = chooseStepFunction(backward: currentValue &gt; 0)</span><br><span class="line">// moveNearerToZero now refers to the nested stepForward() function</span><br><span class="line">while currentValue != 0 &#123;</span><br><span class="line">    print(&quot;\(currentValue)... &quot;)</span><br><span class="line">    currentValue = moveNearerToZero(currentValue)</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;zero!&quot;)</span><br><span class="line">// -4...</span><br><span class="line">// -3...</span><br><span class="line">// -2...</span><br><span class="line">// -1...</span><br><span class="line">// zero!</span><br></pre></td></tr></table></figure>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/26/Swift-入门-第-8-课-控制流/" title="Swift 入门 第 8 课 控制流">Swift 入门 第 8 课 控制流</a></h2>
+                <p class="excerpt">
+                
+                for infor in 可以用来遍历 数组、字典、字符串、集合（Set）、区间（Range）等。
+使用数字范围做个次幂的例子 2 的 6 次幂
+12345678let base = 2let power = 6var answer = 1for _ in 1...power &amp;#123;	answ
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-26T08:12:49.537Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/26/Swift-入门-第-8-课-控制流/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
