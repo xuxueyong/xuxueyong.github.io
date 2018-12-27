@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 8 课 控制流 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 8 课 控制流 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 8 课 控制流 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/26/Swift-入门-第-8-课-控制流/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-26T08:12:49.537Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 8 课 控制流</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h4><p>for in 可以用来遍历 数组、字典、字符串、集合（Set）、区间（Range）等。</p>
+<p>使用数字范围做个次幂的例子 2 的 6 次幂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let base = 2</span><br><span class="line">let power = 6</span><br><span class="line">var answer = 1</span><br><span class="line">for _ in 1...power &#123;</span><br><span class="line">	answer *= base</span><br><span class="line">&#125;</span><br><span class="line">print(answer)</span><br><span class="line">// 64</span><br></pre></td></tr></table></figure>
+<p>eg: 举个时钟划线的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let minutes = 60</span><br><span class="line">for tickMark in 0..&lt;minutes &#123;</span><br><span class="line">    // 每一分钟都渲染一个刻度线（60次）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每5分钟作为一个刻度 （to 开区间）， 不包含最后一个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let minuteInterval = 5</span><br><span class="line">for tickMark in stride(from: 0, to: minutes, by: minuteInterval) &#123;</span><br><span class="line">    // 每5分钟渲染一个刻度线（0, 5, 10, 15 ... 45, 50, 55）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每3小时作为一个刻度 （through 闭区间， 包含最后一个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let hours = 12</span><br><span class="line">let hourInterval = 3</span><br><span class="line">for tickMark in stride(from: 3, through: hours, by: hourInterval) &#123;</span><br><span class="line">    // 每3小时渲染一个刻度线（3, 6, 9, 12）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="While-循环"><a href="#While-循环" class="headerlink" title="While 循环"></a>While 循环</h4><p>直到遇到false 的条件才会停止，否则一直重复执行重复的代码。 适合于不知道需要执行的循环次数的场景。</p>
+<p>Swift 有两种 While 循环</p>
+<ul>
+<li>While 每次开始循环时判断条件</li>
+<li>repeat-While 每次循环结束时， 判断条件。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while condition &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">repeat &#123;</span><br><span class="line">// statements</span><br><span class="line">&#125; while condition</span><br></pre></td></tr></table></figure>
+<h4 id="While"><a href="#While" class="headerlink" title="While"></a>While</h4><p>下面通过一个优秀的例子来更好的展示 While 使用</p>
+<p><img src="/2018/12/26/Swift-入门-第-8-课-控制流/123.png" alt="滑梯游戏.png"></p>
+<p>游戏的规则如下：</p>
+<ul>
+<li>游戏盘面包括 25 个方格，游戏目标是达到或者超过第 25 个方格；</li>
+<li>每一轮，你通过掷一个六面体骰子来确定你移动方块的步数，移动的路线由上图中横向的虚线所示；</li>
+<li>如果在某轮结束，你移动到了梯子的底部，可以顺着梯子爬上去；</li>
+<li>如果在某轮结束，你移动到了蛇的头部，你会顺着蛇的身体滑下去。</li>
+</ul>
+<p>游戏盘面可以使用一个 Int 数组来表达。数组的长度由一个 finalSquare 常量储存，用来初始化数组和检测最终胜利条件。游戏盘面由 26 个 Int 0 值初始化，而不是 25 个（由 0 到 25，一共 26 个）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let finalSquare = 25</span><br><span class="line">var board = [Int](repeating: 0, count: finalSquare + 1)</span><br></pre></td></tr></table></figure>
+<p>一些方格被设置成特定的值来表示有蛇或者梯子。梯子底部的方格是一个正值，使你可以向上移动，蛇头处的方格是一个负值，会让你向下移动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02</span><br><span class="line">board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08</span><br></pre></td></tr></table></figure>
+<p>3 号方格是梯子的底部，会让你向上移动到 11 号方格，我们使用 board[03] 等于 +08（来表示 11 和 3 之间的差值）。为了对齐语句，这里使用了一元正运算符（+i）和一元负运算符（-i），并且小于 10 的数字都使用 0 补齐（这些语法的技巧不是必要的，只是为了让代码看起来更加整洁）。</p>
+<p>玩家由左下角空白处编号为 0 的方格开始游戏。玩家第一次掷骰子后才会进入游戏盘面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var square = 0</span><br><span class="line">var diceRoll = 0</span><br><span class="line">while square &lt; finalSquare &#123;</span><br><span class="line">    // 掷骰子</span><br><span class="line">    diceRoll += 1</span><br><span class="line">    if diceRoll == 7 &#123; diceRoll = 1 &#125;</span><br><span class="line">    // 根据点数移动</span><br><span class="line">    square += diceRoll</span><br><span class="line">    if square &lt; board.count &#123;</span><br><span class="line">        // 如果玩家还在棋盘上，顺着梯子爬上去或者顺着蛇滑下去</span><br><span class="line">        square += board[square]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;Game over!&quot;)</span><br></pre></td></tr></table></figure>
+<p>本例中使用了最简单的方法来模拟掷骰子。diceRoll 的值并不是一个随机数，而是以 0 为初始值，之后每一次 while 循环，diceRoll 的值增加 1 ，然后检测是否超出了最大值。当 diceRoll 的值等于 7 时，就超过了骰子的最大值，会被重置为 1。所以 diceRoll 的取值顺序会一直是 1，2，3，4，5，6，1，2 等。</p>
+<p>掷完骰子后，玩家向前移动 diceRoll 个方格，如果玩家移动超过了第 25 个方格，这个时候游戏将会结束，为了应对这种情况，代码会首先判断 square 的值是否小于 board 的 count 属性，只有小于才会在 board[square] 上增加 square，来向前或向后移动（遇到了梯子或者蛇）。</p>
+<blockquote>
+<p>注意：<br>如果没有这个检测（square &lt; board.count），board[square] 可能会越界访问 board 数组，导致错误。</p>
+</blockquote>
+<h4 id="Repeat-While"><a href="#Repeat-While" class="headerlink" title="Repeat-While"></a>Repeat-While</h4><p>while 循环的另外一种形式是 repeat-while，它和 while 的区别是在判断循环条件之前，先执行一次循环的代码块。然后重复循环直到条件为 false。</p>
+<blockquote>
+<p>注意：<br>Swift 语言的 repeat-while 循环和其他语言中的 do-while 循环是类似的。</p>
+</blockquote>
+<p>还是蛇和梯子的游戏，使用 repeat-while 循环来替代 while 循环。finalSquare、board、square 和 diceRoll 的值初始化同 while 循环时一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let finalSquare = 25</span><br><span class="line">var board = [Int](repeating: 0, count: finalSquare + 1)</span><br><span class="line">board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02</span><br><span class="line">board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08</span><br><span class="line">var square = 0</span><br><span class="line">var diceRoll = 0</span><br></pre></td></tr></table></figure>
+<p>repeat-while 的循环版本，循环中第一步就需要去检测是否在梯子或者蛇的方块上。没有梯子会让玩家直接上到第 25 个方格，所以玩家不会通过梯子直接赢得游戏。这样在循环开始时先检测是否踩在梯子或者蛇上是安全的。</p>
+<p>游戏开始时，玩家在第 0 个方格上，board[0] 一直等于 0， 不会有什么影响</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">repeat &#123;</span><br><span class="line">    // 顺着梯子爬上去或者顺着蛇滑下去</span><br><span class="line">    square += board[square]</span><br><span class="line">    // 掷骰子</span><br><span class="line">    diceRoll += 1</span><br><span class="line">    if diceRoll == 7 &#123; diceRoll = 1 &#125;</span><br><span class="line">    // 根据点数移动</span><br><span class="line">    square += diceRoll</span><br><span class="line">&#125; while square &lt; finalSquare</span><br><span class="line">print(&quot;Game over!&quot;)</span><br></pre></td></tr></table></figure>
+<p>检测完玩家是否踩在梯子或者蛇上之后，开始掷骰子，然后玩家向前移动 diceRoll 个方格，本轮循环结束。</p>
+<p>循环条件（while square &lt; finalSquare）和 while 方式相同，但是只会在循环结束后进行计算。在这个游戏中，repeat-while 表现得比 while 循环更好。repeat-while 方式会在条件判断 square 没有超出后直接运行 square += board[square]，这种方式可以比起前面 while 循环的版本，可以省去数组越界的检查。</p>
+<p>github 上有一个哥们写了 demo， 地址： <a href="https://github.com/ly296344137/snake-ladder-swift-" target="_blank" rel="noopener">https://github.com/ly296344137/snake-ladder-swift-</a></p>
+<h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><p>主要就三种模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if condition &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if condition &#123;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if condition &#123;</span><br><span class="line"></span><br><span class="line">&#125; else if &#123;</span><br><span class="line">&#125; else if &#123;</span><br><span class="line">&#125; else if &#123;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h4><p>某个值于若干个模式进行匹配， 直到匹配到一个模式， 执行相应分支的代码。Switch 必须是完备的，如果匹配不到列出的模式， 在最后放入一个 default 分支，但是 Swift 建议尽量不要使用 default 分支， 穷举完所有的分支最好。</p>
+<p>下面的例子使用 switch 语句来匹配一个名为 someCharacter 的小写字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let someCharacter: Character = &quot;z&quot;</span><br><span class="line">switch someCharacter &#123;</span><br><span class="line">case &quot;a&quot;:</span><br><span class="line">    print(&quot;The first letter of the alphabet&quot;)</span><br><span class="line">case &quot;z&quot;:</span><br><span class="line">    print(&quot;The last letter of the alphabet&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;Some other character&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;The last letter of the alphabet&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>不存在隐式的贯穿</strong></p>
+<p>与 C 和 Objective-C 中的 switch 语句不同，在 Swift 中，当匹配的 case 分支中的代码执行完毕后，程序会终止 switch 语句，而不会继续执行下一个 case 分支。这也就是说，不需要在 case 分支中显式地使用 break 语句。这使得 switch 语句更安全、更易用，也避免了因忘记写 break 语句而产生的错误。</p>
+<p>如果需要贯穿， 使用 <code>fallthrough</code> 关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">switch 1 &#123;</span><br><span class="line">case 0:</span><br><span class="line">	fallthrough</span><br><span class="line">case 1:</span><br><span class="line">	print(&quot;hello&quot;)</span><br><span class="line">default:</span><br><span class="line">	break</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>虽然在 Swift 中 break 不是必须的，但你依然可以在 case 分支中的代码执行完毕前使用 break 跳出。</p>
+</blockquote>
+<p>每个 case 必须匹配执行语句。<br>为了让单个 case 同时匹配 a 和 A，可以将这个两个值组合成一个复合匹配，并且用逗号分开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let anotherCharacter: Character = &quot;a&quot;</span><br><span class="line">switch anotherCharacter &#123;</span><br><span class="line">case &quot;a&quot;, &quot;A&quot;:</span><br><span class="line">    print(&quot;The letter A&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;Not the letter A&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;The letter A</span><br></pre></td></tr></table></figure>
+<p>区间匹配 ， case 分支的模式也可以是一个值的区间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let approximateCount = 62</span><br><span class="line">let countedThings = &quot;moons orbiting Saturn&quot;</span><br><span class="line">let naturalCount: String</span><br><span class="line">switch approximateCount &#123;</span><br><span class="line">case 0:</span><br><span class="line">    naturalCount = &quot;no&quot;</span><br><span class="line">case 1..&lt;5:</span><br><span class="line">    naturalCount = &quot;a few&quot;</span><br><span class="line">case 5..&lt;12:</span><br><span class="line">    naturalCount = &quot;several&quot;</span><br><span class="line">case 12..&lt;100:</span><br><span class="line">    naturalCount = &quot;dozens of&quot;</span><br><span class="line">case 100..&lt;1000:</span><br><span class="line">    naturalCount = &quot;hundreds of&quot;</span><br><span class="line">default:</span><br><span class="line">    naturalCount = &quot;many&quot;</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;There are \(naturalCount) \(countedThings).&quot;)</span><br><span class="line">// 输出 &quot;There are dozens of moons orbiting Saturn.&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>元组</strong><br>我们可以使用元组在同一个 switch 语句中测试多个值。元组中的元素可以是值，也可以是区间。另外，使用下划线（_）来匹配所有可能的值。</p>
+<p>下面的例子展示了如何使用一个 (Int, Int) 类型的元组来分类下图中的点 (x, y)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let somePoint = (1, 1)</span><br><span class="line">switch somePoint &#123;</span><br><span class="line">case (0, 0):</span><br><span class="line">    print(&quot;\(somePoint) is at the origin&quot;)</span><br><span class="line">case (_, 0):</span><br><span class="line">    print(&quot;\(somePoint) is on the x-axis&quot;)</span><br><span class="line">case (0, _):</span><br><span class="line">    print(&quot;\(somePoint) is on the y-axis&quot;)</span><br><span class="line">case (-2...2, -2...2):</span><br><span class="line">    print(&quot;\(somePoint) is inside the box&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;\(somePoint) is outside of the box&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;(1, 1) is inside the box&quot;</span><br></pre></td></tr></table></figure>
+<p>不像 C 语言，Swift 允许多个 case 匹配同一个值。实际上，在这个例子中，点 (0, 0)可以匹配所有四个 case。但是，如果存在多个匹配，那么只会执行第一个被匹配到的 case 分支。考虑点 (0, 0)会首先匹配 case (0, 0)，因此剩下的能够匹配的分支都会被忽视掉。</p>
+<p><strong>值绑定（Value Bindings）</strong><br>case 分支允许将匹配的值声明为临时常量或变量，并且在 case 分支体内使用 —— 这种行为被称为值绑定（value binding），因为匹配的值在 case 分支体内，与临时的常量或变量绑定。</p>
+<p>下面的例子将下图中的点 (x, y)，使用 (Int, Int) 类型的元组表示，然后分类表示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let anotherPoint = (2, 0)</span><br><span class="line">switch anotherPoint &#123;</span><br><span class="line">case (let x, 0):</span><br><span class="line">    print(&quot;on the x-axis with an x value of \(x)&quot;)</span><br><span class="line">case (0, let y):</span><br><span class="line">    print(&quot;on the y-axis with a y value of \(y)&quot;)</span><br><span class="line">case let (x, y):</span><br><span class="line">    print(&quot;somewhere else at (\(x), \(y))&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;on the x-axis with an x value of 2&quot;</span><br></pre></td></tr></table></figure>
+<p>请注意，这个 switch 语句不包含默认分支。这是因为最后一个 case ——case let(x, y) 声明了一个可以匹配余下所有值的元组。这使得 switch 语句已经完备了，因此不需要再书写默认分支。</p>
+<p><strong>Where</strong><br>case 分支的模式可以使用 where 语句来判断额外的条件。</p>
+<p>下面的例子把下图中的点 (x, y)进行了分类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let yetAnotherPoint = (1, -1)</span><br><span class="line">switch yetAnotherPoint &#123;</span><br><span class="line">case let (x, y) where x == y:</span><br><span class="line">    print(&quot;(\(x), \(y)) is on the line x == y&quot;)</span><br><span class="line">case let (x, y) where x == -y:</span><br><span class="line">    print(&quot;(\(x), \(y)) is on the line x == -y&quot;)</span><br><span class="line">case let (x, y):</span><br><span class="line">    print(&quot;(\(x), \(y)) is just some arbitrary point&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;(1, -1) is on the line x == -y&quot;</span><br></pre></td></tr></table></figure>
+<p>这三个 case 都声明了常量 x 和 y 的占位符，用于临时获取元组 yetAnotherPoint 的两个值。这两个常量被用作 where 语句的一部分，从而创建一个动态的过滤器（filter）。当且仅当 where 语句的条件为 true 时，匹配到的 case 分支才会被执行。</p>
+<p>就像是值绑定中的例子，由于最后一个 case 分支匹配了余下所有可能的值，switch 语句就已经完备了，因此不需要再书写默认分支。</p>
+<p><strong>复合型 Cases</strong><br>当多个条件可以使用同一种方法来处理时，可以将这几种可能放在同一个 case 后面，并且用逗号隔开。当 case 后面的任意一种模式匹配的时候，这条分支就会被匹配。并且，如果匹配列表过长，还可以分行书写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let someCharacter: Character = &quot;e&quot;</span><br><span class="line">switch someCharacter &#123;</span><br><span class="line">case &quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;:</span><br><span class="line">    print(&quot;\(someCharacter) is a vowel&quot;)</span><br><span class="line">case &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;j&quot;, &quot;k&quot;, &quot;l&quot;, &quot;m&quot;,</span><br><span class="line">     &quot;n&quot;, &quot;p&quot;, &quot;q&quot;, &quot;r&quot;, &quot;s&quot;, &quot;t&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;:</span><br><span class="line">    print(&quot;\(someCharacter) is a consonant&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;\(someCharacter) is not a vowel or a consonant&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;e is a vowel&quot;</span><br></pre></td></tr></table></figure>
+<p>这个 switch 语句中的第一个 case，匹配了英语中的五个小写元音字母。相似的，第二个 case 匹配了英语中所有的小写辅音字母。最终，default 分支匹配了其它所有字符。</p>
+<p>复合匹配同样可以包含值绑定。复合匹配里所有的匹配模式，都必须包含相同的值绑定。并且每一个绑定都必须获取到相同类型的值。这保证了，无论复合匹配中的哪个模式发生了匹配，分支体内的代码，都能获取到绑定的值，并且绑定的值都有一样的类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let stillAnotherPoint = (9, 0)</span><br><span class="line">switch stillAnotherPoint &#123;</span><br><span class="line">case (let distance, 0), (0, let distance):</span><br><span class="line">    print(&quot;On an axis, \(distance) from the origin&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;Not on an axis&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 输出 &quot;On an axis, 9 from the origin&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="控制转移语句"><a href="#控制转移语句" class="headerlink" title="控制转移语句"></a>控制转移语句</h4><p>Swift 有五种控制转移语句：</p>
+<ul>
+<li><code>continue</code></li>
+<li><code>break</code></li>
+<li><code>fallthrough</code></li>
+<li><code>return</code></li>
+<li><code>throw</code></li>
+</ul>
+<p>我们将会在下面讨论 continue、break 和 fallthrough 语句。return 语句将会在函数章节讨论，throw 语句会在错误抛出章节讨论。</p>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><p>结束本次循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let puzzleInput = &quot;great minds think alike&quot;</span><br><span class="line">var puzzleOutput = &quot;&quot;</span><br><span class="line">for character in puzzleInput &#123;</span><br><span class="line">    switch character &#123;</span><br><span class="line">    case &quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, &quot;u&quot;, &quot; &quot;:</span><br><span class="line">        continue</span><br><span class="line">    default:</span><br><span class="line">        puzzleOutput.append(character)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">print(puzzleOutput)</span><br><span class="line">// 输出 &quot;grtmndsthnklk&quot;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，只要匹配到元音字母或者空格字符，就调用 continue 语句，使本次循环结束，重新开始下次循环。这种行为使 switch 匹配到元音字母和空格字符时不做处理。</p>
+<h4 id="Break"><a href="#Break" class="headerlink" title="Break"></a>Break</h4><p>可以用在 switch 和循环语句中， 结束控制流。</p>
+<p>循环中的 break， 会结束循环， 不再有下一次的循环， 代码执行循环体 <code>}</code> 后的第一句代码。</p>
+<p>switch 中的 break，结束该分支的运行， 结束 switch 控制流。 Swift 的 break 默认是不用写的， 除非分支内一句代码都没有， 又无法匹配的情况下， 用 break 跳出该分支。 或者有意想忽略一个或多个分支， 使用 break 即可。</p>
+<p>下面的例子通过 switch 来判断一个 Character 值是否代表下面四种语言之一。为了简洁，多个值被包含在了同一个分支情况中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">let numberSymbol: Character = &quot;三&quot;  // 简体中文里的数字 3</span><br><span class="line">var possibleIntegerValue: Int?</span><br><span class="line">switch numberSymbol &#123;</span><br><span class="line">case &quot;1&quot;, &quot;١&quot;, &quot;一&quot;, &quot;๑&quot;:</span><br><span class="line">    possibleIntegerValue = 1</span><br><span class="line">case &quot;2&quot;, &quot;٢&quot;, &quot;二&quot;, &quot;๒&quot;:</span><br><span class="line">    possibleIntegerValue = 2</span><br><span class="line">case &quot;3&quot;, &quot;٣&quot;, &quot;三&quot;, &quot;๓&quot;:</span><br><span class="line">    possibleIntegerValue = 3</span><br><span class="line">case &quot;4&quot;, &quot;٤&quot;, &quot;四&quot;, &quot;๔&quot;:</span><br><span class="line">    possibleIntegerValue = 4</span><br><span class="line">default:</span><br><span class="line">    break</span><br><span class="line">&#125;</span><br><span class="line">if let integerValue = possibleIntegerValue &#123;</span><br><span class="line">    print(&quot;The integer value of \(numberSymbol) is \(integerValue).&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;An integer value could not be found for \(numberSymbol).&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;The integer value of 三 is 3.&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="贯穿（Fallthrough）"><a href="#贯穿（Fallthrough）" class="headerlink" title="贯穿（Fallthrough）"></a>贯穿（Fallthrough）</h4><p>Swift 中的 Switch 不存在隐式的贯穿， 意思就是 case 分支中不执行代码， 是不会去结束分支的。如果想要 case a: 到 case b: 执行一样的代码， 可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch value &#123;</span><br><span class="line"> 	case a:</span><br><span class="line"> 	fallthrough</span><br><span class="line"> 	case b:</span><br><span class="line"> 	print(&quot;a and b run same function&quot;)</span><br><span class="line"> 	default:</span><br><span class="line"> 	break</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">一般不这样写， 我们会使用， 分支之间用 `，` 来匹配多个分支</span><br></pre></td></tr></table></figure>
+<p>switch value {<br>     case a, b:<br>     print(“a and b run same function”)<br>     default:<br>     break<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">与 C 语言不同， C 中的 Switch case 分支是默认贯穿的, 且执行语句后面要用 break</span><br></pre></td></tr></table></figure></p>
+<p>switch value {<br>     case a:<br>     case b:<br>     print(“a and b run same function”)<br>     break<br>     default:<br>     break;<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 带标签的语句</span><br><span class="line">在循环体和条件句中， 嵌套循环体和条件句，来创造更复杂的控制流结构。这样导致的结果就是， 我们想使用 break 和 continue 时， 结束的是子循环体还是父循环体。为了没有歧义， Swift 使用 标签的方式给循环体命名。</span><br><span class="line"></span><br><span class="line">针对 While 的标签样式</span><br></pre></td></tr></table></figure></p>
+<p>label name: while condition {<br>     statements<br> }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">我们还是用 之前的梯子游戏来举例</span><br><span class="line"></span><br><span class="line">![滑梯游戏.png](Swift 入门 第 8 课 控制流/123.png)</span><br><span class="line"></span><br><span class="line">这次的规则， 发生了一点变化</span><br><span class="line">**为了获胜，你必须刚好落在第 25 个方块中。**</span><br><span class="line">如果某次掷骰子使你的移动超出第 25 个方块，你必须重新掷骰子，直到你掷出的骰子数刚好使你能落在第 25 个方块中。</span><br><span class="line"></span><br><span class="line">这个版本的游戏使用 while 循环和 switch 语句来实现游戏的逻辑。while 循环有一个标签名 gameLoop，来表明它是游戏的主循环。</span><br><span class="line"></span><br><span class="line">该 while 循环体的条件判断语句是 while square !=finalSquare，这表明你必须刚好落在方格25中。</span><br></pre></td></tr></table></figure></p>
+<p>gameLoop: while square != finalSquare {<br>    diceRoll += 1<br>    if diceRoll == 7 { diceRoll = 1 }<br>    switch square + diceRoll {<br>    case finalSquare:<br>        // 骰子数刚好使玩家移动到最终的方格里，游戏结束。<br>        break gameLoop<br>    case let newSquare where newSquare &gt; finalSquare:<br>        // 骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子<br>        continue gameLoop<br>    default:<br>        // 合法移动，做正常的处理<br>        square += diceRoll<br>        square += board[square]<br>    }<br>}<br>print(“Game over!”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">每次循环迭代开始时掷骰子。与之前玩家掷完骰子就立即移动不同，这里使用了 switch 语句来考虑每次移动可能产生的结果，从而决定玩家本次是否能够移动。</span><br><span class="line"></span><br><span class="line">- 如果骰子数刚好使玩家移动到最终的方格里，游戏结束。break gameLoop 语句跳转控制去执行 while 循环体后的第一行代码，意味着游戏结束。</span><br><span class="line">- 如果骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子。continue gameLoop 语句结束本次 while 循环，开始下一次循环。</span><br><span class="line">- 在剩余的所有情况中，骰子数产生的都是合法的移动。玩家向前移动 diceRoll 个方格，然后游戏逻辑再处理玩家当前是否处于蛇头或者梯子的底部。接着本次循环结束，控制跳转到 while 循环体的条件判断语句处，再决定是否需要继续执行下次循环。</span><br><span class="line"></span><br><span class="line">&gt;注意:</span><br><span class="line">&gt;如果上述的 break 语句没有使用 gameLoop 标签，那么它将会中断 switch 语句而不是 while 循环。使用 gameLoop 标签清晰的表明了 break 想要中断的是哪个代码块。</span><br><span class="line">&gt;</span><br><span class="line">&gt;同时请注意，当调用 continue gameLoop 去跳转到下一次循环迭代时，这里使用 gameLoop 标签并不是严格必须的。因为在这个游戏中，只有一个循环体，所以 continue 语句会影响到哪个循环体是没有歧义的。然而，continue 语句使用 gameLoop 标签也是没有危害的。这样做符合标签的使用规则，同时参照旁边的 break gameLoop，能够使游戏的逻辑更加清晰和易于理解。</span><br><span class="line"></span><br><span class="line">#### 提前退出 guard</span><br><span class="line">guard 和 if 语句不一样，guard 必须有 else 匹配，条件为 true 时， 执行 guard 语句后面的代码。条件为 false 时， 执行 else 中的代码， 且程序不再往下执行, 必须退出 guard 执行的代码段。一般用控制转移语句， return,break,continue 或者 throw 做这件事，或者调用一个不返回的方法或函数，例如 fatalError()。</span><br><span class="line"></span><br><span class="line">break 和 continu 一般用在循环或者 Switch 中， return 和 throw 一般用在 方法或者函数中。</span><br><span class="line"></span><br><span class="line">#### 检测 API 可用性</span><br><span class="line"></span><br><span class="line">Swift 内置支持检查 API 可用性，这可以确保我们不会在当前部署机器上，不小心地使用了不可用的 API。</span><br><span class="line"></span><br><span class="line">如果使用不可用的 API，Swift 会在编译时报错。</span><br></pre></td></tr></table></figure></p>
+<p>if #available(iOS 10, macOS 10.12, *) {<br>    // 在 iOS 使用 iOS 10 的 API, 在 macOS 使用 macOS 10.12 的 API<br>} else {<br>    // 使用先前版本的 iOS 和 macOS 的 API<br>}<br><code>`</code><br>在它一般的形式中，可用性条件使用了一个平台名字和版本的列表。平台名字可以是 iOS，macOS，watchOS 和 tvOS——请访问声明属性来获取完整列表。除了指定像 iOS 8 或 macOS 10.10 的大版本号，也可以指定像 iOS 11.2.6 以及 macOS 10.13.3 的小版本号。</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/26/Swift-入门-第-7-课-集合-字典/" title="Swift 入门 第 7 课 集合-字典">Swift 入门 第 7 课 集合-字典</a></h2>
+                <p class="excerpt">
+                
+                字典是一个用来存储多个相同数据类型的集合。通过唯一的键 key， 找到对应的 value 值。 字典是无序的数据集合。和我们使用实物字典的时候很相似。
+
+注意：Swift 的 Dictionary 类型 可以桥接到 Objective-C 中的 NSDictionary 类型。
+
+字典的语法Dict
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-26T07:19:03.706Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/26/Swift-入门-第-7-课-集合-字典/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
