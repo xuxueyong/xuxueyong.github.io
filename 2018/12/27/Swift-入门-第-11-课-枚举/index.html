@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 11 课 枚举 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 11 课 枚举 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 11 课 枚举 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/27/Swift-入门-第-11-课-枚举/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-27T09:10:52.312Z" class="post-list__meta--date date">2018-12-27</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 11 课 枚举</h1>
+  </header>
+
+  <section class="post">
+    <p>Swift 的枚举 不像 C 语言的枚举值， 必须给原始值。 Swift 可以不指定原始值。也可以指定原始值， 原始值的类型可以是整形、字符串、字符、浮点数等。</p>
+<p>Swift 的枚举可以添加关联值， 关联值可以是任意类型。就像其他语言的联合体 <code>Union</code> 和 变体 <code>variants</code> 。可以给每一个枚举成员定义不同或者相同的类型的关联值。</p>
+<p>Swift 的枚举是一等（first-class）类型。它支持了很对传统上class（类）才支持的特性。例如计算性属性(computed properties)用于提供枚举值得附加信息。实例方法(instance methods)， 用于提供和枚举值相关联的功能。枚举也可以定义构造函数来提供一个初始值， 在原来的实现上扩展功能， 也可以实现协议， 提供标准的功能。</p>
+<h4 id="枚举语法"><a href="#枚举语法" class="headerlink" title="枚举语法"></a>枚举语法</h4><p>使用 enum 关键字， 将枚举成员放在大括号内</p>
+<p>下面是用枚举表示指南针四个方向的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enum CompassPoint &#123;</span><br><span class="line">    case north</span><br><span class="line">    case south</span><br><span class="line">    case east</span><br><span class="line">    case west</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>与 C 和 Objective-C 不同，Swift 的枚举成员在被创建时不会被赋予一个默认的整型值。在上面的 CompassPoint 例子中，north，south，east 和 west 不会被隐式地赋值为 0，1，2 和 3。相反，这些枚举成员本身就是完备的值，这些值的类型是已经明确定义好的 CompassPoint 类型。</p>
+</blockquote>
+<p>多个成员值可以出现在同一行上，用逗号隔开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">enum Planet &#123;</span><br><span class="line">    case mercury, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每个枚举都是一个全新的类型， 类型名的首字符大写， 且是单数名字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var directionToHead = CompassPoint.west</span><br></pre></td></tr></table></figure>
+<p>如果声明 directionToHead 的类型，或者下面修改它的值，就可以使用点语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">directionToHead = .east</span><br></pre></td></tr></table></figure>
+<h4 id="使用-Switch-语句匹配枚举值"><a href="#使用-Switch-语句匹配枚举值" class="headerlink" title="使用 Switch 语句匹配枚举值"></a>使用 Switch 语句匹配枚举值</h4><p>你可以使用 switch 语句匹配单个枚举值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">directionToHead = .south</span><br><span class="line">switch directionToHead &#123;</span><br><span class="line">    case .north:</span><br><span class="line">        print(&quot;Lots of planets have a north&quot;)</span><br><span class="line">    case .south:</span><br><span class="line">        print(&quot;Watch out for penguins&quot;)</span><br><span class="line">    case .east:</span><br><span class="line">        print(&quot;Where the sun rises&quot;)</span><br><span class="line">    case .west:</span><br><span class="line">        print(&quot;Where the skies are blue&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;Watch out for penguins”</span><br></pre></td></tr></table></figure>
+<p>强制穷举确保了枚举成员不会被意外遗漏。 推荐穷举</p>
+<p>当不需要匹配每个枚举成员的时候，你可以提供一个 default 分支来涵盖所有未明确处理的枚举成员：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let somePlanet = Planet.earth</span><br><span class="line">switch somePlanet &#123;</span><br><span class="line">case .earth:</span><br><span class="line">    print(&quot;Mostly harmless&quot;)</span><br><span class="line">default:</span><br><span class="line">    print(&quot;Not a safe place for humans&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;Mostly harmless”</span><br></pre></td></tr></table></figure>
+<h4 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h4><p>假设我们想存储商品的条形码和二维码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Barcode &#123;</span><br><span class="line">    case upc(Int, Int, Int, Int)</span><br><span class="line">    case qrCode(String)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// upc 代表条形码  qrCode 代表二维码</p>
+<p>创建一个新的条形码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var productBarcode = Barcode.upc(8, 85909, 51226, 3)</span><br></pre></td></tr></table></figure>
+<p>上面的例子创建了一个名为 productBarcode 的变量，并将 Barcode.upc 赋值给它，关联的元组值为 (8, 85909, 51226, 3)</p>
+<p>创建一个新的二维码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">productBarcode = .qrCode(&quot;ABCDEFGHIJKLMNOP&quot;)</span><br></pre></td></tr></table></figure>
+<p>你可以在 switch 的 case 分支代码中提取每个关联值作为一个常量（用 let 前缀）或者作为一个变量（用 var 前缀）来使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">switch productBarcode &#123;</span><br><span class="line">case .upc(let numberSystem, let manufacturer, let product, let check):</span><br><span class="line">    print(&quot;UPC: \(numberSystem), \(manufacturer), \(product), \(check).&quot;)</span><br><span class="line">case .qrCode(let productCode):</span><br><span class="line">    print(&quot;QR code: \(productCode).&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span><br></pre></td></tr></table></figure>
+<p>如果一个枚举成员的所有关联值都被提取为常量，或者都被提取为变量，为了简洁，你可以只在成员名称前标注一个 let 或者 var：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">switch productBarcode &#123;</span><br><span class="line">case let .upc(numberSystem, manufacturer, product, check):</span><br><span class="line">    print(&quot;UPC: \(numberSystem), \(manufacturer), \(product), \(check).&quot;)</span><br><span class="line">case let .qrCode(productCode):</span><br><span class="line">    print(&quot;QR code: \(productCode).&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 输出 &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h4><p>这是一个使用 ASCII 码作为原始值的枚举：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum ASCIIControlCharacter: Character &#123;</span><br><span class="line">    case tab = &quot;\t&quot;</span><br><span class="line">    case lineFeed = &quot;\n&quot;</span><br><span class="line">    case carriageReturn = &quot;\r&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举类型 ASCIIControlCharacter 的原始值类型被定义为 Character，并设置了一些比较常见的 ASCII 控制字符。Character 的描述详见字符串和字符部分。</p>
+<p>原始值可以是字符串、字符，或者任意整型值或浮点型值。每个原始值在枚举声明中必须是唯一的。</p>
+<blockquote>
+<p>注意：<br>原始值和关联值是不同的。原始值是在定义枚举时被预先填充的值，像上述三个 ASCII 码。对于一个特定的枚举成员，它的原始值始终不变。关联值是创建一个基于枚举成员的常量或变量时才设置的值，枚举成员的关联值可以变化。</p>
+</blockquote>
+<h4 id="原始值的隐式赋值"><a href="#原始值的隐式赋值" class="headerlink" title="原始值的隐式赋值"></a>原始值的隐式赋值</h4><p>获取原始值， 使用枚举成员的 rawValue 属性</p>
+<p>原始值类型为 Int<br>对于枚举的原始值类型为 Int 的时候， 不指定枚举成员值的时候， 默认第一个枚举成员的原始值为0。   如果指定一个成员的原始值， 在该成员后面的枚举成员的原始值， 依次 +1。</p>
+<p>如果指定第一个枚举成员的原始值， 而不指定其他枚举成员的原始值。其他成员的原始值， 会依次 +1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enum Planet: Int &#123;</span><br><span class="line">    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let earthsOrder = Planet.earth.rawValue</span><br><span class="line">// earthsOrder 值为 3</span><br></pre></td></tr></table></figure>
+<p>原始值类型为 String<br>对于原始值类型为 String 的枚举成员， 如果不指定枚举成员的原始值， 原始值默认就是成员名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enum CompassPoint: String &#123;</span><br><span class="line">    case north, south, east, west</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let sunsetDirection = CompassPoint.west.rawValue</span><br><span class="line">// sunsetDirection 值为 &quot;west&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="使用原始值初始化枚举实例"><a href="#使用原始值初始化枚举实例" class="headerlink" title="使用原始值初始化枚举实例"></a>使用原始值初始化枚举实例</h4><p>如果在定义枚举类型的时候使用了原始值，那么将会自动获得一个初始化方法，这个方法接收一个叫做 rawValue 的参数，参数类型即为原始值类型，返回值则是枚举成员或 nil</p>
+<p>这个例子利用原始值 7 创建了枚举成员 uranus：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let possiblePlanet = Planet(rawValue: 7)</span><br><span class="line">// possiblePlanet 类型为 Planet? 值为 Planet.uranus</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>原始值构造器是一个可失败构造器，因为并不是每一个原始值都有与之对应的枚举成员。</p>
+</blockquote>
+<h4 id="递归枚举"><a href="#递归枚举" class="headerlink" title="递归枚举"></a>递归枚举</h4><p>它有一个或多个成员使用枚举实例作为关联值。使用递归枚举时，编译器会插入一个中间层。在枚举成员前面加上 <code>indirect</code> 关键字， 表示该成员可递归。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum MathExpression &#123;</span><br><span class="line">   case number(Int)</span><br><span class="line">   indirect case add(MathExpression, MathExpression)</span><br><span class="line">   indirect case mutipl(MathExpression, MathExpression)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以在整个枚举前加上 <code>indirect</code> 关键字， 表示全部成员都可递归。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">indirect enum MathExpression &#123;</span><br><span class="line">   case number(Int)</span><br><span class="line">   case add(MathExpression, MathExpression)</span><br><span class="line">   case mutipl(MathExpression, MathExpression)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的意思可以理解为： 纯数字、两个表达式相加、两个表达式相乘。</p>
+<p>定义表达式（6 + 3） * 2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let six = MathExpression.number(6)</span><br><span class="line">let three = MathExpression.number(3)</span><br><span class="line">let sum = MathExpression.add(six, three)</span><br><span class="line">let muti = MathExpression.mutipl(sum, MathExpression.number(2))</span><br></pre></td></tr></table></figure>
+<p>要操作具有递归性质的数据结构，使用递归函数是一种直截了当的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func evalue(_ expression: MathExpression) -&gt; Int &#123;</span><br><span class="line">   switch expression &#123;</span><br><span class="line">   case let .number(value):</span><br><span class="line">       return value</span><br><span class="line">   case let .add(expression1, expression2):</span><br><span class="line">       return evalue(expression1) + evalue(expression2)</span><br><span class="line">   case let .mutipl(expression1, expression2):</span><br><span class="line">       return evalue(expression1) * evalue(expression2)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后使用， 打印结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(evalue(muti))</span><br><span class="line">// 18</span><br></pre></td></tr></table></figure>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/27/Swift-入门-第-10-课-闭包/" title="Swift 入门 第 10 课 闭包">Swift 入门 第 10 课 闭包</a></h2>
+                <p class="excerpt">
+                
+                闭包可以捕获和存储其所在上下文中任意的的常量和变量，被称为包裹常量和变量。关于捕获的概念将在捕获讲到。
+在函数章节讲到的全局函数和嵌套函数， 是特使的闭包。 闭包有三种形式:
+
+全局函数是一个有名字， 但不捕获任何变量和常量的闭包。
+嵌套函数是一个有名字， 可以捕获封闭函数域内的常量和变量的闭包。
+
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-27T04:17:43.492Z" class="post-list__meta--date date">2018-12-27</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/27/Swift-入门-第-10-课-闭包/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
