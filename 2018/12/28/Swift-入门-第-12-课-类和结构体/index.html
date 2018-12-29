@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 12 课 类和结构体 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 12 课 类和结构体 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 12 课 类和结构体 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/28/Swift-入门-第-12-课-类和结构体/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-28T02:59:31.271Z" class="post-list__meta--date date">2018-12-28</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 12 课 类和结构体</h1>
+  </header>
+
+  <section class="post">
+    <p>与其他语言不同的是： Swift 不需要提供一个声明文件和实现文件来分别定义类和结构体的声明和实现， 在一个文件内， 就可以完成。</p>
+<blockquote>
+<p>注意：<br>通常一个类的实例被称作对象， Swift 中类和结构体的关系比较密切， 类中很多的特性，在结构体中也支持， 所以我们都称作实例。</p>
+</blockquote>
+<h4 id="类和结构体对比"><a href="#类和结构体对比" class="headerlink" title="类和结构体对比"></a>类和结构体对比</h4><p>Swift 中类和结构体有很多共同点。共同处在于：</p>
+<ol>
+<li>定义属性用于存储值</li>
+<li>定义方法用于提供功能</li>
+<li>定义下标操作通过下标语法可以访问它们的值</li>
+<li>定义构造器用于生成初始化值</li>
+<li>通过扩展以增加默认实现的功能</li>
+<li>遵循协议以提供某种标准功能</li>
+</ol>
+<p>与结构体相比，类还有如下的附加功能：</p>
+<ol>
+<li>继承允许一个类继承另一个类的特征</li>
+<li>类型转换允许在运行时检查和解释一个类实例的类型</li>
+<li>析构器允许一个类实例释放任何其所被分配的资源</li>
+<li>引用计数允许对一个类的多次引用</li>
+</ol>
+<h4 id="定义语法"><a href="#定义语法" class="headerlink" title="定义语法"></a>定义语法</h4><p>我们通过关键字 class 和 struct 来分别表示类和结构体，并在一对大括号中定义它们的具体内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class SomeClass &#123;</span><br><span class="line">    // 在这里定义类</span><br><span class="line">&#125;</span><br><span class="line">struct SomeStructure &#123;</span><br><span class="line">    // 在这里定义结构体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>Swift 定义一个类或者结构体的时候， 相当于自定义了一个类型， 和 String Bool 等一样， 命名时， 应该使用首字符大写的驼峰命名法 <code>UpperCamelCase</code>。相应的属性和方法的命名 <code>UpperCamelCase</code>。</p>
+</blockquote>
+<p>定义结构体和类的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct Resolution &#123;</span><br><span class="line">    var width = 0</span><br><span class="line">    var height = 0</span><br><span class="line">&#125;</span><br><span class="line">class VideoMode &#123;</span><br><span class="line">    var resolution = Resolution()</span><br><span class="line">    var interlaced = false</span><br><span class="line">    var frameRate = 0.0</span><br><span class="line">    var name: String?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Resolution 结构体定义了两个存储型属性， 表示分辨率。<br>VideoMode 类定义了 分辨率、帧率、名字等属性， 表示视频模式。</p>
+<h4 id="类和结构体实例"><a href="#类和结构体实例" class="headerlink" title="类和结构体实例"></a>类和结构体实例</h4><p>描述一个特定分辨率和视频模式， 需要生成一个实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let someResolution = Resolution()</span><br><span class="line">let someVideoMode = VideoMode()</span><br></pre></td></tr></table></figure>
+<p>构造器语法生产成新的实例， 构造器语法最简单的形式是在结构体和类后面加上括号，通过这种构造方式， 其属性都会被初始化为默认值。 构造过程，会在后面讲到。</p>
+<h4 id="属性访问"><a href="#属性访问" class="headerlink" title="属性访问"></a>属性访问</h4><p>通过在实例后面使用点语法的形式， 访问属性。</p>
+<p>访问 someResolution 的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;The width of someResolution is \(someResolution.width)&quot;)</span><br><span class="line">// 打印 &quot;The width of someResolution is 0&quot;</span><br></pre></td></tr></table></figure></p>
+<p>通过访问 someVideoMode 的属性， 再访问 分辨率的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;The width of someVideoMode is \(someVideoMode.resolution.width)&quot;)</span><br><span class="line">// 打印 &quot;The width of someVideoMode is 0&quot;</span><br></pre></td></tr></table></figure>
+<p>也可以使用点语法为属性赋值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">someVideoMode.resolution.width = 1280</span><br><span class="line">print(&quot;The width of someVideoMode is now \(someVideoMode.resolution.width)&quot;)</span><br><span class="line">// 打印 &quot;The width of someVideoMode is now 1280&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="结构体类型的成员逐一构造器"><a href="#结构体类型的成员逐一构造器" class="headerlink" title="结构体类型的成员逐一构造器"></a>结构体类型的成员逐一构造器</h4><p>结构体定义之后， 会自动生成逐一成员构造器。 通过给个属性赋值， 完成结构体的初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let vga = Resolution(width: 640, height: 480)</span><br></pre></td></tr></table></figure>
+<p>类不会自动生成逐一成员构造器。</p>
+<h4 id="结构体和枚举是值类型"><a href="#结构体和枚举是值类型" class="headerlink" title="结构体和枚举是值类型"></a>结构体和枚举是值类型</h4><p>结构体被赋值给常量或变量， 或者在函数中传递的时候， 会值拷贝。</p>
+<p>在之前的章节中， 我们其实使用了很多值类型， 例如： 整形(Int)， 浮点型(Int)， 浮点型(Float, Double)， 字符串(Int)，字符(Character)， 数组(Array), 字典(Dictionary)， 集合(Set)。<br>其实这些类型的底层， 都是通过结构体实现的。</p>
+<p>在 Swift 中所有的结构体和枚举都是值类型， 他们的实例， 以及实例的属性都是值类型， 在使用和传递的时候， 都会被复制（值拷贝）。</p>
+<p>请看下面这个示例，其使用了前一个示例中的 Resolution 结构体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let hd = Resolution(width: 1920, height: 1080)</span><br><span class="line">var cinema = hd</span><br></pre></td></tr></table></figure>
+<p>在以上示例中，声明了一个名为 hd 的常量，其值为一个初始化为全高清视频分辨率（1920 像素宽，1080 像素高）的 Resolution 实例。</p>
+<p>然后示例中又声明了一个名为 cinema 的变量，并将 hd 赋值给它。因为 Resolution 是一个结构体，所以 cinema 的值其实是 hd 的一个拷贝副本，而不是 hd 本身。尽管 hd 和 cinema 有着相同的宽（width）和高（height），但是在幕后它们是两个完全不同的实例。</p>
+<p>下面，为了符合数码影院放映的需求（2048 像素宽，1080 像素高），cinema 的 width 属性需要作如下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;cinema is now  \(cinema.width) pixels wide&quot;)</span><br><span class="line">// 打印 &quot;cinema is now 2048 pixels wide&quot;</span><br></pre></td></tr></table></figure>
+<p>这里，将会显示 cinema 的 width 属性确已改为了 2048：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;cinema is now  \(cinema.width) pixels wide&quot;)</span><br><span class="line">// 打印 &quot;cinema is now 2048 pixels wide&quot;</span><br></pre></td></tr></table></figure>
+<p>然而，初始的 hd 实例中 width 属性还是 1920：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hd is still \(hd.width) pixels wide&quot;)</span><br><span class="line">// 打印 &quot;hd is still 1920 pixels wide&quot;</span><br></pre></td></tr></table></figure>
+<p>在将 hd 赋予给 cinema 的时候，实际上是将 hd 中所存储的值进行拷贝，然后将拷贝的数据存储到新的 cinema 实例中。结果就是两个完全独立的实例碰巧包含有相同的数值。由于两者相互独立，因此将 cinema 的 width 修改为 2048 并不会影响 hd 中的 width 的值。</p>
+<p>枚举也遵循相同的行为准则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum CompassPoint &#123;</span><br><span class="line">    case North, South, East, West</span><br><span class="line">&#125;</span><br><span class="line">var currentDirection = CompassPoint.West</span><br><span class="line">let rememberedDirection = currentDirection</span><br><span class="line">currentDirection = .East</span><br><span class="line">if rememberedDirection == .West &#123;</span><br><span class="line">    print(&quot;The remembered direction is still .West&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 &quot;The remembered direction is still .West&quot;</span><br></pre></td></tr></table></figure>
+<p>currentDirection 赋值给了 rememberedDirection， 进行了值拷贝。 所以改变 currentDirection 的值， 不影响 rememberedDirection。</p>
+<h4 id="类是引用类型"><a href="#类是引用类型" class="headerlink" title="类是引用类型"></a>类是引用类型</h4><p>与值类型不同， 引用类型的实例被赋值给常量和变量， 或者在函数中传递的时候，值不会被拷贝，引用的是已存在的实例本身，而不是其拷贝。</p>
+<p>请看下面这个示例，其使用了之前定义的 VideoMode 类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let tenEighty = VideoMode()</span><br><span class="line">tenEighty.resolution = hd</span><br><span class="line">tenEighty.interlaced = true</span><br><span class="line">tenEighty.name = &quot;1080i&quot;</span><br><span class="line">tenEighty.frameRate = 25.0</span><br></pre></td></tr></table></figure>
+<p>然后，tenEighty 被赋予名为 alsoTenEighty 的新常量，同时对 alsoTenEighty 的帧率进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let alsoTenEighty = tenEighty</span><br><span class="line">alsoTenEighty.frameRate = 30.0</span><br></pre></td></tr></table></figure>
+<p>因为是引用类型， alsoTenEighty 和  tenEighty 引用的是同一个实例， 可以理解为同一个实例的不同叫法。</p>
+<p>查看 tenEighty 的 frameRate 属性， 发现值已经被修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;The frameRate property of tenEighty is now \(tenEighty.frameRate)&quot;)</span><br><span class="line">// 打印 &quot;The frameRate property of theEighty is now 30.0&quot;</span><br></pre></td></tr></table></figure>
+<p>alsoTenEighty 和 tenEighty 是常量， 为什么值会被修改呢？ 其实他们只是对实例的引用， 而不是实例本身。改变的是实例本身的属性值，没有改变对实例的引用。</p>
+<h4 id="恒等运算符"><a href="#恒等运算符" class="headerlink" title="恒等运算符"></a>恒等运算符</h4><p>判断引用实例的常量或者变量是否相等。</p>
+<p>两个运算符， 可以实现：</p>
+<ul>
+<li>等价于（===）</li>
+<li>不等价于（!==）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if tenEighty === alsoTenEighty &#123;</span><br><span class="line">    print(&quot;tenEighty and alsoTenEighty refer to the same Resolution instance.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//打印 &quot;tenEighty and alsoTenEighty refer to the same Resolution instance.&quot;</span><br></pre></td></tr></table></figure>
+<p>请注意，“等价于”（用三个等号表示，===）与“等于”（用两个等号表示，==）的不同：</p>
+<ul>
+<li>“等价于”表示两个类类型（class type）的常量或者变量引用同一个类实例。</li>
+<li>“等于”表示两个实例的值“相等”或“相同”，判定时要遵照设计者定义的评判标准，因此相对于“相等”来说，这是一种更加合适的叫法。</li>
+</ul>
+<p>在自定义类和结构体时， 你要指定相等的标准。实现自定义“等于”和“不等于”运算符的流程， 会在后面讲到。</p>
+<h4 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h4><p>Objective-C 、C++、 C 等语言通过指针来引用内存中的地址。 通过在变量名称前面加上 <code>*</code> 表示指针。 在 Swift 中， 应用类型的使用和定义普通的常量和变量一样。</p>
+<h4 id="类和结构体的选择"><a href="#类和结构体的选择" class="headerlink" title="类和结构体的选择"></a>类和结构体的选择</h4><p>在项目中用考虑使用值传递， 还是引用传递， 选择结构体， 还是类。</p>
+<p>按照通用的准则， 当符合一条或多条以下条件时， 请考虑使用结构体。</p>
+<ul>
+<li>该数据结构的主要目的是用来封装少量相关简单数据值。</li>
+<li>有理由预计该数据结构的实例在被赋值或传递时，封装的数据将会被拷贝而不是被引用。</li>
+<li>该数据结构中储存的值类型属性，也应该被拷贝，而不是被引用。</li>
+<li>该数据结构不需要去继承另一个既有类型的属性或者行为。</li>
+</ul>
+<p>举例来说，以下情境中适合使用结构体：</p>
+<ul>
+<li>几何形状的大小，封装一个 width 属性和 height 属性，两者均为 Double 类型。</li>
+<li>一定范围内的路径，封装一个 start 属性和 length 属性，两者均为 Int 类型。</li>
+<li>三维坐标系内一点，封装 x，y 和 z 属性，三者均为 Double 类型。</li>
+</ul>
+<p>在所有其它案例中，定义一个类，生成一个它的实例，并通过引用来管理和传递。实际中，这意味着绝大部分的自定义数据构造都应该是类，而非结构体。</p>
+<h4 id="字符串、数组、和字典类型的赋值与复制行为"><a href="#字符串、数组、和字典类型的赋值与复制行为" class="headerlink" title="字符串、数组、和字典类型的赋值与复制行为"></a>字符串、数组、和字典类型的赋值与复制行为</h4><p>Swift 中，许多基本类型，诸如 String，Array 和 Dictionary 类型均以结构体的形式实现。这意味着被赋值给新的常量或变量，或者被传入函数或方法中时，它们的值会被拷贝。</p>
+<p>Objective-C 中 NSString，NSArray 和 NSDictionary 类型均以类的形式实现，而并非结构体。它们在被赋值或者被传入函数或方法时，不会发生值拷贝，而是传递现有实例的引用。</p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/27/Swift-入门-第-11-课-枚举/" title="Swift 入门 第 11 课 枚举">Swift 入门 第 11 课 枚举</a></h2>
+                <p class="excerpt">
+                
+                Swift 的枚举 不像 C 语言的枚举值， 必须给原始值。 Swift 可以不指定原始值。也可以指定原始值， 原始值的类型可以是整形、字符串、字符、浮点数等。
+Swift 的枚举可以添加关联值， 关联值可以是任意类型。就像其他语言的联合体 Union 和 变体 variants 。可以给每一个枚举
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-27T09:10:52.312Z" class="post-list__meta--date date">2018-12-27</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/27/Swift-入门-第-11-课-枚举/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
