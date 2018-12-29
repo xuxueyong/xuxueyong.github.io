@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 15 课 下标 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 15 课 下标 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 15 课 下标 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/29/Swift-入门-第-15-课-下标/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-29T08:28:59.303Z" class="post-list__meta--date date">2018-12-29</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 15 课 下标</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="下标语法"><a href="#下标语法" class="headerlink" title="下标语法"></a>下标语法</h4><p>下标允许你在实例后的方括号中， 传入一个或多个索引值来对实例进行存取。 定义下标使用 subscript 关键字，指定一个或多个输入参数和返回类型；与实例方法不同的是，下标可以设定为读写或只读。这种行为由 getter 和 setter 实现，有点类似计算型属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">subscript(index: Int) -&gt; Int &#123;</span><br><span class="line">    get &#123;</span><br><span class="line">      // 返回一个适当的 Int 类型的值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    set(newValue) &#123;</span><br><span class="line">      // 执行适当的赋值操作</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面代码演示了只读下标的实现，这里定义了一个 TimesTable 结构体，用来表示传入整数的乘法表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct TimesTable &#123;</span><br><span class="line">    let multiplier: Int</span><br><span class="line">    subscript(index: Int) -&gt; Int &#123;</span><br><span class="line">        return multiplier * index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let threeTimesTable = TimesTable(multiplier: 3)</span><br><span class="line">print(&quot;six times three is \(threeTimesTable[6])&quot;)</span><br><span class="line">// 打印 &quot;six times three is 18&quot;</span><br></pre></td></tr></table></figure>
+<p>在上例中，创建了一个 TimesTable 实例，用来表示整数 3 的乘法表。数值 3 被传递给结构体的构造函数，作为实例成员 multiplier 的值。</p>
+<p>你可以通过下标访问 threeTimesTable 实例，例如上面演示的 threeTimesTable[6]。这条语句查询了 3 的乘法表中的第六个元素，返回 3 的 6 倍即 18。</p>
+<h4 id="下标用法"><a href="#下标用法" class="headerlink" title="下标用法"></a>下标用法</h4><p>下标的确切含义取决于使用场景。下标通常作为访问集合，列表或序列中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标。</p>
+<p>例如，Swift 的 Dictionary 类型实现下标用于对其实例中储存的值进行存取操作。为字典设值时，在下标中使用和字典的键类型相同的键，并把一个和字典的值类型相同的值赋给这个下标：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var numberOfLegs = [&quot;spider&quot;: 8, &quot;ant&quot;: 6, &quot;cat&quot;: 4]</span><br><span class="line">numberOfLegs[&quot;bird&quot;] = 2</span><br></pre></td></tr></table></figure>
+<p>上例定义一个名为 numberOfLegs 的变量，并用一个包含三对键值的字典字面量初始化它。numberOfLegs 字典的类型被推断为 [String: Int]。字典创建完成后，该例子通过下标将 String 类型的键 bird 和 Int 类型的值 2 添加到字典中。</p>
+<blockquote>
+<p>注意：<br>Swift 的 Dictionary 类型的下标接受并返回可选类型的值。上例中的 numberOfLegs 字典通过下标返回的是一个 Int? 或者说“可选的 int”。Dictionary 类型之所以如此实现下标，是因为不是每个键都有个对应的值，同时这也提供了一种通过键删除对应值的方式，只需将键对应的值赋值为 nil 即可。</p>
+</blockquote>
+<h4 id="下标选项"><a href="#下标选项" class="headerlink" title="下标选项"></a>下标选项</h4><p>下标可以接受任意数量的入参，并且这些入参可以是任意类型。下标的返回值也可以是任意类型。下标可以使用变量参数和可变参数，但不能使用输入输出参数，也不能给参数设置默认值。</p>
+<p>一个类或结构体可以根据自身需要提供多个下标实现，使用下标时将通过入参的数量和类型进行区分，自动匹配合适的下标，这就是下标的重载。</p>
+<p>虽然接受单一入参的下标是最常见的，但也可以根据情况定义接受多个入参的下标。例如下例定义了一个 Matrix 结构体，用于表示一个 Double 类型的二维矩阵。Matrix 结构体的下标接受两个整型参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">struct Matrix &#123;</span><br><span class="line">    let rows: Int, columns: Int</span><br><span class="line">    var grid: [Double]</span><br><span class="line">    init(rows: Int, columns: Int) &#123;</span><br><span class="line">        self.rows = rows</span><br><span class="line">        self.columns = columns</span><br><span class="line">        grid = Array(repeating: 0.0, count: rows * columns)</span><br><span class="line">    &#125;</span><br><span class="line">    func indexIsValid(row: Int, column: Int) -&gt; Bool &#123;</span><br><span class="line">        return row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; column &gt;= 0 &amp;&amp; column &lt; columns</span><br><span class="line">    &#125;</span><br><span class="line">    subscript(row: Int, column: Int) -&gt; Double &#123;</span><br><span class="line">        get &#123;</span><br><span class="line">            assert(indexIsValid(row: row, column: column), &quot;Index out of range&quot;)</span><br><span class="line">            return grid[(row * columns) + column]</span><br><span class="line">        &#125;</span><br><span class="line">        set &#123;</span><br><span class="line">            assert(indexIsValid(row: row, column: column), &quot;Index out of range&quot;)</span><br><span class="line">            grid[(row * columns) + column] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Matrix 提供了一个接受两个入参的构造方法，入参分别是 rows 和 columns，创建了一个足够容纳 rows * columns 个 Double 类型的值的数组。通过传入数组长度和初始值 0.0 到数组的构造器，将矩阵中每个位置的值初始化为 0.0。关于数组的这种构造方法请参考创建一个带有默认值的数组。</p>
+<p>你可以通过传入合适的 row 和 column 的数量来构造一个新的 Matrix 实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var matrix = Matrix(rows: 2, columns: 2)</span><br></pre></td></tr></table></figure>
+<p>上例中创建了一个 Matrix 实例来表示两行两列的矩阵。该 Matrix 实例的 grid 数组按照从左上到右下的阅读顺序将矩阵扁平化存储：</p>
+<p>将 row 和 column 的值传入下标来为矩阵设值，下标的入参使用逗号分隔：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matrix[0, 1] = 1.5</span><br><span class="line">matrix[1, 0] = 3.2</span><br></pre></td></tr></table></figure>
+<p>Matrix 下标的 getter 和 setter 中都含有断言，用来检查下标入参 row 和 column 的值是否有效。为了方便进行断言，Matrix 包含了一个名为 indexIsValid(row:column:) 的便利方法，用来检查入参 row 和 column 的值是否在矩阵范围内：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func indexIsValid(row: Int, column: Int) -&gt; Bool &#123;</span><br><span class="line">    return row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; column &gt;= 0 &amp;&amp; column &lt; columns</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>断言在下标越界时触发：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let someValue = matrix[2, 2]</span><br><span class="line">// 断言将会触发，因为 [2, 2] 已经超过了 matrix 的范围</span><br></pre></td></tr></table></figure>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/29/Swift-入门-第-16-课-继承/" title="Swift 入门 第 16 课 继承">Swift 入门 第 16 课 继承</a></h2>
+                <p class="excerpt">
+                
+                一个类可以继承其他类的属性、方法、特性等，继承的类叫子类， 被继承的类叫父类（或被称为超类）。
+Swift 的类是区别其他类型的重要特征。子类可以重写父类的属性、方法、下标等。 Swift 会检查你重写是否在父类中有匹配的定义， 确保重写行为是正确的。
+子类中可以给父类的存储属性和计算属性添加属性观
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-29T09:21:45.565Z" class="post-list__meta--date date">2018-12-29</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/29/Swift-入门-第-16-课-继承/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/29/Swift-入门-第-14-课-方法/" title="Swift 入门 第 14 课 方法">Swift 入门 第 14 课 方法</a></h2>
+                <p class="excerpt">
+                
+                方法是与某些特定类型相关联的函数， 类、结构体、枚举都可以为实例定义， 实例方法， 也可以为类型定义类型方法， 类型方法和 Object-C 中的类方法类似。
+Object-C 的结构体和枚举是不能定义实例方法和类型方法的。
+实例方法（Instance Methods）实例方法和函数的语法一样
+实例
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-29T06:20:12.217Z" class="post-list__meta--date date">2018-12-29</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/29/Swift-入门-第-14-课-方法/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>

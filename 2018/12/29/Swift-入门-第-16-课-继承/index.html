@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 16 课 继承 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 16 课 继承 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 16 课 继承 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2018/12/29/Swift-入门-第-16-课-继承/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-12-29T09:21:45.565Z" class="post-list__meta--date date">2018-12-29</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 16 课 继承</h1>
+  </header>
+
+  <section class="post">
+    <p>一个类可以继承其他类的属性、方法、特性等，继承的类叫子类， 被继承的类叫父类（或被称为超类）。</p>
+<p>Swift 的类是区别其他类型的重要特征。子类可以重写父类的属性、方法、下标等。 Swift 会检查你重写是否在父类中有匹配的定义， 确保重写行为是正确的。</p>
+<p>子类中可以给父类的存储属性和计算属性添加属性观察器。</p>
+<h4 id="定义一个基类"><a href="#定义一个基类" class="headerlink" title="定义一个基类"></a>定义一个基类</h4><p>Swift 不像 Object-C 需要继承一个超类才可以声明一个类。</p>
+<p>Swift 不继承其他类， 定义的时候， 这个类就是一个基类。</p>
+<p>下面的例子定义了一个叫 Vehicle 的基类。这个基类声明了一个名为 currentSpeed，默认值是 0.0 的存储属性（属性类型推断为 Double）。currentSpeed 属性的值被一个 String 类型的只读计算型属性 description 使用，用来创建车辆的描述。</p>
+<p>Vehicle 基类也定义了一个名为 makeNoise 的方法。这个方法实际上不为 Vehicle 实例做任何事，但之后将会被 Vehicle 的子类定制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Vehicle &#123;</span><br><span class="line">    var currentSpeed = 0.0</span><br><span class="line">    var description: String &#123;</span><br><span class="line">        return &quot;traveling at \(currentSpeed) miles per hour&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    func makeNoise() &#123;</span><br><span class="line">        // 什么也不做-因为车辆不一定会有噪音</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>您可以用初始化语法创建一个 Vehicle 的新实例，即类名后面跟一个空括号：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let someVehicle = Vehicle()</span><br></pre></td></tr></table></figure>
+<p>现在已经创建了一个 Vehicle 的新实例，你可以访问它的 description 属性来打印车辆的当前速度：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;Vehicle: \(someVehicle.description)&quot;)</span><br><span class="line">// 打印 &quot;Vehicle: traveling at 0.0 miles per hour&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="子类生成"><a href="#子类生成" class="headerlink" title="子类生成"></a>子类生成</h4><p>为了指明某个类的超类，将超类名写在子类名的后面，用冒号分隔：</p>
+<p>下一个例子，定义一个叫 Bicycle 的子类，继承成父类 Vehicle：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Bicycle: Vehicle &#123;</span><br><span class="line">    var hasBasket = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你还可以修改 Bicycle 实例所继承的 currentSpeed 属性，和查询实例所继承的 description 属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let bicycle = Bicycle()</span><br><span class="line">bicycle.hasBasket = true</span><br><span class="line"></span><br><span class="line">bicycle.currentSpeed = 15.0</span><br><span class="line">print(&quot;Bicycle: \(bicycle.description)&quot;)</span><br><span class="line">// 打印 &quot;Bicycle: traveling at 15.0 miles per hour&quot;</span><br></pre></td></tr></table></figure>
+<p>子类还可以继续被其它类继承，下面的示例为 Bicycle 创建了一个名为 Tandem（双人自行车）的子类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Tandem: Bicycle &#123;</span><br><span class="line">    var currentNumberOfPassengers = 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>Swift 也是单继承，通俗点说就是只能有一个父亲。 </p>
+</blockquote>
+<h4 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h4><p>子类可以为继承来的实例方法，类方法，实例属性，或下标提供自己定制的实现。我们把这种行为叫重写。</p>
+<p>如果要重写某个特性，你需要在重写定义的前面加上 override 关键字。这么做，你就表明了你是想提供一个重写版本，而非错误地提供了一个相同的定义。意外的重写行为可能会导致不可预知的错误，任何缺少 override 关键字的重写都会在编译时被诊断为错误。</p>
+<p>override 关键字会提醒 Swift 编译器去检查该类的超类（或其中一个父类）是否有匹配重写版本的声明。这个检查可以确保你的重写定义是正确的。</p>
+<h4 id="访问超类的方法，属性及下标"><a href="#访问超类的方法，属性及下标" class="headerlink" title="访问超类的方法，属性及下标"></a>访问超类的方法，属性及下标</h4><p>当你在子类中重写超类的方法，属性或下标时，有时在你的重写版本中使用已经存在的超类实现会大有裨益。比如，你可以完善已有实现的行为，或在一个继承来的变量中存储一个修改过的值。</p>
+<p>在合适的地方，你可以通过使用 super 前缀来访问超类版本的方法，属性或下标：</p>
+<ul>
+<li>在方法 someMethod() 的重写实现中，可以通过 super.someMethod() 来调用超类版本的 someMethod() 方法。</li>
+<li>在属性 someProperty 的 getter 或 setter 的重写实现中，可以通过 super.someProperty 来访问超类版本的 someProperty 属性。</li>
+<li>在下标的重写实现中，可以通过 super[someIndex] 来访问超类版本中的相同下标。</li>
+</ul>
+<h4 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a>重写方法</h4><p>可以重写类的类方法和实例方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Train: Vehicle &#123;</span><br><span class="line">    override func makeNoise() &#123;</span><br><span class="line">        print(&quot;Choo Choo&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="重写属性"><a href="#重写属性" class="headerlink" title="重写属性"></a>重写属性</h4><p>你可以重写继承来的实例属性或类型属性。</p>
+<p>你可以提供定制的 getter（或 setter）来重写任意继承来的属性，无论继承来的属性是存储型的还是计算型的属性。子类并不知道继承来的属性是存储型的还是计算型的，它只知道继承来的属性会有一个名字和类型。你在重写一个属性时，必需将它的名字和类型都写出来。这样才能使编译器去检查你重写的属性是与超类中同名同类型的属性相匹配的。</p>
+<p>你可以将一个继承来的只读属性重写为一个读写属性，只需要在重写版本的属性里提供 getter 和 setter 即可。但是，你不可以将一个继承来的读写属性重写为一个只读属性。</p>
+<blockquote>
+<p>注意：<br>如果你在重写属性中提供了 setter，那么你也一定要提供 getter。如果你不想在重写版本中的 getter 里修改继承来的属性值，你可以直接通过 super.someProperty 来返回继承来的值，其中 someProperty 是你要重写的属性的名字。</p>
+<p>计算性属性不能只提供 setter, 有 setter 必须有 getter， 但是 有 getter 可以不要 setter。</p>
+</blockquote>
+<p>以下的例子定义了一个新类，叫 Car，它是 Vehicle 的子类。这个类引入了一个新的存储型属性叫做 gear，默认值为整数 1。Car 类重写了继承自 Vehicle 的 description 属性，提供包含当前档位的自定义描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Car: Vehicle &#123;</span><br><span class="line">    var gear = 1</span><br><span class="line">    override var description: String &#123;</span><br><span class="line">        return super.description + &quot; in gear \(gear)&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重写的 description 属性首先要调用 super.description 返回 Vehicle 类的 description 属性。之后，Car 类版本的 description 在末尾增加了一些额外的文本来提供关于当前档位的信息。</p>
+<p>如果你创建了 Car 的实例并且设置了它的 gear 和 currentSpeed 属性，你可以看到它的 description 返回了 Car 中的自定义描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let car = Car()</span><br><span class="line">car.currentSpeed = 25.0</span><br><span class="line">car.gear = 3</span><br><span class="line">print(&quot;Car: \(car.description)&quot;)</span><br><span class="line">// 打印 &quot;Car: traveling at 25.0 miles per hour in gear 3&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h4><blockquote>
+<p>注意：<br>你不可以为继承来的常量存储型属性或继承来的只读计算型属性添加属性观察器。这些属性的值是不可以被设置的，所以，为它们提供 willSet 或 didSet 实现是不恰当。 此外还要注意，你不可以同时提供重写的 setter 和重写的属性观察器。如果你想观察属性值的变化，并且你已经为那个属性提供了定制的 setter，那么你在 setter 中就可以观察到任何值变化了。</p>
+</blockquote>
+<p>下面的例子定义了一个新类叫 AutomaticCar，它是 Car 的子类。AutomaticCar 表示自动挡汽车，它可以根据当前的速度自动选择合适的挡位:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class AutomaticCar: Car &#123;</span><br><span class="line">    override var currentSpeed: Double &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            gear = Int(currentSpeed / 10.0) + 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>无论何时当你设置 AutomaticCar 的 currentSpeed 属性，属性的 didSet 观察器就会自动地设置 gear 属性，为新的速度选择一个合适的挡位。具体来说就是，属性观察器将新的速度值除以 10，然后向下取得最接近的整数值，最后加 1 来得到档位 gear 的值。例如，速度为 35.0 时，挡位为 4：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let automatic = AutomaticCar()</span><br><span class="line">automatic.currentSpeed = 35.0</span><br><span class="line">print(&quot;AutomaticCar: \(automatic.description)&quot;)</span><br><span class="line">// 打印 &quot;AutomaticCar: traveling at 35.0 miles per hour in gear 4&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="防止重写"><a href="#防止重写" class="headerlink" title="防止重写"></a>防止重写</h4><p>你可以通过把方法，属性或下标标记为final来防止它们被重写，只需要在声明关键字前加上 final 修饰符即可（例如：final var，final func，final class func，以及 final subscript）。</p>
+<p>你可以通过在关键字 class 前添加 final 修饰符（final class）来将整个类标记为 final 的。这样的类是不可被继承的，试图继承这样的类会导致编译报错。</p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/12/29/Swift-入门-第-15-课-下标/" title="Swift 入门 第 15 课 下标">Swift 入门 第 15 课 下标</a></h2>
+                <p class="excerpt">
+                
+                下标语法下标允许你在实例后的方括号中， 传入一个或多个索引值来对实例进行存取。 定义下标使用 subscript 关键字，指定一个或多个输入参数和返回类型；与实例方法不同的是，下标可以设定为读写或只读。这种行为由 getter 和 setter 实现，有点类似计算型属性：
+123456789subs
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-12-29T08:28:59.303Z" class="post-list__meta--date date">2018-12-29</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/29/Swift-入门-第-15-课-下标/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2018 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
