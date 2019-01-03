@@ -150,49 +150,19 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2018/11/16/CocoaPods 公有仓库的建立/" title="link to post.title">CocoaPods 公有仓库的建立</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-17-课-构造过程/" title="link to post.title">Swift 入门 第 17 课-构造过程</a></h2>
       <p class="excerpt">
     
-      ##查看 cocoapods  Specs 索引目录
-###两种方式
-1.终端:   cd ~/.cocoapods/repos/master 
-123open .   . 代表当前目录.. 代表上级目录
- 2.finder: 显示隐藏文件       先在终端执行命令
-1defaults write com.apple.finder AppleShowAllFiles -boolean true
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2018-11-16T07:19:31.763Z" class="post-list__meta--date date">2018-11-16</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/11/16/CocoaPods 公有仓库的建立/">继续阅读</a></div>
-      <hr class="post-list__divider">
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2018/11/16/iOS_unity_AR/" title="link to post.title">在iOS项目中集成Unity(AR识别)</a></h2>
-      <p class="excerpt">
-    
-      提示: 在集成之前确保demo项目可以运行 (导出demo项目是最好用mac版Unity)
-1.新建立文件 Unity.xconfig
-12345678910111213141516171819202122232425262728293031323334353637383940// 写入自己的untiy对应的版本号UNITY_RUNTIME_VERSION = 5.5.2f1;UNITY_SCRI
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2018-11-16T05:45:43.849Z" class="post-list__meta--date date">2018-11-16</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/11/16/iOS_unity_AR/">继续阅读</a></div>
-      <hr class="post-list__divider">
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2018/11/16/R•swift 使用/" title="link to post.title">怎样更好的使用 R.swift</a></h2>
-      <p class="excerpt">
-    
-      1. 在Podfile 中添加 pod ‘R.swift’R.swift
-2. 在项目中添加脚本
-3. 修改脚本1&amp;quot;$PODS_ROOT/R.swift/rswift&amp;quot; generate &amp;quot;$SRCROOT/testUIDemo01&amp;quot;
+      构造过程是使用类和结构体或枚举之类的实例前， 必须的准备过程。与 Object-C 不同， Swift 的初始化没有返回值。
+析构器可以在实例释放之前执行一些清除工作。
+存储属性的初始赋值存储属性在实例化之后， 必须指定值。存储属性的值， 不能处于未知状态。要么在初始化的时候被赋值，要么声明的时候指定默认值。
 
-4. command + b build 项目会生成 R. generate.swift文件
-5. 在 项目根目录下找到 
+注意：当存储属性在初始化和被指定默认值时，是不会触发属性观察者的。
+
+构造器创建某个特
     &hellip;
       </p>
-      <div class="post-list__meta"><time datetime="2018-11-16T01:45:22.274Z" class="post-list__meta--date date">2018-11-16</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/11/16/R•swift 使用/">继续阅读</a></div>
+      <div class="post-list__meta"><time datetime="2019-01-03T02:37:34.658Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-17-课-构造过程/">继续阅读</a></div>
       <hr class="post-list__divider">
     </li>
   
