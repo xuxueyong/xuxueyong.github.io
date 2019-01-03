@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 19 课-可选链&amp;错误处理 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 19 课-可选链&amp;错误处理 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 19 课-可选链&amp;错误处理 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/03/Swift-入门-第-19-课-可选链-错误处理/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-03T08:21:31.324Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 19 课-可选链&amp;错误处理</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="使用可选链式调用代替强制展开"><a href="#使用可选链式调用代替强制展开" class="headerlink" title="使用可选链式调用代替强制展开"></a>使用可选链式调用代替强制展开</h4><p>通过在想调用的属性、方法，或下标的可选值后面放一个问号（?），可以定义一个可选链。这一点很像在可选值后面放一个叹号（!）来强制展开它的值。它们的主要区别在于当可选值为空时可选链式调用只会调用失败，然而强制展开将会触发运行时错误。</p>
+<p>特别地，可选链式调用的返回结果与原本的返回结果具有相同的类型，但是被包装成了一个可选值。例如，使用可选链式调用访问属性，当可选链式调用成功时，如果属性原本的返回结果是 Int 类型，则会变为 Int? 类型。</p>
+<blockquote>
+<p>注意：<br>使用可选链返回的结果， 不为 nil 时， 如果要使用该值， 请使用可选绑定。</p>
+</blockquote>
+<p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    var residence: Residence?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Residence &#123;</span><br><span class="line">    var numberOfRooms = 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let john = Person()</span><br><span class="line"></span><br><span class="line">let roomCount = john.residence!.numberOfRooms</span><br><span class="line">// 这会引发运行时错误</span><br></pre></td></tr></table></figure>
+<p>正确的写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if let roomCount = john.residence?.numberOfRooms &#123;</span><br><span class="line">    print(&quot;John&apos;s residence has \(roomCount) room(s).&quot;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(&quot;Unable to retrieve the number of rooms.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 “Unable to retrieve the number of rooms.”</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>一般编译器会自动添加可选链式符号 <code>？</code>， 一般不适用强制展开符号 <code>！</code> 除非确定值不为空。</p>
+</blockquote>
+<h4 id="表示并抛出错误"><a href="#表示并抛出错误" class="headerlink" title="表示并抛出错误"></a>表示并抛出错误</h4><p>某些操作无法保证总是执行完所有代码或总是生成有用的结果。可选类型可用来表示值缺失，但是当某个操作失败时，最好能得知失败的原因，从而可以作出相应的应对。</p>
+<p>在 Swift 中，错误用符合 Error 协议的类型的值来表示。这个空协议表明该类型可以用于错误处理。</p>
+<p>Swift 的枚举类型尤为适合构建一组相关的错误状态，枚举的关联值还可以提供错误状态的额外信息。例如，你可以这样表示在一个游戏中操作自动贩卖机时可能会出现的错误状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum VendingMachineError: Error &#123;</span><br><span class="line">    case invalidSelection                    //选择无效</span><br><span class="line">    case insufficientFunds(coinsNeeded: Int) //金额不足</span><br><span class="line">    case outOfStock                          //缺货</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>抛出一个错误可以让你表明有意外情况发生，导致正常的执行流程无法继续执行。抛出错误使用 throw 关键字。例如，下面的代码抛出一个错误，提示贩卖机还需要 5 个硬币：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">throw VendingMachineError.insufficientFunds(coinsNeeded: 5)</span><br></pre></td></tr></table></figure>
+<h4 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h4><p>Swift 中有 4 种处理错误的方式。你可以把函数抛出的错误传递给调用此函数的代码、用 do-catch 语句处理错误、将错误作为可选类型处理、或者断言此错误根本不会发生。</p>
+<p>当一个函数抛出一个错误时，你的程序流程会发生改变，所以重要的是你能迅速识别代码中会抛出错误的地方。为了标识出这些地方，在调用一个能抛出错误的函数、方法或者构造器之前，加上 try 关键字，或者 try? 或 try! 这种变体。这些关键字在下面的小节中有具体讲解。</p>
+<h4 id="用-throwing-函数传递错误"><a href="#用-throwing-函数传递错误" class="headerlink" title="用 throwing 函数传递错误"></a>用 throwing 函数传递错误</h4><p>为了表示一个函数、方法或构造器可以抛出错误，在函数声明的参数列表之后加上 throws 关键字。一个标有 throws 关键字的函数被称作throwing 函数。如果这个函数指明了返回值类型，throws 关键词需要写在箭头（-&gt;）的前面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func canThrowErrors() throws -&gt; String</span><br><span class="line">func cannotThrowErrors() -&gt; String</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>只有 throwing 函数可以传递错误。任何在某个非 throwing 函数内部抛出的错误只能在函数内部处理。</p>
+</blockquote>
+<p>下面的例子中，VendingMachine 类有一个 vend(itemNamed:) 方法，如果请求的物品不存在、缺货或者投入金额小于物品价格，该方法就会抛出一个相应的 VendingMachineError：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">struct Item &#123;</span><br><span class="line">    var price: Int</span><br><span class="line">    var count: Int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class VendingMachine &#123;</span><br><span class="line">    var inventory = [</span><br><span class="line">        &quot;Candy Bar&quot;: Item(price: 12, count: 7),</span><br><span class="line">        &quot;Chips&quot;: Item(price: 10, count: 4),</span><br><span class="line">        &quot;Pretzels&quot;: Item(price: 7, count: 11)</span><br><span class="line">    ]</span><br><span class="line">    var coinsDeposited = 0</span><br><span class="line">    func dispenseSnack(snack: String) &#123;</span><br><span class="line">        print(&quot;Dispensing \(snack)&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    func vend(itemNamed name: String) throws &#123;</span><br><span class="line">        guard let item = inventory[name] else &#123;</span><br><span class="line">            throw VendingMachineError.invalidSelection</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        guard item.count &gt; 0 else &#123;</span><br><span class="line">            throw VendingMachineError.outOfStock</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        guard item.price &lt;= coinsDeposited else &#123;</span><br><span class="line">            throw VendingMachineError.insufficientFunds(coinsNeeded: item.price - coinsDeposited)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        coinsDeposited -= item.price</span><br><span class="line"></span><br><span class="line">        var newItem = item</span><br><span class="line">        newItem.count -= 1</span><br><span class="line">        inventory[name] = newItem</span><br><span class="line"></span><br><span class="line">        print(&quot;Dispensing \(name)&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为 vend(itemNamed:) 方法会传递出它抛出的任何错误，在你的代码中调用此方法的地方，必须要么直接处理这些错误——使用 do-catch 语句，try? 或 try!；要么继续将这些错误传递下去。例如下面例子中，buyFavoriteSnack(person:vendingMachine:) 同样是一个 throwing 函数，任何由 vend(itemNamed:) 方法抛出的错误会一直被传递到 buyFavoriteSnack(person:vendingMachine:) 函数被调用的地方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let favoriteSnacks = [</span><br><span class="line">    &quot;Alice&quot;: &quot;Chips&quot;,</span><br><span class="line">    &quot;Bob&quot;: &quot;Licorice&quot;,</span><br><span class="line">    &quot;Eve&quot;: &quot;Pretzels&quot;,</span><br><span class="line">]</span><br><span class="line">func buyFavoriteSnack(person: String, vendingMachine: VendingMachine) throws &#123;</span><br><span class="line">    let snackName = favoriteSnacks[person] ?? &quot;Candy Bar&quot;</span><br><span class="line">    try vendingMachine.vend(itemNamed: snackName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>throwing 构造器能像 throwing 函数一样传递错误。例如下面代码中的 PurchasedSnack 构造器在构造过程中调用了 throwing 函数，并且通过传递到它的调用者来处理这些错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct PurchasedSnack &#123;</span><br><span class="line">    let name: String</span><br><span class="line">    init(name: String, vendingMachine: VendingMachine) throws &#123;</span><br><span class="line">        try vendingMachine.vend(itemNamed: name)</span><br><span class="line">        self.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="用-Do-Catch-处理错误"><a href="#用-Do-Catch-处理错误" class="headerlink" title="用 Do-Catch 处理错误"></a>用 Do-Catch 处理错误</h4><p>你可以使用一个 do-catch 语句运行一段闭包代码来处理错误。如果在 do 子句中的代码抛出了一个错误，这个错误会与 catch 子句做匹配，从而决定哪条子句能处理它。</p>
+<p>下面是 do-catch 语句的一般形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">    try expression</span><br><span class="line">    statements</span><br><span class="line">&#125; catch pattern 1 &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125; catch pattern 2 where condition &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果一条 catch 子句没有指定匹配模式，那么这条子句可以匹配任何错误，并且把错误绑定到一个名字为 error 的局部常量。</p>
+<p>catch 子句不必将 do 子句中的代码所抛出的每一个可能的错误都作处理。如果所有 catch 子句都未处理错误，错误就会传递到周围的作用域。</p>
+<p>如果没有错误抛出，do 子句中余下的语句就会被执行。</p>
+<h4 id="将错误转换成可选值"><a href="#将错误转换成可选值" class="headerlink" title="将错误转换成可选值"></a>将错误转换成可选值</h4><p>在下面的代码中，x 和 y 有着相同的数值和等价的含义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func someThrowingFunction() throws -&gt; Int &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let x = try? someThrowingFunction()</span><br><span class="line"></span><br><span class="line">let y: Int?</span><br><span class="line">do &#123;</span><br><span class="line">    y = try someThrowingFunction()</span><br><span class="line">&#125; catch &#123;</span><br><span class="line">    y = nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你想对所有的错误都采用同样的方式来处理，用 try? 就可以让你写出简洁的错误处理代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func fetchData() -&gt; Data? &#123;</span><br><span class="line">    if let data = try? fetchDataFromDisk() &#123; return data &#125;</span><br><span class="line">    if let data = try? fetchDataFromServer() &#123; return data &#125;</span><br><span class="line">    return nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="禁用错误传递"><a href="#禁用错误传递" class="headerlink" title="禁用错误传递"></a>禁用错误传递</h4><p>有时你知道某个 throwing 函数实际上在运行时是不会抛出错误的，在这种情况下，你可以在表达式前面写 try! 来禁用错误传递，这会把调用包装在一个不会有错误抛出的运行时断言中。如果真的抛出了错误，你会得到一个运行时错误。</p>
+<p>例如，下面的代码使用了 loadImage(atPath:) 函数，该函数从给定的路径加载图片资源，如果图片无法载入则抛出一个错误。在这种情况下，因为图片是和应用绑定的，运行时不会有错误抛出，所以适合禁用错误传递。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let photo = try! loadImage(atPath: &quot;./Resources/John Appleseed.jpg&quot;)</span><br></pre></td></tr></table></figure>
+<h4 id="指定清理操作"><a href="#指定清理操作" class="headerlink" title="指定清理操作"></a>指定清理操作</h4><p>你可以使用 defer 语句在即将离开当前代码块时执行一系列语句。该语句让你能执行一些必要的清理工作，不管是以何种方式离开当前代码块的——无论是由于抛出错误而离开，或是由于诸如 return、break 的语句。例如，你可以用 defer 语句来确保文件描述符得以关闭，以及手动分配的内存得以释放。</p>
+<p>defer 语句将代码的执行延迟到当前的作用域退出之前。该语句由 defer 关键字和要被延迟执行的语句组成。延迟执行的语句不能包含任何控制转移语句，例如 break、return 语句，或是抛出一个错误。延迟执行的操作会按照它们声明的顺序从后往前执行——也就是说，第一条 defer 语句中的代码最后才执行，第二条 defer 语句中的代码倒数第二个执行，以此类推。最后一条语句会第一个执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func processFile(filename: String) throws &#123;</span><br><span class="line">    if exists(filename) &#123;</span><br><span class="line">        let file = open(filename)</span><br><span class="line">        defer &#123;</span><br><span class="line">            close(file)</span><br><span class="line">        &#125;</span><br><span class="line">        while let line = try file.readline() &#123;</span><br><span class="line">            // 处理文件。</span><br><span class="line">        &#125;</span><br><span class="line">        // close(file) 会在这里被调用，即作用域的最后。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码使用一条 defer 语句来确保 open(<em>:) 函数有一个相应的对 close(</em>:) 函数的调用。</p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-18-课-析构过程/" title="Swift 入门 第 18 课-析构过程">Swift 入门 第 18 课-析构过程</a></h2>
+                <p class="excerpt">
+                
+                析构过程原理Swift 会自动释放不再需要的实例以释放资源。如自动引用计数章节中所讲述，Swift 通过自动引用计数（ARC) 处理实例的内存管理。通常当你的实例被释放时不需要手动地去清理。但是，当使用自己的资源时，你可能需要进行一些额外的清理。例如，如果创建了一个自定义的类来打开一个文件，并写入一
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-03T07:56:29.893Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-18-课-析构过程/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
