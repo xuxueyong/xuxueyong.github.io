@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 20 课-类型转换&amp;嵌套类型 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 20 课-类型转换&amp;嵌套类型 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 20 课-类型转换&amp;嵌套类型 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/03/Swift-入门-第-20-课-类型转换/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-03T09:19:56.120Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 20 课-类型转换&amp;嵌套类型</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="为类型转换定义类层次"><a href="#为类型转换定义类层次" class="headerlink" title="为类型转换定义类层次"></a>为类型转换定义类层次</h4><p>新的基类 MediaItem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class MediaItem &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    init(name: String) &#123;</span><br><span class="line">        self.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类 Movie  Song</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Movie: MediaItem &#123;</span><br><span class="line">    var director: String</span><br><span class="line">    init(name: String, director: String) &#123;</span><br><span class="line">        self.director = director</span><br><span class="line">        super.init(name: name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Song: MediaItem &#123;</span><br><span class="line">    var artist: String</span><br><span class="line">    init(name: String, artist: String) &#123;</span><br><span class="line">        self.artist = artist</span><br><span class="line">        super.init(name: name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数组常量 library，包含两个 Movie 实例和三个 Song 实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let library = [</span><br><span class="line">    Movie(name: &quot;Casablanca&quot;, director: &quot;Michael Curtiz&quot;),</span><br><span class="line">    Song(name: &quot;Blue Suede Shoes&quot;, artist: &quot;Elvis Presley&quot;),</span><br><span class="line">    Movie(name: &quot;Citizen Kane&quot;, director: &quot;Orson Welles&quot;),</span><br><span class="line">    Song(name: &quot;The One And Only&quot;, artist: &quot;Chesney Hawkes&quot;),</span><br><span class="line">    Song(name: &quot;Never Gonna Give You Up&quot;, artist: &quot;Rick Astley&quot;)</span><br><span class="line">]</span><br><span class="line">// 数组 library 的类型被推断为 [MediaItem]</span><br></pre></td></tr></table></figure>
+<h4 id="检查类型"><a href="#检查类型" class="headerlink" title="检查类型"></a>检查类型</h4><p><code>is</code> 用来检查实例的类型。 返回 true 或者 false</p>
+<p>movieCount 和 songCount，用来计算数组 library 中 Movie 和 Song 类型的实例数量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var movieCount = 0</span><br><span class="line">var songCount = 0</span><br><span class="line"></span><br><span class="line">for item in library &#123;</span><br><span class="line">    if item is Movie &#123;</span><br><span class="line">        movieCount += 1</span><br><span class="line">    &#125; else if item is Song &#123;</span><br><span class="line">        songCount += 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(&quot;Media library contains \(movieCount) movies and \(songCount) songs&quot;)</span><br><span class="line">// 打印 “Media library contains 2 movies and 3 songs”</span><br></pre></td></tr></table></figure>
+<h4 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h4><p>某类型的常量或变量， 幕后其实属于某个子类型。用类型转换操作符 可选转型 as? 或  强制转型 as!。</p>
+<p>只有你可以确定向下转型一定会成功时，才使用强制形式（as!）。当你试图向下转型为一个不正确的类型时，强制形式的类型转换会触发一个运行时错误。</p>
+<p>在这个示例中，数组中的每一个 item 可能是 Movie 或 Song。事前你不知道每个 item 的真实类型，所以这里使用条件形式的类型转换（as?）去检查循环里的每次下转：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for item in library &#123;</span><br><span class="line">    if let movie = item as? Movie &#123;</span><br><span class="line">        print(&quot;Movie: &apos;\(movie.name)&apos;, dir. \(movie.director)&quot;)</span><br><span class="line">    &#125; else if let song = item as? Song &#123;</span><br><span class="line">        print(&quot;Song: &apos;\(song.name)&apos;, by \(song.artist)&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Movie: &apos;Casablanca&apos;, dir. Michael Curtiz</span><br><span class="line">// Song: &apos;Blue Suede Shoes&apos;, by Elvis Presley</span><br><span class="line">// Movie: &apos;Citizen Kane&apos;, dir. Orson Welles</span><br><span class="line">// Song: &apos;The One And Only&apos;, by Chesney Hawkes</span><br><span class="line">// Song: &apos;Never Gonna Give You Up&apos;, by Rick Astley</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>转换没有真的改变实例或它的值。根本的实例保持不变；只是简单地把它作为它被转换成的类型来使用。</p>
+</blockquote>
+<h4 id="Any-和-AnyObject-的类型转换"><a href="#Any-和-AnyObject-的类型转换" class="headerlink" title="Any 和 AnyObject 的类型转换"></a>Any 和 AnyObject 的类型转换</h4><p>Swift 为不确定类型提供了两种特殊的类型别名：</p>
+<ul>
+<li>Any 可以表示任何类型，包括函数类型。</li>
+<li>AnyObject 可以表示任何类类型的实例。</li>
+</ul>
+<p>Any 可以 通过 as 向下转型为 AnyObject</p>
+<blockquote>
+<p>注意：<br>Any 类型可以表示所有类型的值，包括可选类型。Swift 会在你用 Any 类型来表示一个可选值的时候，给你一个警告。如果你确实想使用 Any 类型来承载可选值，你可以使用 as 操作符显式转换为 Any，如下所示：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let optionalNumber: Int? = 3</span><br><span class="line">things.append(optionalNumber)        // 警告</span><br><span class="line">things.append(optionalNumber as Any) // 没有警告</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套类型实践"><a href="#嵌套类型实践" class="headerlink" title="嵌套类型实践"></a>嵌套类型实践</h4><p>下面这个例子定义了一个结构体 BlackjackCard（二十一点），用来模拟 BlackjackCard 中的扑克牌点数。BlackjackCard 结构体包含两个嵌套定义的枚举类型 Suit 和 Rank。</p>
+<p>在 BlackjackCard 中，Ace 牌可以表示 1 或者 11，Ace 牌的这一特征通过一个嵌套在 Rank 枚举中的结构体 Values 来表示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">struct BlackjackCard &#123;</span><br><span class="line"></span><br><span class="line">    // 嵌套的 Suit 枚举</span><br><span class="line">    enum Suit: Character &#123;</span><br><span class="line">        case spades = &quot;♠&quot;, hearts = &quot;♡&quot;, diamonds = &quot;♢&quot;, clubs = &quot;♣&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 嵌套的 Rank 枚举</span><br><span class="line">    enum Rank: Int &#123;</span><br><span class="line">        case two = 2, three, four, five, six, seven, eight, nine, ten</span><br><span class="line">        case jack, queen, king, ace</span><br><span class="line">        struct Values &#123;</span><br><span class="line">            let first: Int, second: Int?</span><br><span class="line">        &#125;</span><br><span class="line">        var values: Values &#123;</span><br><span class="line">            switch self &#123;</span><br><span class="line">            case .ace:</span><br><span class="line">                return Values(first: 1, second: 11)</span><br><span class="line">            case .jack, .queen, .king:</span><br><span class="line">                return Values(first: 10, second: nil)</span><br><span class="line">            default:</span><br><span class="line">                return Values(first: self.rawValue, second: nil)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // BlackjackCard 的属性和方法</span><br><span class="line">    let rank: Rank, suit: Suit</span><br><span class="line">    var description: String &#123;</span><br><span class="line">        var output = &quot;suit is \(suit.rawValue),&quot;</span><br><span class="line">        output += &quot; value is \(rank.values.first)&quot;</span><br><span class="line">        if let second = rank.values.second &#123;</span><br><span class="line">            output += &quot; or \(second)&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        return output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Suit 枚举用来描述扑克牌的四种花色，并用一个 Character 类型的原始值表示花色符号。</p>
+<p>Rank 枚举用来描述扑克牌从 Ace~10，以及 J、Q、K，这 13 种牌，并用一个 Int 类型的原始值表示牌的面值。（这个 Int 类型的原始值未用于 Ace、J、Q、K 这 4 种牌。）</p>
+<p>如上所述，Rank 枚举在内部定义了一个嵌套结构体 Values。结构体 Values 中定义了两个属性，用于反映只有 Ace 有两个数值，其余牌都只有一个数值：</p>
+<p>first 的类型为 Int<br>second 的类型为 Int?，或者说“可选 Int”<br>Rank 还定义了一个计算型属性 values，它将会返回一个 Values 结构体的实例。这个计算型属性会根据牌的面值，用适当的数值去初始化 Values 实例。对于 J、Q、K、Ace 这四种牌，会使用特殊数值。对于数字面值的牌，使用枚举实例的 Int 类型的原始值。</p>
+<p>BlackjackCard 结构体拥有两个属性—— rank 与 suit。它也同样定义了一个计算型属性 description，description 属性用 rank 和 suit 中的内容来构建对扑克牌名字和数值的描述。该属性使用可选绑定来检查可选类型 second 是否有值，若有值，则在原有的描述中增加对 second 的描述。</p>
+<p>因为 BlackjackCard 是一个没有自定义构造器的结构体，在结构体的逐一成员构造器中可知，结构体有默认的成员构造器，所以你可以用默认的构造器去初始化新常量 theAceOfSpades：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)</span><br><span class="line">print(&quot;theAceOfSpades: \(theAceOfSpades.description)&quot;)</span><br><span class="line">// 打印 “theAceOfSpades: suit is ♠, value is 1 or 11”</span><br></pre></td></tr></table></figure>
+<p>尽管 Rank 和 Suit 嵌套在 BlackjackCard 中，但它们的类型仍可从上下文中推断出来，所以在初始化实例时能够单独通过成员名称（.ace 和 .spades）引用枚举实例。在上面的例子中，description 属性正确地反映了黑桃 A 牌具有 1 和 11 两个值。</p>
+<h4 id="引用嵌套类型"><a href="#引用嵌套类型" class="headerlink" title="引用嵌套类型"></a>引用嵌套类型</h4><p>在外部引用嵌套类型时，在嵌套类型的类型名前加上其外部类型的类型名作为前缀：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let heartsSymbol = BlackjackCard.Suit.hearts.rawValue</span><br><span class="line">// 红心符号为 “♡”</span><br></pre></td></tr></table></figure>
+<p>对于上面这个例子，这样可以使 Suit、Rank 和 Values 的名字尽可能的短，<strong>因为它们的名字可以由定义它们的上下文来限定。</strong></p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-19-课-可选链-错误处理/" title="Swift 入门 第 19 课-可选链&amp;错误处理">Swift 入门 第 19 课-可选链&amp;错误处理</a></h2>
+                <p class="excerpt">
+                
+                使用可选链式调用代替强制展开通过在想调用的属性、方法，或下标的可选值后面放一个问号（?），可以定义一个可选链。这一点很像在可选值后面放一个叹号（!）来强制展开它的值。它们的主要区别在于当可选值为空时可选链式调用只会调用失败，然而强制展开将会触发运行时错误。
+特别地，可选链式调用的返回结果与原本的返回
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-03T08:21:31.324Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-19-课-可选链-错误处理/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
