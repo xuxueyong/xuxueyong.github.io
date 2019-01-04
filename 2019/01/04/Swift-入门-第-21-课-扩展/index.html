@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 21 课 扩展 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 21 课 扩展 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 21 课 扩展 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/04/Swift-入门-第-21-课-扩展/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-04T01:09:40.343Z" class="post-list__meta--date date">2019-01-04</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 21 课 扩展</h1>
+  </header>
+
+  <section class="post">
+    <p>扩展是为已有的类型，如 结构体、枚举、类添加新的功能。 没有权限获取原始代码的情况下扩展类型的能力。与 Object-C 的分类类似。不同的是 Swift 的扩展没有名字。</p>
+<p>Swift 中的扩展可以：</p>
+<ul>
+<li>添加计算型属性和计算型类型属性</li>
+<li>定义实例方法和类型方法</li>
+<li>提供新的构造器</li>
+<li>定义下标</li>
+<li>定义和使用新的嵌套类型</li>
+<li>使一个已有类型符合某个协议</li>
+<li>在 Swift 中，你甚至可以对协议进行扩展，提供协议要求的实现，或者添加额外的功能，从而可以让符合协议的类型拥有这些功能。你可以从协议扩展获取更多的细节。</li>
+</ul>
+<h4 id="扩展语法"><a href="#扩展语法" class="headerlink" title="扩展语法"></a>扩展语法</h4><p>用 <code>extension</code> 关键字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extension SomeType &#123;</span><br><span class="line">    // 为 SomeType 添加的新功能写到这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以通过扩展来扩展一个已有类型，使其采纳一个或多个协议。在这种情况下，无论是类还是结构体，协议名字的书写方式完全一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extension SomeType: SomeProtocol, AnotherProctocol &#123;</span><br><span class="line">    // 协议实现写到这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。</p>
+</blockquote>
+<h4 id="计算型属性"><a href="#计算型属性" class="headerlink" title="计算型属性"></a>计算型属性</h4><p>Double 添加只读的计算型实例属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">extension Double &#123;</span><br><span class="line">    var km: Double &#123; return self * 1_000.0 &#125;</span><br><span class="line">    var m : Double &#123; return self &#125;</span><br><span class="line">    var cm: Double &#123; return self / 100.0 &#125;</span><br><span class="line">    var mm: Double &#123; return self / 1_000.0 &#125;</span><br><span class="line">    var ft: Double &#123; return self / 3.28084 &#125;</span><br><span class="line">&#125;</span><br><span class="line">let oneInch = 25.4.mm</span><br><span class="line">print(&quot;One inch is \(oneInch) meters&quot;)</span><br><span class="line">// 打印 “One inch is 0.0254 meters”</span><br><span class="line">let threeFeet = 3.ft</span><br><span class="line">print(&quot;Three feet is \(threeFeet) meters&quot;)</span><br><span class="line">// 打印 “Three feet is 0.914399970739201 meters”</span><br></pre></td></tr></table></figure>
+<p>以用于所有接受 Double 值的数学计算中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let aMarathon = 42.km + 195.m</span><br><span class="line">print(&quot;A marathon is \(aMarathon) meters long&quot;)</span><br><span class="line">// 打印 “A marathon is 42195.0 meters long”</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>扩展不可以添加存储属性， 和存储类型属性。也不可以添加属性观察器。</p>
+</blockquote>
+<h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><p>扩展可以为已有类型添加构造器。 来初始化一些属性。针对于类的构造器， 只能添加便利构造器。</p>
+<blockquote>
+<p>注意：<br>针对值类型的构造器， 如果提供了属性的默认值， 且没有自定义构造器，在添加的构造器中就可以使用默认构造器和逐一成员构造器。因为原始实现的自定义构造区会覆盖掉默认构造器和逐一成员构造器。</p>
+</blockquote>
+<p>eg: 值类型扩展构造器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct Size &#123;</span><br><span class="line">    var width = 0.0, height = 0.0</span><br><span class="line">&#125;</span><br><span class="line">struct Point &#123;</span><br><span class="line">    var x = 0.0, y = 0.0</span><br><span class="line">&#125;</span><br><span class="line">struct Rect &#123;</span><br><span class="line">    var origin = Point()</span><br><span class="line">    var size = Size()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以提供一个额外的接受指定中心点和大小的构造器来扩展 Rect 结构体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">extension Rect &#123;</span><br><span class="line">    init(center: Point, size: Size) &#123;</span><br><span class="line">        let originX = center.x - (size.width / 2)</span><br><span class="line">        let originY = center.y - (size.height / 2)</span><br><span class="line">        self.init(origin: Point(x: originX, y: originY), size: size)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>扩展的构造器中调用了逐一成员构造器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let centerRect = Rect(center: Point(x: 4.0, y: 4.0),</span><br><span class="line">    size: Size(width: 3.0, height: 3.0))</span><br><span class="line">// centerRect 的原点是 (2.5, 2.5)，大小是 (3.0, 3.0)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>如果你使用扩展提供了一个新的构造器，你依旧有责任确保构造过程能够让实例完全初始化。</p>
+</blockquote>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>Int 类型的实例添加个执行对应次数任务的实例方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">extension Int &#123;</span><br><span class="line">    func repetitions(task: () -&gt; Void) &#123;</span><br><span class="line">        for _ in 0..&lt;self &#123;</span><br><span class="line">            task()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>task: () -&gt; Void， 是一个闭包， 表示没有参数， 返回值为空。<br>使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3.repetitions(&#123;</span><br><span class="line">    print(&quot;Hello!&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">// Hello!</span><br><span class="line">// Hello!</span><br><span class="line">// Hello!</span><br></pre></td></tr></table></figure>
+<p>执行了闭包中的任务 n 次</p>
+<h4 id="可变实例方法"><a href="#可变实例方法" class="headerlink" title="可变实例方法"></a>可变实例方法</h4><p>通过扩展添加的实例方法也可以修改该实例本身。结构体和枚举类型中修改 self 或其属性的方法必须将该实例方法标注为 mutating，正如来自原始实现的可变方法一样。</p>
+<p>下面的例子为 Swift 的 Int 类型添加了一个名为 square 的可变方法，用于计算原始值的平方值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">extension Int &#123;</span><br><span class="line">    mutating func square() &#123;</span><br><span class="line">        self = self * self</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var someInt = 3</span><br><span class="line">someInt.square()</span><br><span class="line">// someInt 的值现在是 9</span><br></pre></td></tr></table></figure>
+<h4 id="下标"><a href="#下标" class="headerlink" title="下标"></a>下标</h4><p>该下标 [n] 返回十进制数字从右向左数的第 n 个数字：</p>
+<ul>
+<li>123456789[0] 返回 9</li>
+<li>123456789[1] 返回 8</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">extension Int &#123;</span><br><span class="line">    subscript(digitIndex: Int) -&gt; Int &#123;</span><br><span class="line">        var decimalBase = 1</span><br><span class="line">        for _ in 0..&lt;digitIndex &#123;</span><br><span class="line">            decimalBase *= 10</span><br><span class="line">        &#125;</span><br><span class="line">        return (self / decimalBase) % 10</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">746381295[0]</span><br><span class="line">// 返回 5</span><br><span class="line">746381295[1]</span><br><span class="line">// 返回 9</span><br><span class="line">746381295[2]</span><br><span class="line">// 返回 2</span><br><span class="line">746381295[8]</span><br><span class="line">// 返回 7</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套类型"><a href="#嵌套类型" class="headerlink" title="嵌套类型"></a>嵌套类型</h4><p>Int 类型嵌套 枚举 Kind， 扩展计算属性 kind</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">extension Int &#123;</span><br><span class="line">    enum Kind &#123;</span><br><span class="line">        case negative, zero, positive</span><br><span class="line">    &#125;</span><br><span class="line">    var kind: Kind &#123;</span><br><span class="line">        switch self &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            return .zero</span><br><span class="line">        case let x where x &gt; 0:</span><br><span class="line">            return .positive</span><br><span class="line">        default:</span><br><span class="line">            return .negative</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>嵌套的目的， 限制了作用域， 不需要命名很长的字段， 使用 Int.Kind 可以在其他地方使用枚举类型。</p>
+</blockquote>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-20-课-类型转换/" title="Swift 入门 第 20 课-类型转换&amp;嵌套类型">Swift 入门 第 20 课-类型转换&amp;嵌套类型</a></h2>
+                <p class="excerpt">
+                
+                为类型转换定义类层次新的基类 MediaItem
+123456class MediaItem &amp;#123;    var name: String    init(name: String) &amp;#123;        self.name = name    &amp;#125;&amp;#125;
+子类 Movi
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-03T09:19:56.120Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-20-课-类型转换/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
