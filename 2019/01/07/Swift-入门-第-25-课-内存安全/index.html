@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 25 课 内存安全 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 25 课 内存安全 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 25 课 内存安全 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/07/Swift-入门-第-25-课-内存安全/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-07T03:54:37.697Z" class="post-list__meta--date date">2019-01-07</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 25 课 内存安全</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="理解内存访问冲突"><a href="#理解内存访问冲突" class="headerlink" title="理解内存访问冲突"></a>理解内存访问冲突</h4><p>当同时访问同一块内存时， 发生多个访问结果不一致和不可预计的行为。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 向 one 所在的内存区域发起一次写操作</span><br><span class="line">var one = 1</span><br><span class="line"></span><br><span class="line">// 向 one 所在的内存区域发起一次读操作</span><br><span class="line">print(&quot;We&apos;re number \(one)!&quot;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>在并发和多线程中同样存在问题， 我们这里讨论的是单线程的问题。 对于单线程的内存访问冲突， Swift 会在编译时和运行时发生错误。 关于多线程和并发， 可以使用  <a href="https://developer.apple.com/documentation/code_diagnostics/thread_sanitizer" target="_blank" rel="noopener">Thread Sanitizer</a> 去帮助检测多线程的冲突。</p>
+</blockquote>
+<h4 id="内存访问的典型状况"><a href="#内存访问的典型状况" class="headerlink" title="内存访问的典型状况"></a>内存访问的典型状况</h4><p>内存访问冲突有三种典型的状况：访问是读还是写，访问的时长，以及被访问的存储地址。特别是，当你有两个访问符合下列的情况：</p>
+<ul>
+<li>至少有一个是写访问</li>
+<li>它们访问的是同一个存储地址</li>
+<li>它们的访问在时间线上部分重叠</li>
+</ul>
+<p>读和写访问的区别很明显：一个写访问会改变存储地址，而读操作不会。存储地址会指向真正访问的位置 —— 例如，一个变量，常量或者属性。内存访问的时长要么是瞬时的，要么是长期的。</p>
+<p>如果一个访问不可能在其访问期间被其它代码访问，那么就是一个瞬时访问。基于这个特性，两个瞬时访问是不可能同时发生。大多数内存访问都是瞬时的。例如，下面列举的所有读和写访问都是瞬时的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func oneMore(than number: Int) -&gt; Int &#123;</span><br><span class="line">    return number + 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var myNumber = 1</span><br><span class="line">myNumber = oneMore(than: myNumber)</span><br><span class="line">print(myNumber)</span><br><span class="line">// 打印 &quot;2&quot;</span><br></pre></td></tr></table></figure>
+<p>一个长期访问可以被别的长期访问或瞬时访问重叠。重叠的访问主要出现在使用 in-out 参数的函数和方法或者结构体的 mutating 方法里。</p>
+<h4 id="In-Out-参数的访问冲突"><a href="#In-Out-参数的访问冲突" class="headerlink" title="In-Out 参数的访问冲突"></a>In-Out 参数的访问冲突</h4><p>长期访问的存在会造成一个结果，你不能在原变量以 in-out 形式传入后访问原变量，即使作用域原则和访问权限允许 —— 任何访问原变量的行为都会造成冲突。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var stepSize = 1</span><br><span class="line"></span><br><span class="line">func increment(_ number: inout Int) &#123;</span><br><span class="line">    number += stepSize</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">increment(&amp;stepSize)</span><br><span class="line">// 错误：stepSize 访问冲突</span><br></pre></td></tr></table></figure>
+<p>在上面的代码里，stepSize 是一个全局变量，并且它可以在 increment(_:) 里正常访问。然而，对于 stepSize 的读访问与 number 的写访问重叠了。number 和 stepSize 都指向了同一个存储地址。同一块内存的读和写访问重叠了，就此产生了冲突。</p>
+<p>解决这个冲突的一种方式，是复制一份 stepSize 的副本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 复制一份副本</span><br><span class="line">var copyOfStepSize = stepSize</span><br><span class="line">increment(&amp;copyOfStepSize)</span><br><span class="line"></span><br><span class="line">// 更新原来的值</span><br><span class="line">stepSize = copyOfStepSize</span><br><span class="line">// stepSize 现在的值是 2</span><br></pre></td></tr></table></figure>
+<p>长期写访问的存在还会造成另一种结果，往同一个函数的多个 in-out 参数里传入同一个变量也会产生冲突，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func balance(_ x: inout Int, _ y: inout Int) &#123;</span><br><span class="line">    let sum = x + y</span><br><span class="line">    x = sum / 2</span><br><span class="line">    y = sum - x</span><br><span class="line">&#125;</span><br><span class="line">var playerOneScore = 42</span><br><span class="line">var playerTwoScore = 30</span><br><span class="line">balance(&amp;playerOneScore, &amp;playerTwoScore)  // 正常</span><br><span class="line">balance(&amp;playerOneScore, &amp;playerOneScore)</span><br><span class="line">// 错误：playerOneScore 访问冲突</span><br></pre></td></tr></table></figure>
+<p>上面的 balance(_:_:) 函数会将传入的两个参数平均化。将 playerOneScore 和 playerTwoScore 作为参数传入不会产生错误 —— 有两个访问重叠了，但它们访问的是不同的内存位置。相反，将 playerOneScore 作为参数同时传入就会产生冲突，因为它会发起两个写访问，同时访问同一个的存储地址。</p>
+<h4 id="方法里-self-的访问冲突"><a href="#方法里-self-的访问冲突" class="headerlink" title="方法里 self 的访问冲突"></a>方法里 self 的访问冲突</h4><p>例如，想象一下这么一个游戏，每一个玩家都有血量，受攻击时血量会下降，并且有敌人的数量，使用特殊技能时会减少敌人数量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct Player &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    var health: Double</span><br><span class="line">    var energy: Int</span><br><span class="line">    </span><br><span class="line">    static let maxHealth = 10.0</span><br><span class="line">    mutating func restoreHealth() &#123;</span><br><span class="line">        health = Player.maxHealth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面的 shareHealth(with:) 方法接受另一个 Player 的实例作为 in-out 参数，产生了访问重叠的可能性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">extension Player &#123;</span><br><span class="line">    mutating func shareHealth(with teammate: inout Player) &#123;</span><br><span class="line">        balance(&amp;teammate.health, &amp;health)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func balance(_ a: inout Double, _ b: inout Double) &#123;</span><br><span class="line">    if a == b &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125; else if a &gt; b &#123;</span><br><span class="line">        let ave = (a - b) / 2</span><br><span class="line">        b += ave</span><br><span class="line">        a -= ave</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        let ave = (b - a) / 2</span><br><span class="line">        a += ave</span><br><span class="line">        b -= ave</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子里，调用 shareHealth(with:) 方法去把 oscar 玩家的血量分享给 maria 玩家并不会造成冲突。在方法调用期间会对 oscar 发起写访问，因为在 mutating 方法里 self 就是 oscar，同时对于 maria 也会发起写访问，因为 maria 作为 in-out 参数传入。过程如下，它们会访问内存的不同位置。即使两个写访问重叠了，它们也不会冲突。</p>
+<p>当然，如果你将 oscar 作为参数传入 shareHealth(with:) 里，就会产生冲突：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">oscar.shareHealth(with: &amp;oscar)</span><br><span class="line">// 错误：oscar 访问冲突</span><br></pre></td></tr></table></figure>
+<h4 id="属性的访问冲突"><a href="#属性的访问冲突" class="headerlink" title="属性的访问冲突"></a>属性的访问冲突</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">balance(&amp;playerInformation.health, &amp;playerInformation.energy)</span><br><span class="line">// 错误：playerInformation 的属性访问冲突</span><br><span class="line">print(playerInformation)</span><br><span class="line">        </span><br><span class="line">func balance(_ health: inout Int, _ energy: inout Int) &#123;</span><br><span class="line">	playerInformation.health = health</span><br><span class="line">	playerInformation.energy = energy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 因为元组是值类型的， 修改一个属性， 相当于整个值发生了改变， 是对整个值占有写权限时， 做的修改。所以同时有两个写操作， 会有访问重叠， 造成运行时错误。</p>
+<p> 结构体是本地变量的值，而非全局变量.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">struct Player &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    var health: Int</span><br><span class="line">    var energy: Int</span><br><span class="line">    </span><br><span class="line">    static let maxHealth = 10</span><br><span class="line">    mutating func restoreHealth() &#123;</span><br><span class="line">        health = Player.maxHealth</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    mutating func balance(_ health: inout Int, _ energy: inout Int) &#123;</span><br><span class="line">        self.health = health</span><br><span class="line">        self.energy = energy</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func someFunction() &#123;</span><br><span class="line">   var oscar = Player(name: &quot;Oscar&quot;, health: 20, energy: 15)</span><br><span class="line">   var copyOscar = oscar</span><br><span class="line">   copyOscar.balance(&amp;oscar.health, &amp;oscar.energy)  // 正常</span><br><span class="line">   print(oscar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问有重叠， 但是不会运行时错误。</p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/07/Swift-入门-第-24-课-自动引用计数/" title="Swift 入门 第 24 课 自动引用计数">Swift 入门 第 24 课 自动引用计数</a></h2>
+                <p class="excerpt">
+                
+                ####自动引用计数的工作机制Swift 使用 ARC(automatic reference counting) 来管理应用的内存分配和释放。当创建一个新的实例的时候， 应用分配内存来存储该实例相关的类型信息， 以及该实例的存储属性的值。如果实例不再被使用时， 内存将被释放， 可以将内存应用于其他
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-07T02:15:12.595Z" class="post-list__meta--date date">2019-01-07</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/07/Swift-入门-第-24-课-自动引用计数/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
