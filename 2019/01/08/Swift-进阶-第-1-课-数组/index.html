@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 进阶 第 1 课  数组 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 进阶 第 1 课  数组 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 进阶 第 1 课  数组 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/08/Swift-进阶-第-1-课-数组/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-08T08:30:17.040Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 进阶 第 1 课  数组</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h4><p><code>例1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x = [1,2,3] vary=x y.append(4)</span><br><span class="line">y // [1, 2, 3, 4] x // [1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<p><code>例2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a = NSMutableArray(array: [1,2,3])</span><br><span class="line">// 我们不不想让 b 发⽣生改变</span><br><span class="line">let b: NSArray = a</span><br><span class="line">// 但是事实上它依然能够被 a 影响并改变</span><br><span class="line">a.insert(4, at: 3) b // ( 1, 2, 3, 4</span><br></pre></td></tr></table></figure></p>
+<p><code>例3</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let c = NSMutableArray(array: [1,2,3]) // 我们不不想让 d 发⽣生改变</span><br><span class="line">let d = c.copy() as! NSArray c.insert(4, at: 3)</span><br><span class="line">d // ( 1, 2, 3 )</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>从三个例子, 可以得出结论, swift 是值拷贝, 新值和旧值是两份不一样的数据. OC是引用类型的数据, 如果赋值不想被引用, 使用copy关键字, 进行深拷贝操作.<br>创建如此多的复制有可能造成性能问题，不过实际上 Swift 标准库中的所有集合类型都使用了 <strong>“写时复制”</strong> 这一技术，它能够保证只在必要的时候对数据进行复制。在我们的例子中，直到 y.append 被调用的之前，x 和 y 都将共享内部的存储</p>
+</blockquote>
+<h4 id="可选值"><a href="#可选值" class="headerlink" title="可选值"></a>可选值</h4><p>→ 想要迭代数组?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for x in array</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要迭代除了第一个元素以外的数组其余部分?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for x in array.dropFirst()</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要迭代除了最后 5 个元素以外的数组?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for x in array.dropLast(5)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要列举数组中的元素和对应的下标?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (num, element) in collection.enumerated()</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找一个指定元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let idx = array.index(of: element)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找第一个指定元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let i = a.firstIndex(of: element)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找最后一个指定元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let i = a.lastIndex(of: element)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找一个指定条件元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let i = a.index(where: &#123; $0 &lt; 0 &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找第一个指定条件元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let i = a.firstIndex(where: &#123; $0 &lt; 0 &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>→ 想要寻找最后一个指定条件元素的位置?<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let i = a.lastIndex(where: &#123; $0 &lt; 0 &#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="变形"><a href="#变形" class="headerlink" title="变形"></a>变形</h4><p><code>map</code><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let aa = [1, -2, -4, -5]</span><br><span class="line">let bb = aa.map(&#123; $0 * $0 &#125;)</span><br><span class="line">print(bb)</span><br><span class="line">// [1, 4, 16, 25]</span><br></pre></td></tr></table></figure></p>
+<p><code>􏰁flatMap</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let aa = [[1, -2], [-4, -5]]</span><br><span class="line">        let bb = aa.flatMap &#123;</span><br><span class="line">            $0.map &#123;</span><br><span class="line">                $0 * $0 </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        print(bb)</span><br><span class="line">// [1, 4, 16, 25]</span><br></pre></td></tr></table></figure></p>
+<h4 id="过滤-filter"><a href="#过滤-filter" class="headerlink" title="过滤 filter"></a>过滤 filter</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let numbers = [30, 40, 20, 30, 30, 60, 10]</span><br><span class="line">        let bb = numbers.filter &#123; $0 &gt; 20 &#125;</span><br><span class="line">        print(bb)</span><br><span class="line">// [30, 40, 30, 30, 60]</span><br></pre></td></tr></table></figure>
+<h4 id="累计-reduce"><a href="#累计-reduce" class="headerlink" title="累计 reduce"></a>累计 reduce</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let a = [1, 3, 5]</span><br><span class="line">        // 求和</span><br><span class="line">        let sum = a.reduce(0) &#123;  // 0 代表初始值</span><br><span class="line">            $0 + $1</span><br><span class="line">        &#125;</span><br><span class="line">        // 求乘积</span><br><span class="line">        let mutil = a.reduce(1) &#123;  // 1 代表初始值</span><br><span class="line">            $0 * $1</span><br><span class="line">        &#125;</span><br><span class="line">        print(sum, mutil)</span><br><span class="line">        // 9, 15</span><br><span class="line"></span><br><span class="line">// 求各个字母的数量 (字典)</span><br><span class="line">  let letters = &quot;abracadabra&quot;</span><br><span class="line">        let letterCount = letters.reduce(into: [:]) &#123;</span><br><span class="line">            $0[$1, default:0] += 1</span><br><span class="line">        &#125;</span><br><span class="line">        print(letterCount)</span><br><span class="line">// [&quot;r&quot;: 2, &quot;c&quot;: 1, &quot;d&quot;: 1, &quot;b&quot;: 2, &quot;a&quot;: 5]</span><br></pre></td></tr></table></figure>
+<h4 id="列出每个元素-forEach"><a href="#列出每个元素-forEach" class="headerlink" title="列出每个元素 forEach"></a>列出每个元素 forEach</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let letters = &quot;abracadabra&quot;</span><br><span class="line">        letters.forEach &#123; (char) in</span><br><span class="line">            print(char)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 sort"></a>排序 sort</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let letters = &quot;abracadabra&quot;</span><br><span class="line">        let sortedLetters = letters.sorted(by: &lt;)</span><br><span class="line">        print(sortedLetters)</span><br><span class="line">// [&quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;r&quot;, &quot;r&quot;]</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">#### 划分 partition</span><br></pre></td></tr></table></figure>
+<p>var numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let p = numbers.partition(by: { $0 &gt; 30 })<br>        print(p)<br>        // 5</p>
+<pre><code>let a = numbers[..&lt;p]
+let b = numbers[p...]
+print(a, b)
+// [30, 10, 20, 30, 30] [60, 40]
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 是否包含 contains</span><br></pre></td></tr></table></figure>
+<p>let numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let hh = numbers.contains(20)<br>        print(hh)<br>        // true</p>
+<p>let numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let hh = numbers.contains { $0 == 60 }<br>        print(hh)<br>// true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 最小值, 最大值 min, max</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let minValue = numbers.min()<br>        let maxValue = numbers.max()<br>        print(minValue ?? 0, maxValue ?? 0)<br>        // 10 60<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 是否相等 elementsEqual</span><br></pre></td></tr></table></figure></p>
+<p>let numbers0 = [1, 2, 3, 4, 5]<br>        let numbers1 = [1, 2, 3, 4]<br>        let isEqual = numbers0.elementsEqual(numbers1)<br>        print(isEqual)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 开始部分 相等 starts</span><br></pre></td></tr></table></figure></p>
+<p>let numbers0 = [1, 2, 3, 4, 5, 6, 7]<br>        let numbers1 = [1, 2, 3, 4, 5]<br>        let isEqual = numbers0.starts(with: numbers1)<br>        print(isEqual)<br>// true<br>// numbers1 元素个数小于等于 numbers0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 以某个元素分割 split</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [1, 3, 5, 2]<br>        let slice1 = numbers.split(separator: 2)<br>        let slice2 = numbers.split { (fo) -&gt; Bool in<br>            return fo &gt; 2<br>        }<br>        print(slice1)<br>// [ArraySlice([1, 3, 5])]<br>print(slice2)<br>//  [ArraySlice([1]), ArraySlice([2])]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 第一个输出结果, 可以看到是以数字2切割, 形成两个数组切片.</span><br><span class="line">- 第二个输出结果, 可以看到是以条件, 将大于2的元素都切割出去了.</span><br><span class="line"></span><br><span class="line"> #### 取前缀元素 prefix</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [1, 3, 5, 2]<br>        let preNums = numbers.prefix(3)<br>        print(preNums)<br>// [1, 3, 5]</p>
+<p>let numbers = [1, 3, 5, 2]<br>        let preNums = numbers.prefix(upTo: 5)<br>        print(preNums)<br>// 崩溃 数组越界 最大为4 (元素个数)</p>
+<p>let numbers = [1, 3, 5, 2]<br>        let preNums = numbers.prefix(through: 2)<br>        print(preNums)<br>// [1, 3, 5]   这里的数字为索引, 大于3 也会崩溃</p>
+<p>let numbers = [4, 1, 3, 2]<br>        let preNums = numbers.prefix { (fo) -&gt; Bool in<br>            return fo &gt; 2<br>        }<br>        print(preNums)<br>// [4]   是指元素大于2  前面的元素, 只要出现小于2的数字就停止<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 取后缀元素 suffix</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [4, 1, 3, 2]<br>        let sufNums = numbers.suffix(5)<br>        print(sufNums)<br>// [4, 1, 3, 2]    数字指个数, 不会崩溃</p>
+<p>let numbers = [4, 1, 3, 2]<br>        let sufNums = numbers.suffix(from: 2)<br>        print(sufNums)<br>// [3, 2]    from 数字指索引, 会崩溃<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 删除前面元素 dropFirst</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [4, 1, 3, 2]<br>        let sufNums = numbers.dropFirst()<br>        print(sufNums)<br>// [1,3, 2]<br>// numbers 数组不会改变  所以let 不会有编译错误</p>
+<p>let numbers = [4, 1, 3, 2]<br>        let sufNums = numbers.dropFirst(2)<br>        print(sufNums)<br>// [3, 2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 删除第一个元素 removeFirst</span><br></pre></td></tr></table></figure></p>
+<p>var numbers = [4, 1, 3, 2]<br>        let sufNums = numbers.removeFirst()<br>        print(numbers)<br>        print(sufNums)<br>// [1, 3, 2]<br>// 4<br>// numbers 用var 修饰,  numbers 发生了改变, 并且返回了删除的第一个元素, 数组为空时, 会崩溃</p>
+<p>var numbers = [4, 1, 3, 2]<br>        numbers.removeFirst(2)<br>        print(numbers)<br>// [3, 2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 删除后面元素 dropLast</span><br></pre></td></tr></table></figure></p>
+<p>let numbers = [4, 1, 3, 2]<br>        let dropedNums = numbers.dropLast()<br>        print(dropedNums)<br>// [4, 1, 3]</p>
+<p>let numbers = [4, 1, 3, 2]<br>        let dropedNums = numbers.dropLast(3)<br>        print(dropedNums)<br>// [4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 删除后面元素  removeLast</span><br></pre></td></tr></table></figure></p>
+<p>var numbers = [4, 1, 3, 2]<br>        let lastNum = numbers.removeLast()<br>        print(numbers)<br>        print(lastNum)<br>// [4, 1, 3]<br>// 2</p>
+<p>var numbers = [4, 1, 3, 2]<br>        numbers.removeLast(2)<br>        print(numbers)<br>// [4, 1]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> #### 元素累加(累乘, 除 减 等)  accumulate</span><br><span class="line">`和reduce类似, 不同的是, 可以产生一个新数组, 数组的元素为每一步累积的值`</span><br></pre></td></tr></table></figure></p>
+<p>extension Array {<br>    func accumulate<t>(_ initial: T, _ nextSum: (T, Element) -&gt; T) -&gt; [T] {<br>        var sum = initial<br>        return map { next in<br>            sum = nextSum(sum, next)<br>            return sum<br>        }<br>    }<br>}</t></p>
+<p>let numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let hh = numbers.accumulate(0, +)<br>        print(hh)<br>// [31, 71, 91, 121, 151, 211, 221]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### stride </span><br><span class="line">产生可迭代的浮点数 或者迭代不是 只+1</span><br></pre></td></tr></table></figure></p>
+<p>for f in stride(from: 0.1, through: 1.0, by: 0.4) {<br>  print(f)<br>}</p>
+<p>for f in stride(from: 0.1, to: 1.0, by: 0.3) {<br>  print(f)<br>}</p>
+<p>// through 和 to 的区别是是否包含最后一个值 <strong>through包含</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 遵守序列协议</span><br></pre></td></tr></table></figure></p>
+<p>struct PrefixIterator: IteratorProtocol {<br>    let string: String<br>    var offSet: String.Index</p>
+<pre><code>init(_ string: String) {
+   self.string = string
+   offSet = string.startIndex
+}
+
+mutating func next() -&gt; Substring? {
+   guard offSet &lt; string.endIndex else {
+       return nil
+   }
+   offSet = self.string.index(after: offSet)
+   return string[..&lt;offSet]
+}
+</code></pre><p>}</p>
+<p>// 迭代器使用<br>var prefixIterator = PrefixIterator(“hello”)<br>while let i = prefixIterator.next() {<br>  print(i)<br>}</p>
+<p>struct PrefixSequence: Sequence {<br>    let string: String</p>
+<pre><code>func makeIterator() -&gt; PrefixIterator {
+    return PrefixIterator(string)
+}
+</code></pre><p>}</p>
+<p>// 序列使用<br>let s = PrefixSequence(string: “hello world”).map { $0.uppercased() }<br>print(s)<br><code>`</code><br>【参考*王巍】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/08/Swift-进阶-第-2-课-字典/" title="Swift 进阶 第 2 课  字典">Swift 进阶 第 2 课  字典</a></h2>
+                <p class="excerpt">
+                
+                英文数字转 阿拉伯数字123456let digitWords = [&amp;quot;one&amp;quot;, &amp;quot;two&amp;quot;, &amp;quot;three&amp;quot;, &amp;quot;four&amp;quot;, &amp;quot;five&amp;quot;]let wordToValue = Dictionar
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-08T08:30:43.708Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/08/Swift-进阶-第-2-课-字典/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/08/Swift-入门-第-27-课-高级运算符/" title="Swift 入门 第 27 课 高级运算符">Swift 入门 第 27 课 高级运算符</a></h2>
+                <p class="excerpt">
+                
+                位运算符位运算符可以操作数据结构中每个独立的比特位。它们通常被用在底层开发中，比如图形编程和创建设备驱动。位运算符在处理外部资源的原始数据时也十分有用，比如对自定义通信协议传输的数据进行编码和解码。
+Swift 支持 C 语言中的全部位运算符，接下来会一一介绍。
+按位取反运算符12let initi
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-08T06:28:20.470Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/08/Swift-入门-第-27-课-高级运算符/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>

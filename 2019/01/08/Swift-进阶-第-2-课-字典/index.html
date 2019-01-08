@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 进阶 第 2 课  字典 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 进阶 第 2 课  字典 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 进阶 第 2 课  字典 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/08/Swift-进阶-第-2-课-字典/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-08T08:30:43.708Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 进阶 第 2 课  字典</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="英文数字转-阿拉伯数字"><a href="#英文数字转-阿拉伯数字" class="headerlink" title="英文数字转 阿拉伯数字"></a>英文数字转 阿拉伯数字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let digitWords = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;]</span><br><span class="line">let wordToValue = Dictionary(uniqueKeysWithValues: zip(digitWords, 1...5))</span><br><span class="line">print(wordToValue[&quot;three&quot;]!)</span><br><span class="line">// Prints &quot;3&quot;</span><br><span class="line">print(wordToValue)</span><br><span class="line">// [&quot;two&quot;: 2, &quot;five&quot;: 5, &quot;three&quot;: 3, &quot;four&quot;: 4, &quot;one&quot;: 1]</span><br></pre></td></tr></table></figure>
+<h4 id="统计出一个字符串中各个字符出现的个数"><a href="#统计出一个字符串中各个字符出现的个数" class="headerlink" title="统计出一个字符串中各个字符出现的个数"></a>统计出一个字符串中各个字符出现的个数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extension Sequence where Element: Hashable &#123; var frequencies: [Element:Int] &#123;</span><br><span class="line">let frequencyPairs = self.map &#123; ($0, 1) &#125;</span><br><span class="line">return Dictionary(frequencyPairs, uniquingKeysWith: +) &#125;</span><br><span class="line">&#125;</span><br><span class="line">let frequencies = &quot;hello&quot;.frequencies // [&quot;e&quot;: 1, &quot;o&quot;: 1, &quot;l&quot;: 2, &quot;h&quot;: 1]</span><br><span class="line">frequencies.filter &#123; $0.value &gt; 1 &#125; // [&quot;l&quot;: 2]</span><br></pre></td></tr></table></figure>
+<h4 id="字典合并-merge"><a href="#字典合并-merge" class="headerlink" title="字典合并 merge"></a>字典合并 merge</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">enum Setting &#123;</span><br><span class="line">   case text(String)</span><br><span class="line">   case int(Int)</span><br><span class="line">   case bool(Bool)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let setingDic: [String: Setting] = [</span><br><span class="line">  &quot;Airplane Mode&quot;: .bool(true),</span><br><span class="line">  &quot;Name&quot;: .text(&quot;My iPhone&quot;),</span><br><span class="line">  &quot;hh&quot;: .int(27)</span><br><span class="line">]</span><br><span class="line">        </span><br><span class="line">var mutSetDic = setingDic</span><br><span class="line">let overSettingDic: [String: Setting] = [</span><br><span class="line">  &quot;hh&quot;: .int(28)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">mutSetDic.merge(overSettingDic) &#123; (s0, s1) -&gt; Setting in</span><br><span class="line">  return s1</span><br><span class="line">&#125;</span><br><span class="line">print(mutSetDic)</span><br></pre></td></tr></table></figure>
+<h4 id="字典变形-mapValues"><a href="#字典变形-mapValues" class="headerlink" title="字典变形  mapValues"></a>字典变形  mapValues</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let setingDic: [String: Setting] = [</span><br><span class="line">  &quot;Airplane Mode&quot;: .bool(true),</span><br><span class="line">  &quot;Name&quot;: .text(&quot;My iPhone&quot;),</span><br><span class="line">  &quot;hh&quot;: .int(28)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">let ff = mutSetDic.mapValues &#123; (set) -&gt; String in</span><br><span class="line">	  switch set &#123;</span><br><span class="line">	  case let .text(text):</span><br><span class="line">	      return text</span><br><span class="line">	  case let .int(int):</span><br><span class="line">	      return String(int)</span><br><span class="line">	  case let .bool(bool):</span><br><span class="line">	      return String(bool)</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br><span class="line">print(ff)</span><br><span class="line">// [&quot;Name&quot;: &quot;My iPhone&quot;, &quot;hh&quot;: &quot;28&quot;, &quot;Airplane Mode&quot;: &quot;true&quot;]</span><br></pre></td></tr></table></figure>
+<h4 id="Hashable-要求"><a href="#Hashable-要求" class="headerlink" title="Hashable 要求"></a>Hashable 要求</h4><p>字典其实是哈希表。字典通过键的 hashValue 来为每个键指定一个位置，以及它所对应的存<br>储。这也就是 Dictionary 要求它的 Key 类型需要遵守 Hashable 协议的原因.</p>
+<p>标准库中所有的基本数据类型都是遵守 Hashable 协议的，它们包括字符串，整数，浮点数以及布尔值。不带 有关联值的枚举类型也会自动遵守 Hashable。</p>
+<p>如果你想要将自定义的类型用作字典的键，那么你必须手动为你的类型添加 Hashable 并满足 它，这需要你实现 hashValue 属性。另外，因为 Hashable 本身是对 Equatable 的扩展，因此 你还需要为你的类型重载 == 运算符。你的实现必须保证哈希不变原则:两个同样的实例 (由你 实现的 == 定义相同)，必须拥有同样的哈希值。不过反过来不必为真:两个相同哈希值的实例 不一定需要相等。不同的哈希值的数量是有限的，然而很多可以被哈希的类型 (比如字符串) 的 个数是无穷的。</p>
+<p>哈希值可能重复这一特性，意味着 Dictionary 必须能够处理哈希碰撞。不必说，优秀的哈希算 法总是能给出较少的碰撞，这将保持集合的性能特性。理想状态下，我们希望得到的哈希值在 整个整数范围内平均分布。在极端的例子下，如果你的实现对所有实例返回相同的哈希值 (比如 0)，那么这个字典的查找性能将下降到 O(n)。</p>
+<p>优秀哈希算法的第二个特质是它应该很快。记住，在字典中进行插入，移除，或者查找时，这 些哈希值都要被计算。如果你的 hashValue 实现要消耗太多时间，那么它很可能会拖慢你的程 序，让你从字典的 O(1) 特性中得到的好处损失殆尽。<br>写一个能同时做到这些要求的哈希算法并不容易。不过好消息是，我们很快在绝大部分情况下 不再需要自己动手计算哈希了。一个关于自动满足Equatable 和Hashable 的提案已经被接受了。一旦这个特性被实现并且合并，我们就可以让编译器自动为我们的自定义类型生成满足 Equatable 和 Hashable 协议的代码。</p>
+<p>最后，当你使用不具有值语义的类型 (比如可变的对象) 作为字典的键时，需要特别小心。如果 你在将一个对象用作字典键后，改变了它的内容，它的哈希值和/或相等特性往往也会发生改 变。这时候你将无法再在字典中找到它。这时字典会在错误的位置存储对象，这将导致字典内 部存储的错误。对于值类型来说，因为字典中的键不会和复制的值共用存储，因此它也不会被 从外部改变，所以不存在这个的问题。</p>
+<p>【参考*王巍】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/08/Swift-进阶-第-1-课-数组/" title="Swift 进阶 第 1 课  数组">Swift 进阶 第 1 课  数组</a></h2>
+                <p class="excerpt">
+                
+                可变性例112var x = [1,2,3] vary=x y.append(4)y // [1, 2, 3, 4] x // [1, 2, 3]
+例212345let a = NSMutableArray(array: [1,2,3])// 我们不不想让 b 发⽣生改变let b: NSArray
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-08T08:30:17.040Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/08/Swift-进阶-第-1-课-数组/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>

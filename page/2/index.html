@@ -150,6 +150,32 @@
   
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-19-课-可选链-错误处理/" title="link to post.title">Swift 入门 第 19 课-可选链&amp;错误处理</a></h2>
+      <p class="excerpt">
+    
+      使用可选链式调用代替强制展开通过在想调用的属性、方法，或下标的可选值后面放一个问号（?），可以定义一个可选链。这一点很像在可选值后面放一个叹号（!）来强制展开它的值。它们的主要区别在于当可选值为空时可选链式调用只会调用失败，然而强制展开将会触发运行时错误。
+特别地，可选链式调用的返回结果与原本的返回结果具有相同的类型，但是被包装成了一个可选值。例如，使用可选链式调用访问属性，当可选链式调用成功时，
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2019-01-03T08:21:31.324Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-19-课-可选链-错误处理/">继续阅读</a></div>
+      <hr class="post-list__divider">
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-18-课-析构过程/" title="link to post.title">Swift 入门 第 18 课-析构过程</a></h2>
+      <p class="excerpt">
+    
+      析构过程原理Swift 会自动释放不再需要的实例以释放资源。如自动引用计数章节中所讲述，Swift 通过自动引用计数（ARC) 处理实例的内存管理。通常当你的实例被释放时不需要手动地去清理。但是，当使用自己的资源时，你可能需要进行一些额外的清理。例如，如果创建了一个自定义的类来打开一个文件，并写入一些数据，你可能需要在类实例被释放之前手动去关闭该文件。
+在类的定义中，每个类最多只能有一个析构器，而
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2019-01-03T07:56:29.893Z" class="post-list__meta--date date">2019-01-03</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/03/Swift-入门-第-18-课-析构过程/">继续阅读</a></div>
+      <hr class="post-list__divider">
+    </li>
+  
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2019/01/03/Swift-入门-第-17-课-构造过程/" title="link to post.title">Swift 入门 第 17 课-构造过程</a></h2>
       <p class="excerpt">
     
@@ -279,36 +305,6 @@ Swift 的枚举是一等（first-class）类型。它支持
     </li>
   
     
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2018/12/27/Swift-入门-第-9-课-函数/" title="link to post.title">Swift 入门 第 9 课 函数</a></h2>
-      <p class="excerpt">
-    
-      函数是一个完成独立功能的代码块， 名称可以表示出函数的功能，且名称可以在其他需要调用的地方使用。
-Swift 提供了无参函数、内部参数函数、外部参数函数（函数可以修改传入参数的值）、有默认值的函数（可以简化函数的调用）
-Swift 每个函数都有参数类型和返回值类型。 你可以将函数当做像一个变量类型来处理， 这样就可以将函数当做其他函数的参数，可以当做其他函数的返回值。函数的定义可以写在其他函数中，
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2018-12-27T02:14:23.308Z" class="post-list__meta--date date">2018-12-27</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/27/Swift-入门-第-9-课-函数/">继续阅读</a></div>
-      <hr class="post-list__divider">
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2018/12/26/Swift-入门-第-8-课-控制流/" title="link to post.title">Swift 入门 第 8 课 控制流</a></h2>
-      <p class="excerpt">
-    
-      for infor in 可以用来遍历 数组、字典、字符串、集合（Set）、区间（Range）等。
-使用数字范围做个次幂的例子 2 的 6 次幂
-12345678let base = 2let power = 6var answer = 1for _ in 1...power &amp;#123;	answer *= base&amp;#125;print(answer)// 64
-eg: 举个时钟划线的例子
-1
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2018-12-26T08:12:49.537Z" class="post-list__meta--date date">2018-12-26</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2018/12/26/Swift-入门-第-8-课-控制流/">继续阅读</a></div>
-      <hr class="post-list__divider">
-    </li>
-  
-    
   </ol>
 
 
@@ -316,7 +312,7 @@ eg: 举个时钟划线的例子
     
       <a class="older-posts pagination__newer btn btn-small btn-tertiary" href="/#blog">&larr; Prev</a>
     
-    <span class="pagination__page-number">  2 / 3 </span>
+    <span class="pagination__page-number">  2 / 4 </span>
     
       <a class="older-posts pagination__older btn btn-small btn-tertiary" href="/page/3/">Next &rarr;</a>
     
