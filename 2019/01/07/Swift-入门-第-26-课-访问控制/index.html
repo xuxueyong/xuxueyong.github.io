@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 26 课 访问控制 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 26 课 访问控制 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 26 课 访问控制 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/07/Swift-入门-第-26-课-访问控制/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-07T06:20:48.902Z" class="post-list__meta--date date">2019-01-07</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 26 课 访问控制</h1>
+  </header>
+
+  <section class="post">
+    <p>控制代码的访问级别， 可以隐藏代码的一些实现细节。并可以为其他人提供接口。</p>
+<p>可以给类、结构体、枚举设置访问级别， 也可以给具体的属性、方法设置访问级别。</p>
+<p>Swift 给某些场景提供了默认的访问级别， 不需要显示的声明访问级别。</p>
+<p>其实，如果只是开发一个单一 target 的应用程序，我们完全可以不用显式声明代码的访问级别。</p>
+<h4 id="模块和源文件"><a href="#模块和源文件" class="headerlink" title="模块和源文件"></a>模块和源文件</h4><p>Swift 的访问控制模型基于模块和源文件这两个概念。</p>
+<p>模块是指独立的代码单元， 作为框架和独立的应用程序构建和发布。如果为某一功能或者一些常用的工具类打包成一个框架， 这就成为一个独立的代码单元， 称为 Swift 中的一个模块。</p>
+<p>源文件就是指以 <code>.swift</code> 命名的源代码文件， 属于一个模块后者一个应用程序。通常我们可能将一个类型后者函数定义在一个源文件中，其实一个源文件可以定义多个类型和函数。</p>
+<h4 id="访问级别"><a href="#访问级别" class="headerlink" title="访问级别"></a>访问级别</h4><p>Swift 提供 5 种不同的访问级别。 访问家级别不仅与源文件中类型实例有关， 也与源文件和模块有关。</p>
+<ul>
+<li><code>open</code> 和 <code>public</code> 可以被同一和不同模块内的任意源文件和任意类型实例所访问。一般使用这两个关键字来定义模块之间访问的接口。</li>
+<li><code>internal</code> 同一模块内的任何源文件中的任意类型实例访问。但是不能被其他模块访问。</li>
+<li><code>fileprivate</code> 限制在只能被同一源文件中的类型实例访问。</li>
+<li><code>private</code> 限制在只有在类型实例内可以被访问。 以及同一文件内的 extension 访问。</li>
+</ul>
+<p>Open 只能作用于类和类的成员，它和 Public 的区别如下：</p>
+<ul>
+<li>public 定义的类只能被同一模块中的类继承和重写， 不能跨模块继承和重写。</li>
+<li>open 定义的类既能被同一模块中的类继承和重写， 也能跨模块继承和重写。</li>
+</ul>
+<p>把一个类标记为 open，明确的表示你已经充分考虑过外部模块使用此类作为父类的影响，并且设计好了你的类的代码了。</p>
+<h4 id="访问级别基本原则"><a href="#访问级别基本原则" class="headerlink" title="访问级别基本原则"></a>访问级别基本原则</h4><p>Swift 遵循一个基本的原则， 不能在实体中定义访问级别更低的实体。</p>
+<blockquote>
+<p>注意：<br>这里的实体同一指 属性 或者 类型和等</p>
+</blockquote>
+<p>eg：</p>
+<ul>
+<li>一个 public 的变量， 其类型的访问级别不能是 internal， fileprivate， private 等。外部<br>不可以访问， 内部的访问权限定义将没有意义。</li>
+<li>函数的访问级别不能高于它的参数类型和返回类型的访问级别。因为这样就会出现， 函数可以在任何地方被访问， 但是它的参数类型和返回类型却不可以被访问。</li>
+</ul>
+<h4 id="默认访问级别"><a href="#默认访问级别" class="headerlink" title="默认访问级别"></a>默认访问级别</h4><p>代码中不指定访问级别， 默认就是 <code>internal</code> 的访问级别。 因此， 大多数情况， 不需要显示的指定访问级别。</p>
+<h4 id="单-target-应用程序的访问级别"><a href="#单-target-应用程序的访问级别" class="headerlink" title="单 target 应用程序的访问级别"></a>单 target 应用程序的访问级别</h4><p>单一应用程序的开发， 一般不需要指定访问级别， 因为 <code>internal</code> 默认的级别， 是指在单一模块内都是可访问的。 不需要指定 open 或者 public 为外部定义接口。 但是可以使用 fileprivate 和 private 隐藏一些代码的实现细节。</p>
+<h4 id="框架的访问级别"><a href="#框架的访问级别" class="headerlink" title="框架的访问级别"></a>框架的访问级别</h4><p>当开发框架时， 使用到 open 和 public 定义接口。 导入框架时， 可以正常使用功能。这些被定义的外部接口， 就是框架的 API。</p>
+<h4 id="单元测试-target-的访问级别"><a href="#单元测试-target-的访问级别" class="headerlink" title="单元测试 target 的访问级别"></a>单元测试 target 的访问级别</h4><p>当你的应用程序包含单元测试 target 时，为了测试，测试模块需要访问应用程序模块中的代码。默认情况下只有 open 或 public 级别的实体才可以被其他模块访问。然而，如果在导入应用程序模块的语句前使用 @testable 特性，然后在允许测试的编译设置（Build Options -&gt; Enable Testability）下编译这个应用程序模块，单元测试目标就可以访问应用程序模块中所有内部级别的实体。</p>
+<h4 id="访问控制语法"><a href="#访问控制语法" class="headerlink" title="访问控制语法"></a>访问控制语法</h4><p>通过修饰符 open，public，internal，fileprivate，private 来声明实体的访问级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class SomePublicClass &#123;&#125;</span><br><span class="line">internal class SomeInternalClass &#123;&#125;</span><br><span class="line">fileprivate class SomeFilePrivateClass &#123;&#125;</span><br><span class="line">private class SomePrivateClass &#123;&#125;</span><br><span class="line"></span><br><span class="line">public var somePublicVariable = 0</span><br><span class="line">internal let someInternalConstant = 0</span><br><span class="line">fileprivate func someFilePrivateFunction() &#123;&#125;</span><br><span class="line">private func somePrivateFunction() &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>默认的 internal 访问级别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class SomeInternalClass &#123;&#125;   // 隐式 internal</span><br><span class="line">var someInternalConstant = 0 // 隐式 internal</span><br></pre></td></tr></table></figure>
+<h4 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a>自定义类型</h4><p>一个类型的访问级别也会影响到类型成员（属性、方法、构造器、下标）的默认访问级别。如果你将类型指定为 private 或者 fileprivate 级别，那么该类型的所有成员的默认访问级别也会变成 private 或者 fileprivate 级别。如果你将类型指定为公开或者 internal （或者不明确指定访问级别，而使用默认的 internal ），那么该类型的所有成员的默认访问级别将是内部访问。</p>
+<blockquote>
+<p>注意：<br>上面提到，一个 public 类型的所有成员的访问级别默认为 internal 级别，而不是 public 级别。如果你想将某个成员指定为 public 级别，那么你必须显式指定。这样做的好处是，在你定义公共接口的时候，可以明确地选择哪些接口是需要公开的，哪些是内部使用的，避免不小心将内部使用的接口公开。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class SomePublicClass &#123;                  // 显式 public 类</span><br><span class="line">    public var somePublicProperty = 0            // 显式 public 类成员</span><br><span class="line">    var someInternalProperty = 0                 // 隐式 internal 类成员</span><br><span class="line">    fileprivate func someFilePrivateMethod() &#123;&#125;  // 显式 fileprivate 类成员</span><br><span class="line">    private func somePrivateMethod() &#123;&#125;          // 显式 private 类成员</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class SomeInternalClass &#123;                       // 隐式 internal 类</span><br><span class="line">    var someInternalProperty = 0                 // 隐式 internal 类成员</span><br><span class="line">    fileprivate func someFilePrivateMethod() &#123;&#125;  // 显式 fileprivate 类成员</span><br><span class="line">    private func somePrivateMethod() &#123;&#125;          // 显式 private 类成员</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fileprivate class SomeFilePrivateClass &#123;        // 显式 fileprivate 类</span><br><span class="line">    func someFilePrivateMethod() &#123;&#125;              // 隐式 fileprivate 类成员</span><br><span class="line">    private func somePrivateMethod() &#123;&#125;          // 显式 private 类成员</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private class SomePrivateClass &#123;                // 显式 private 类</span><br><span class="line">    func somePrivateMethod() &#123;&#125;                  // 隐式 private 类成员</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line">&lt;a name=&quot;tuple_types&quot;&gt;&lt;/a&gt;</span><br><span class="line">### 元组类型</span><br><span class="line"></span><br><span class="line">元组的访问级别将由元组中访问级别最严格的类型来决定。例如，如果你构建了一个包含两种不同类型的元组，其中一个类型为 `internal`，另一个类型为 `private`，那么这个元组的访问级别为 `private`。</span><br><span class="line"></span><br><span class="line">&gt; 注意</span><br><span class="line">&gt; </span><br><span class="line">&gt; 元组不同于类、结构体、枚举、函数那样有单独的定义。元组的访问级别是在它被使用时自动推断出的，而无法明确指定。</span><br><span class="line"></span><br><span class="line">&lt;a name=&quot;function_types&quot;&gt;&lt;/a&gt;</span><br><span class="line">### 函数类型</span><br><span class="line"></span><br><span class="line">函数的访问级别根据访问级别最严格的参数类型或返回类型的访问级别来决定。但是，如果这种访问级别不符合函数定义所在环境的默认访问级别，那么就需要明确地指定该函数的访问级别。</span><br><span class="line"></span><br><span class="line">下面的例子定义了一个名为 `someFunction()` 的全局函数，并且没有明确地指定其访问级别。也许你会认为该函数应该拥有默认的访问级别 `internal`，但事实并非如此。事实上，如果按下面这种写法，代码将无法通过编译：</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line">func someFunction() -&gt; (SomeInternalClass, SomePrivateClass) &#123;</span><br><span class="line">    // 此处是函数实现部分</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，这个函数的返回类型是一个元组，该元组中包含两个自定义的类（可查阅自定义类型）。其中一个类的访问级别是 internal，另一个的访问级别是 private，所以根据元组访问级别的原则，该元组的访问级别是 private（元组的访问级别与元组中访问级别最低的类型一致）。</p>
+<p>因为该函数返回类型的访问级别是 private，所以你必须使用 private 修饰符，明确指定该函数的访问级别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private func someFunction() -&gt; (SomeInternalClass, SomePrivateClass) &#123;</span><br><span class="line">    // 此处是函数实现部分</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将该函数指定为 public 或 internal，或者使用默认的访问级别 internal 都是错误的，因为如果把该函数当做 public 或 internal 级别来使用的话，可能会无法访问 private 级别的返回值。</p>
+<h4 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h4><p>枚举成员的访问级别和该枚举类型相同，你不能为枚举成员单独指定不同的访问级别。</p>
+<p>比如下面的例子，枚举 CompassPoint 被明确指定为 public，那么它的成员 North、South、East、West 的访问级别同样也是 public：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public enum CompassPoint &#123;</span><br><span class="line">    case North</span><br><span class="line">    case South</span><br><span class="line">    case East</span><br><span class="line">    case West</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="嵌套类型"><a href="#嵌套类型" class="headerlink" title="嵌套类型"></a>嵌套类型</h4><p>如果在 private 的类型中定义嵌套类型，那么该嵌套类型就自动拥有 private 访问级别。如果在 public 或者 internal 级别的类型中定义嵌套类型，那么该嵌套类型自动拥有 internal 访问级别。如果想让嵌套类型拥有 public 访问级别，那么需要明确指定该嵌套类型的访问级别。</p>
+<h4 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h4><p>子类的访问级别不得高于父类的访问级别。例如，父类的访问级别是 internal，子类的访问级别就不能是 public。</p>
+<p>可以通过重写为继承来的类成员提供更高的访问级别。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class A &#123;</span><br><span class="line">    fileprivate func someMethod() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">internal class B: A &#123;</span><br><span class="line">    override func someMethod() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将 方法 someMethod 的 fileprivate 访问级别重写为 internal。</p>
+<h4 id="常量、变量、属性、下标"><a href="#常量、变量、属性、下标" class="headerlink" title="常量、变量、属性、下标"></a>常量、变量、属性、下标</h4><p>常量、变量、属性不能拥有比它们的类型更高的访问级别。例如，你不能定义一个 public 级别的属性，但是它的类型却是 private 级别的。同样，下标也不能拥有比索引类型或返回类型更高的访问级别。</p>
+<h4 id="Getter-和-Setter"><a href="#Getter-和-Setter" class="headerlink" title="Getter 和 Setter"></a>Getter 和 Setter</h4><p>在 var 或 subscript 关键字之前，你可以通过 fileprivate(set)，private(set) 或 internal(set) 为它们的写入权限指定更低的访问级别。</p>
+<blockquote>
+<p>注意：<br>这个规则同时适用于存储型属性和计算型属性。即使你不明确指定存储型属性的 Getter 和 Setter，Swift 也会隐式地为其创建 Getter 和 Setter，用于访问该属性的后备存储。使用 fileprivate(set)，private(set) 和 internal(set) 可以改变 Setter 的访问级别，这对计算型属性也同样适用。</p>
+</blockquote>
+<p>下面的例子中定义了一个名为 TrackedString 的结构体，它记录了 value 属性被修改的次数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct TrackedString &#123;</span><br><span class="line">    private(set) var numberOfEdits = 0</span><br><span class="line">    var value: String = &quot;&quot; &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            numberOfEdits += 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结构体 TrackedString 和它的属性 value 都没有显式地指定访问级别，所以它们都是用默认的访问级别 internal。但是该结构体的 numberOfEdits 属性使用了 private(set) 修饰符，这意味着 numberOfEdits 属性只能在结构体的定义中进行赋值。numberOfEdits 属性的 Getter 依然是默认的访问级别 internal，但是 Setter 的访问级别是 private，这表示该属性只能在内部修改，而在结构体的外部则表现为一个只读属性。</p>
+<p>你可以在必要时为 Getter 和 Setter 显式指定访问级别。下面的例子将 TrackedString 结构体明确指定为了 public 访问级别。结构体的成员（包括 numberOfEdits 属性）拥有默认的访问级别 internal。你可以结合 public 和 private(set) 修饰符把结构体中的 numberOfEdits 属性的 Getter 的访问级别设置为 public，而 Setter 的访问级别设置为 private：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public struct TrackedString &#123;</span><br><span class="line">    public private(set) var numberOfEdits = 0</span><br><span class="line">    public var value: String = &quot;&quot; &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            numberOfEdits += 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public init() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><p>自定义构造器的访问级别可以低于或等于其所属类型的访问级别。唯一的例外是必要构造器，它的访问级别必须和所属类型的访问级别相同。 (单例除外)</p>
+<p>如同函数或方法的参数，构造器参数的访问级别也不能低于构造器本身的访问级别。</p>
+<h4 id="默认构造器"><a href="#默认构造器" class="headerlink" title="默认构造器"></a>默认构造器</h4><p>如默认构造器所述，Swift 会为结构体和类提供一个默认的无参数的构造器，只要它们为所有存储型属性设置了默认初始值，并且未提供自定义的构造器。</p>
+<p>默认构造器的访问级别与所属类型的访问级别相同，除非类型的访问级别是 public。如果一个类型被指定为 public 级别，那么默认构造器的访问级别将为 internal。如果你希望一个 public 级别的类型也能在其他模块中使用这种无参数的默认构造器，你只能自己提供一个 public 访问级别的无参数构造器。</p>
+<h4 id="结构体默认的成员逐一构造器"><a href="#结构体默认的成员逐一构造器" class="headerlink" title="结构体默认的成员逐一构造器"></a>结构体默认的成员逐一构造器</h4><p>如果结构体中任意存储型属性的访问级别为 private，那么该结构体默认的成员逐一构造器的访问级别就是 private。否则，这种构造器的访问级别依然是 internal。</p>
+<p>如同前面提到的默认构造器，如果你希望一个 public 级别的结构体也能在其他模块中使用其默认的成员逐一构造器，你依然只能自己提供一个 public 访问级别的成员逐一构造器。</p>
+<h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>如果想为一个协议类型明确地指定访问级别，在定义协议时指定即可。这将限制该协议只能在适当的访问级别范围内被采纳。</p>
+<p>协议中的每一个要求都具有和该协议相同的访问级别。你不能将协议中的要求设置为其他访问级别。这样才能确保该协议的所有要求<strong>对于任意采纳者都将可用</strong>。</p>
+<blockquote>
+<p>注意：<br>如果你定义了一个 public 访问级别的协议，那么该协议的所有实现也会是 public 访问级别。这一点不同于其他类型，例如，当类型是 public 访问级别时，其成员的访问级别却只是 internal。</p>
+</blockquote>
+<h4 id="协议继承"><a href="#协议继承" class="headerlink" title="协议继承"></a>协议继承</h4><p>如果定义了一个继承自其他协议的新协议，那么新协议拥有的访问级别最高也只能和被继承协议的访问级别相同。例如，你不能将继承自 internal 协议的新协议定义为 public 协议。 （和类的继承一样）</p>
+<h4 id="协议一致性"><a href="#协议一致性" class="headerlink" title="协议一致性"></a>协议一致性</h4><p>一个类型可以采纳比自身访问级别低的协议。例如，你可以定义一个 public 级别的类型，它可以在其他模块中使用，同时它也可以采纳一个 internal 级别的协议，但是只能在该协议所在的模块中作为符合该协议的类型使用。</p>
+<p>采纳了协议的类型的访问级别取它本身和所采纳协议两者间最低的访问级别。也就是说如果一个类型是 public 级别，采纳的协议是 internal 级别，那么采纳了这个协议后，该类型作为符合协议的类型时，其访问级别也是 internal。</p>
+<p>如果你采纳了协议，那么实现了协议的所有要求后，你必须确保这些实现的访问级别不能低于协议的访问级别。例如，一个 public 级别的类型，采纳了 internal 级别的协议，那么协议的实现至少也得是 internal 级别。</p>
+<blockquote>
+<p>注意：<br>Swift 和 Objective-C 一样，协议的一致性是全局的，也就是说，在同一程序中，一个类型不可能用两种不同的方式实现同一个协议。</p>
+</blockquote>
+<h4 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h4><p>Extension 可以在访问级别允许的情况下对类、结构体、枚举进行扩展。Extension 的成员具有和原始类型成员一致的访问级别。例如，你使用 extension 扩展了一个 public 或者 internal 类型，extension 中的成员就默认使用 internal 访问级别，和原始类型中的成员一致。如果你使用 extension 扩展了一个 private 类型，则 extension 的成员默认使用 private 访问级别。</p>
+<p>或者，你可以明确指定 extension 的访问级别（例如，private extension），从而给该 extension 中的所有成员指定一个新的默认访问级别。这个新的默认访问级别仍然可以被单独指定的访问级别所覆盖。</p>
+<p>如果你使用 extension 来遵循协议的话，就不能显式地声明 extension 的访问级别。extension 每个 protocol 要求的实现都默认使用 protocol 的访问级别。</p>
+<h4 id="Extension-的私有成员"><a href="#Extension-的私有成员" class="headerlink" title="Extension 的私有成员"></a>Extension 的私有成员</h4><p>展同一文件内的类，结构体或者枚举，extension 里的代码会表现得跟声明在原类型里的一模一样。<br>不同文件内， 如果声明了private 或 fileprivate 则在不同源文件内， 将不可访问。</p>
+<h4 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h4><p>泛型类型或泛型函数的访问级别取决于泛型类型或泛型函数本身的访问级别，还需结合类型参数的类型约束的访问级别，根据这些访问级别中的最低访问级别来确定。</p>
+<h4 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h4><p>private 级别的类型别名可以作为 private、file-private、internal、public 或者 open 类型的别名，但是 public 级别的类型别名只能作为 public 类型的别名，不能作为 internal、file-private 或 private 类型的别名。</p>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/07/Swift-入门-第-25-课-内存安全/" title="Swift 入门 第 25 课 内存安全">Swift 入门 第 25 课 内存安全</a></h2>
+                <p class="excerpt">
+                
+                理解内存访问冲突当同时访问同一块内存时， 发生多个访问结果不一致和不可预计的行为。
+12345// 向 one 所在的内存区域发起一次写操作var one = 1// 向 one 所在的内存区域发起一次读操作print(&amp;quot;We&amp;apos;re number \(one)!&amp;quot;)
+
+
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-07T03:54:37.697Z" class="post-list__meta--date date">2019-01-07</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/07/Swift-入门-第-25-课-内存安全/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
