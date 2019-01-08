@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 入门 第 27 课 高级运算符 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 入门 第 27 课 高级运算符 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 入门 第 27 课 高级运算符 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/08/Swift-入门-第-27-课-高级运算符/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-08T06:28:20.470Z" class="post-list__meta--date date">2019-01-08</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 入门 第 27 课 高级运算符</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><p>位运算符可以操作数据结构中每个独立的比特位。它们通常被用在底层开发中，比如图形编程和创建设备驱动。位运算符在处理外部资源的原始数据时也十分有用，比如对自定义通信协议传输的数据进行编码和解码。</p>
+<p>Swift 支持 C 语言中的全部位运算符，接下来会一一介绍。</p>
+<h4 id="按位取反运算符"><a href="#按位取反运算符" class="headerlink" title="按位取反运算符"></a>按位取反运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let initialBits: UInt8 = 0b00001111</span><br><span class="line">let invertedBits = ~initialBits // 等于 0b11110000</span><br></pre></td></tr></table></figure>
+<h4 id="按位与运算符"><a href="#按位与运算符" class="headerlink" title="按位与运算符"></a>按位与运算符</h4><p>相同为 1 不同 为 0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let firstSixBits: UInt8 = 0b11111100</span><br><span class="line">let lastSixBits: UInt8  = 0b00111111</span><br><span class="line">let middleFourBits = firstSixBits &amp; lastSixBits // 等于 00111100</span><br></pre></td></tr></table></figure>
+<h4 id="按位或运算符"><a href="#按位或运算符" class="headerlink" title="按位或运算符"></a>按位或运算符</h4><p>只要有 1 就为 1， 否则为 0.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let someBits: UInt8 = 0b10110010</span><br><span class="line">let moreBits: UInt8 = 0b01011110</span><br><span class="line">let combinedbits = someBits | moreBits // 等于 11111110</span><br></pre></td></tr></table></figure>
+<h4 id="按位异或运算符"><a href="#按位异或运算符" class="headerlink" title="按位异或运算符"></a>按位异或运算符</h4><p>相同为 0， 不同为 1.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let firstBits: UInt8 = 0b00010100</span><br><span class="line">let otherBits: UInt8 = 0b00000101</span><br><span class="line">let outputBits = firstBits ^ otherBits // 等于 00010001</span><br></pre></td></tr></table></figure>
+<h4 id="按位左移、右移运算符"><a href="#按位左移、右移运算符" class="headerlink" title="按位左移、右移运算符"></a>按位左移、右移运算符</h4><p>左移相当于 * 2 ， 右移相当于 / 2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let shiftBits: UInt8 = 4 // 即二进制的 00000100</span><br><span class="line">shiftBits &lt;&lt; 1           // 00001000</span><br><span class="line">shiftBits &lt;&lt; 2           // 00010000</span><br><span class="line">shiftBits &lt;&lt; 5           // 10000000</span><br><span class="line">shiftBits &lt;&lt; 6           // 00000000</span><br><span class="line">shiftBits &gt;&gt; 2           // 00000001</span><br></pre></td></tr></table></figure>
+<p>可以使用移位运算对其他的数据类型进行编码和解码：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let pink: UInt32 = 0xCC6699</span><br><span class="line">let redComponent = (pink &amp; 0xFF0000) &gt;&gt; 16  // redComponent 是 0xCC，即 204</span><br><span class="line">let greenComponent = (pink &amp; 0x00FF00) &gt;&gt; 8 // greenComponent 是 0x66， 即 102</span><br><span class="line">let blueComponent = pink &amp; 0x0000FF         // blueComponent 是 0x99，即 153</span><br></pre></td></tr></table></figure>
+<p>颜色的 16 进制 RGB 转 。</p>
+<h4 id="溢出运算符"><a href="#溢出运算符" class="headerlink" title="溢出运算符"></a>溢出运算符</h4><p>在默认情况下，当向一个整数赋予超过它容量的值时，Swift 默认会报错，而不是生成一个无效的数。这个行为为我们在运算过大或着过小的数的时候提供了额外的安全性。</p>
+<p>例如，Int16 型整数能容纳的有符号整数范围是 -32768 到 32767，当为一个 Int16 型变量赋的值超过这个范围时，系统就会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var potentialOverflow = Int16.max</span><br><span class="line">// potentialOverflow 的值是 32767，这是 Int16 能容纳的最大整数</span><br><span class="line">potentialOverflow += 1</span><br><span class="line">// 这里会报错</span><br></pre></td></tr></table></figure>
+<p>然而，也可以选择让系统在数值溢出的时候采取截断处理，而非报错。可以使用 Swift 提供的三个溢出运算符来让系统支持整数溢出运算。这些运算符都是以 &amp; 开头的：</p>
+<p><strong>溢出加法 &amp;+</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var unsignedOverflow = UInt8.max</span><br><span class="line">// unsignedOverflow 等于 UInt8 所能容纳的最大整数 255</span><br><span class="line">unsignedOverflow = unsignedOverflow &amp;+ 1</span><br><span class="line">// 此时 unsignedOverflow 等于 0</span><br></pre></td></tr></table></figure>
+<p><strong>溢出减法 &amp;-</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var unsignedOverflow = UInt8.min</span><br><span class="line">// unsignedOverflow 等于 UInt8 所能容纳的最小整数 0</span><br><span class="line">unsignedOverflow = unsignedOverflow &amp;- 1</span><br><span class="line">// 此时 unsignedOverflow 等于 255</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var signedOverflow = Int8.min</span><br><span class="line">// signedOverflow 等于 Int8 所能容纳的最小整数 -128</span><br><span class="line">signedOverflow = signedOverflow &amp;- 1</span><br><span class="line">// 此时 signedOverflow 等于 127</span><br></pre></td></tr></table></figure>
+<p><strong>溢出乘法 &amp;</strong></p>
+<h4 id="优先级和结合性"><a href="#优先级和结合性" class="headerlink" title="优先级和结合性"></a>优先级和结合性</h4><p>运算符的优先级使得一些运算符优先于其他运算符，高优先级的运算符会先被计算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2 + 3 % 4 * 5</span><br><span class="line">// 结果是 17</span><br></pre></td></tr></table></figure>
+<p>如果完全从左到右进行运算，则运算的过程是这样的：<br>2 + 3 = 5<br>5 % 4 = 1<br>1 * 5 = 5</p>
+<p>但是正确答案是 17 而不是 5。优先级高的运算符要先于优先级低的运算符进行计算。</p>
+<p>与 C 语言类似，在 Swift 中，乘法运算符（*）与取余运算符（%）的优先级高于加法运算符（+）。因此，它们的计算顺序要先于加法运算。</p>
+<h4 id="运算符函数"><a href="#运算符函数" class="headerlink" title="运算符函数"></a>运算符函数</h4><p>类和结构体可以为现有的运算符提供自定义的实现，这通常被称为运算符重载。</p>
+<p>子中定义了一个名为 Vector2D 的结构体用来表示二维坐标向量 (x, y)，紧接着定义了一个可以对两个 Vector2D 结构体进行相加的运算符函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">struct Vector2D &#123;</span><br><span class="line">    var x = 0.0, y = 0.0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension Vector2D &#123;</span><br><span class="line">    static func + (left: Vector2D, right: Vector2D) -&gt; Vector2D &#123;</span><br><span class="line">        return Vector2D(x: left.x + right.x, y: left.y + right.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个类方法可以在任意两个 Vector2D 实例中间作为<strong>中缀</strong>运算符来使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let vector = Vector2D(x: 3.0, y: 1.0)</span><br><span class="line">let anotherVector = Vector2D(x: 2.0, y: 4.0)</span><br><span class="line">let combinedVector = vector + anotherVector</span><br><span class="line">// combinedVector 是一个新的 Vector2D 实例，值为 (5.0, 5.0)</span><br></pre></td></tr></table></figure>
+<h4 id="前缀和后缀运算符"><a href="#前缀和后缀运算符" class="headerlink" title="前缀和后缀运算符"></a>前缀和后缀运算符</h4><p>上个例子演示了一个双目中缀运算符的自定义实现。类与结构体也能提供标准单目运算符的实现。单目运算符只运算一个值。当运算符出现在值之前时，它就是前缀的（例如 -a），而当它出现在值之后时，它就是后缀的（例如 b!）。</p>
+<p>要实现前缀或者后缀运算符，需要在声明运算符函数的时候在 func 关键字之前指定 prefix 或者 postfix 修饰符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extension Vector2D &#123;</span><br><span class="line">    static prefix func - (vector: Vector2D) -&gt; Vector2D &#123;</span><br><span class="line">        return Vector2D(x: -vector.x, y: -vector.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于简单数值，单目负号运算符可以对它们的正负性进行改变。对于 Vector2D 来说，该运算将其 x 和 y 属性的正负性都进行了改变：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let positive = Vector2D(x: 3.0, y: 4.0)</span><br><span class="line">let negative = -positive</span><br><span class="line">// negative 是一个值为 (-3.0, -4.0) 的 Vector2D 实例</span><br><span class="line">let alsoPositive = -negative</span><br><span class="line">// alsoPositive 是一个值为 (3.0, 4.0) 的 Vector2D 实例</span><br></pre></td></tr></table></figure>
+<h4 id="复合赋值运算符"><a href="#复合赋值运算符" class="headerlink" title="复合赋值运算符"></a>复合赋值运算符</h4><p>复合赋值运算符将赋值运算符（=）与其它运算符进行结合。例如，将加法与赋值结合成加法赋值运算符（+=）。在实现的时候，需要把运算符的左参数设置成 inout 类型，因为这个参数的值会在运算符函数内直接被修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extension Vector2D &#123;</span><br><span class="line">    static func += (left: inout Vector2D, right: Vector2D) &#123;</span><br><span class="line">        left = left + right</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为加法运算在之前已经定义过了，所以在这里无需重新定义。在这里可以直接利用现有的加法运算符函数，用它来对左值和右值进行相加，并再次赋值给左值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var original = Vector2D(x: 1.0, y: 2.0)</span><br><span class="line">let vectorToAdd = Vector2D(x: 3.0, y: 4.0)</span><br><span class="line">original += vectorToAdd</span><br><span class="line">// original 的值现在为 (4.0, 6.0)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>不能对默认的赋值运算符（=）进行重载。只有组合赋值运算符可以被重载。同样地，也无法对三目条件运算符 （a ? b : c） 进行重载。</p>
+</blockquote>
+<h4 id="等价运算符"><a href="#等价运算符" class="headerlink" title="等价运算符"></a>等价运算符</h4><p>自定义的类和结构体没有对等价运算符进行默认实现，等价运算符通常被称为“相等”运算符（==）与“不等”运算符（!=）。对于自定义类型，Swift 无法判断其是否“相等”，因为“相等”的含义取决于这些自定义类型在你的代码中所扮演的角色。</p>
+<p>为了使用等价运算符能对自定义的类型进行判等运算，需要为其提供自定义实现，实现的方法与其它中缀运算符一样, 并且增加对标准库 Equatable 协议的遵循：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extension Vector2D: Equatable &#123;</span><br><span class="line">    static func == (left: Vector2D, right: Vector2D) -&gt; Bool &#123;</span><br><span class="line">        return (left.x == right.x) &amp;&amp; (left.y == right.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们可以使用这两个运算符来判断两个 Vector2D 实例是否相等：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let twoThree = Vector2D(x: 2.0, y: 3.0)</span><br><span class="line">let anotherTwoThree = Vector2D(x: 2.0, y: 3.0)</span><br><span class="line">if twoThree == anotherTwoThree &#123;</span><br><span class="line">    print(&quot;These two vectors are equivalent.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// 打印 “These two vectors are equivalent.”</span><br></pre></td></tr></table></figure>
+<p><strong>Swift 为以下自定义类型提等价运算符供合成实现：</strong></p>
+<ul>
+<li>只拥有遵循 Equatable 协议存储属性的结构体；</li>
+<li>只拥有遵循 Equatable 协议关联类型的枚举；</li>
+<li>没有关联类型的枚举。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct Vector3D: Equatable &#123;</span><br><span class="line">    var x = 0.0, y = 0.0, z = 0.0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let twoThreeFour = Vector3D(x: 2.0, y: 3.0, z: 4.0)</span><br><span class="line">let anotherTwoThreeFour = Vector3D(x: 2.0, y: 3.0, z: 4.0)</span><br><span class="line">if twoThreeFour == anotherTwoThreeFour &#123;</span><br><span class="line">    print(&quot;These two vectors are also equivalent.&quot;)</span><br><span class="line">&#125;</span><br><span class="line">// Prints &quot;These two vectors are also equivalent.&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="自定义运算符"><a href="#自定义运算符" class="headerlink" title="自定义运算符"></a>自定义运算符</h4><p>除了实现标准运算符，在 Swift 中还可以声明和实现自定义运算符。</p>
+<p>新的运算符要使用 operator 关键字在全局作用域内进行定义，同时还要指定 prefix、infix 或者 postfix 修饰符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefix operator +++</span><br></pre></td></tr></table></figure>
+<p>上面的代码定义了一个新的名为 +++ 的前缀运算符。</p>
+<p>对这个示例来讲，+++ 被实现为“前缀双自增”运算符。它使用了前面定义的复合加法运算符来让矩阵对自身进行相加，从而让 Vector2D 实例的 x 属性和 y 属性的值翻倍。实现 +++ 运算符的方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">extension Vector2D &#123;</span><br><span class="line">    static prefix func +++ (vector: inout Vector2D) -&gt; Vector2D &#123;</span><br><span class="line">        vector += vector</span><br><span class="line">        return vector</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var toBeDoubled = Vector2D(x: 1.0, y: 4.0)</span><br><span class="line">let afterDoubling = +++toBeDoubled</span><br><span class="line">// toBeDoubled 现在的值为 (2.0, 8.0)</span><br><span class="line">// afterDoubling 现在的值也为 (2.0, 8.0)</span><br></pre></td></tr></table></figure>
+<h4 id="自定义中缀运算符的优先级"><a href="#自定义中缀运算符的优先级" class="headerlink" title="自定义中缀运算符的优先级"></a>自定义中缀运算符的优先级</h4><p>每个自定义中缀运算符都属于某个<strong>优先级组</strong>。这个优先级组指定了这个运算符和其他中缀运算符的优先级和结合性。</p>
+<p>而没有明确放入优先级组的自定义中缀运算符会放到一个默认的优先级组内，其优先级高于三元运算符。</p>
+<p>以下例子定义了一个新的自定义中缀运算符 +-，此运算符属于 AdditionPrecedence 优先组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">infix operator +-: AdditionPrecedence</span><br><span class="line">extension Vector2D &#123;</span><br><span class="line">    static func +- (left: Vector2D, right: Vector2D) -&gt; Vector2D &#123;</span><br><span class="line">        return Vector2D(x: left.x + right.x, y: left.y - right.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let firstVector = Vector2D(x: 1.0, y: 2.0)</span><br><span class="line">let secondVector = Vector2D(x: 3.0, y: 4.0)</span><br><span class="line">let plusMinusVector = firstVector +- secondVector</span><br><span class="line">// plusMinusVector 是一个 Vector2D 实例，并且它的值为 (4.0, -2.0)</span><br></pre></td></tr></table></figure>
+<p>这个运算符把两个向量的 x 值相加，同时用第一个向量的 y 值减去第二个向量的 y 值。</p>
+<blockquote>
+<p>注意：<br>当定义前缀与后缀运算符的时候，我们并没有指定优先级。然而，如果对同一个值同时使用前缀与后缀运算符，则后缀运算符会先参与运算。</p>
+</blockquote>
+<p>【 参考 梁杰 极客学院 】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/07/Swift-入门-第-26-课-访问控制/" title="Swift 入门 第 26 课 访问控制">Swift 入门 第 26 课 访问控制</a></h2>
+                <p class="excerpt">
+                
+                控制代码的访问级别， 可以隐藏代码的一些实现细节。并可以为其他人提供接口。
+可以给类、结构体、枚举设置访问级别， 也可以给具体的属性、方法设置访问级别。
+Swift 给某些场景提供了默认的访问级别， 不需要显示的声明访问级别。
+其实，如果只是开发一个单一 target 的应用程序，我们完全可以不用显
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-07T06:20:48.902Z" class="post-list__meta--date date">2019-01-07</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/07/Swift-入门-第-26-课-访问控制/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
