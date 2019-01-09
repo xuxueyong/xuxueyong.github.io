@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Swift 进阶 第 5 课  链表 &amp; 队列 | 云山之处</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Swift 进阶 第 5 课  链表 &amp; 队列 | 云山之处">
+    <meta name="twitter:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Swift 进阶 第 5 课  链表 &amp; 队列 | 云山之处">
+    <meta property="og:description" content="像写诗一样, 将写代码作为一门艺术.">
+
+    
+    <meta name="author" content="徐雪勇">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/avatar-small.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="云山之处" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://xuxueyong.github.io/2019/01/09/Swift-进阶-第-5-课-链表/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 云山之处 的主页"><img src="/images/avatar.jpg" width="80" alt="云山之处 logo" class="panel-cover__logo logo"></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for 云山之处">云山之处</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">最好的时代, 活出最好的自己</span>
+        
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">像写诗一样, 将写代码作为一门艺术.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="https://www.jianshu.com/u/823519e76f1a">简书</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/time.html">时光机</a></li>
+            
+              <li class="navigation__item"><a href="/favourite/image.html">幻想间</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="https://weibo.com/u/2506861343?is_all=1" title="Weibo" target="_blank">
+      <i class="social fa fa-weibo"></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/xuxueyong" title="GitHub" target="_blank">
+      <i class="social fa fa-github"></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class="social fa fa-rss"></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2019-01-09T06:47:21.257Z" class="post-list__meta--date date">2019-01-09</time> &#8226; <span class="post-meta__tags tags">于  </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">Swift 进阶 第 5 课  链表 &amp; 队列</h1>
+  </header>
+
+  <section class="post">
+    <h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><p>用枚举实现一个单向链表。 链表的节点， 有两种可能：要么是一个节点， 其中包含了值， 以及对下一个节点的引用， 要么代表链表的结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/// ⼀一个简单的链表枚举</span><br><span class="line">enum List&lt;Element&gt; &#123;</span><br><span class="line">    case end</span><br><span class="line">    indirect case node(Element, next: List&lt;Element&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>indirect 关键字允许一个枚举成员能够被当作引用，这样一 来，它就能够持有自己了。</p>
+</blockquote>
+<p>我们通过创建一个新的节点，并将 next 值设为当前节点的方式来在链表头部添加一个节点:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extension List &#123;</span><br><span class="line">    /// 在链表前⽅方添加⼀一个值为 `x` 的节点，并返回这个链表</span><br><span class="line">    func const(_ x: Element) -&gt; List &#123;</span><br><span class="line">        return .node(x, next: self)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>⼀一个拥有 3 个元素的链表 (3 2 1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let list = List.end.const(1).const(2).const(3)</span><br></pre></td></tr></table></figure>
+<p>添加 ExpressibleByArrayLiteral 支持，以数组字面量的方式初始化一个链表。我 们首先对输入数组进行逆序操作 (因为链表是从末位开始构建的)，然后使用 reduce 函数，并以 .end 为初始值，来将元素一个一个地添加到链表中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">extension List: ExpressibleByArrayLiteral &#123;</span><br><span class="line">    </span><br><span class="line">    init(arrayLiteral elements: Element...) &#123;</span><br><span class="line">        self = elements.reversed().reduce(.end, &#123; (partialList, element) -&gt; List in</span><br><span class="line">            partialList.cons(element)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let list2: List = [1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<p>我们还可以在 List 上定义一些可变方法，来让我们能够将元素推入和推出 (因为链表其实也是 一个栈，构造相当于 push，获取 next 元素相当于 pop):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">extension List &#123;</span><br><span class="line">    </span><br><span class="line">    mutating func push(_ x: Element) &#123;</span><br><span class="line">        self = self.cons(x)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    mutating func pop() -&gt; Element? &#123;</span><br><span class="line">        switch self &#123;</span><br><span class="line">        </span><br><span class="line">        case .end:</span><br><span class="line">            return nil</span><br><span class="line">        case let .node(x,  next):</span><br><span class="line">            self = next</span><br><span class="line">            return x</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是我们刚刚不是才说过链表具有持久性和不可变的特性吗?为什么它可以有一个可变方法?<br>这些可变方法其实并没有改变链表本身，它们改变的只是变量所持有的列表的节点到底是哪一<br>个:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var stack: List&lt;Int&gt; = [3,2,1] </span><br><span class="line">var a = stack</span><br><span class="line">var b = stack</span><br><span class="line"></span><br><span class="line">a.pop() // Optional(3) </span><br><span class="line">a.pop() // Optional(2) </span><br><span class="line">a.pop() // Optional(1)</span><br><span class="line"></span><br><span class="line">stack.pop() // Optional(3) </span><br><span class="line">stack.push(4)</span><br><span class="line"></span><br><span class="line">b.pop() // Optional(3) </span><br><span class="line">b.pop() // Optional(2) </span><br><span class="line">b.pop() // Optional(1)</span><br><span class="line"></span><br><span class="line">stack.pop() // Optional(4)</span><br><span class="line">stack.pop() // Optional(2) </span><br><span class="line">stack.pop() // Optional(1)</span><br></pre></td></tr></table></figure>
+<p>这正是结构体上的可变方法所做的事情，它们其实接受一个隐式的 inout 的 self 作为参数，这 样它们就能够改变 self 所持有的值了。这并不改变列表，而是改变这个变量现在所呈现的是列 表的哪个部分。这样一来，通过 indirect，变量就变成链表的迭代器了:</p>
+<p><img src="/2019/01/09/Swift-进阶-第-5-课-链表/123.png" alt="链表的内存管理"></p>
+<h4 id="让-List-遵守-Sequence"><a href="#让-List-遵守-Sequence" class="headerlink" title="让 List 遵守 Sequence"></a>让 List 遵守 Sequence</h4><p>因为列表的变量可以进行列举，所以你能够使用它们来让 List 遵守 Sequence 协议。事实上， 和我们在序列和迭代器的关系中看到过的一样，List 是一个拥有自己的迭代状态的不稳定序列。<br>我们只需要提供一个 next() 方法，就能一次性地使它遵守 IteratorProtocol 和 Sequence 协议。 实现的方式就是使用 pop:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extension List: IteratorProtocol, Sequence &#123;</span><br><span class="line">    </span><br><span class="line">    mutating func next() -&gt; Element? &#123;</span><br><span class="line">        return pop()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，你能够在列表上使用 for…in 了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let list: List = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] </span><br><span class="line">for x in list&#123;</span><br><span class="line">	print(&quot;\(x) &quot;, terminator: &quot;&quot;) </span><br><span class="line">&#125; // 1 2 3</span><br></pre></td></tr></table></figure>
+<p>同时，得益于协议扩展的强大特性，我们可以在 List 上使用很多标准库中的函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list.joined(separator: &quot;,&quot;) // 1,2,3 </span><br><span class="line">list.contains(&quot;2&quot;) // true</span><br><span class="line">list.flatMap &#123; Int($0) &#125; // [1, 2, 3] </span><br><span class="line">list.elementsEqual([&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]) // true</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>在计算机科学的理论中，链表对一些常用操作会比数组高效得多。但是实际上，在当 代的计算机架构上，CPU 缓存速度非常之快，相对来说主内存的速度要慢一些，这让 链表的性能很难与数组相媲美。因为数组中的元素使用的是连续的内存，处理器能够 以更高效的方式对它们进行访问。想要进一步了解 Swift 中的集合类型的性能，推荐 看看 Károly L￿rentey 关于集合类型优化的相关书籍。</p>
+</blockquote>
+<h4 id="自定义的集合类型"><a href="#自定义的集合类型" class="headerlink" title="自定义的集合类型"></a>自定义的集合类型</h4><p>为了展示 Swift 中集合类型的工作方式，我们将实现一个我们自己的集合类型。可能在 Swift 中标准库中没有被实现，但是最有用的容器类型就是队列了。</p>
+<p>因为数组是在连续的内存中持有元素的， 所以移除非数组尾部元素时，其他每个元素都需要移动去填补空白，这个操作的复杂度会是 O(n) (而出栈最后一个元素只需要常数的时间就能完成)。</p>
+<h4 id="为队列设计协议"><a href="#为队列设计协议" class="headerlink" title="为队列设计协议"></a>为队列设计协议</h4><p>在实际实现队列之前，我们应该先定义它到底是什么。定义一个协议来描述队列到底是什么，<br>会是一个好方法。让我们来看看下面的定义:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/// 一个能够将元素出队和入队的类型</span><br><span class="line">protocol Queue &#123;</span><br><span class="line">    /// 队列中元素的类型</span><br><span class="line">    associatedtype Element</span><br><span class="line">    </span><br><span class="line">    /// 入队列</span><br><span class="line">    func enqueue(_ newElement: Element)</span><br><span class="line">    </span><br><span class="line">    /// 出队列</span><br><span class="line">    func dequeue() -&gt; Element?</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h4><p>下面是一个很简单的先进先出队列，它的 enqueue 和 dequeue 方法是基于一系列数组来构建的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">struct FIFOQueue&lt;Element&gt;: Queue &#123;</span><br><span class="line">    private var left: [Element] = []</span><br><span class="line">    private var right: [Element] = []</span><br><span class="line"></span><br><span class="line">    mutating func enqueue(_ newElement: FIFOQueue.Element) &#123;</span><br><span class="line">        right.append(newElement)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    mutating func dequeue() -&gt; Element? &#123;</span><br><span class="line">        if left.isEmpty &#123;</span><br><span class="line">            left = right.reversed()</span><br><span class="line">            right.removeAll()</span><br><span class="line">        &#125;</span><br><span class="line">        return left.popLast()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个实现使用两个栈 (两个常规的数组) 来模拟队列的行为。当元素入队时，它们被添加到 “右” 栈中。当元素出队时，它们从 “右” 栈的反序数组的 “左” 栈中被弹出。当左栈变为空时，再将右 栈反序后设置为左栈。</p>
+<h4 id="遵守-Collection-协议"><a href="#遵守-Collection-协议" class="headerlink" title="遵守 Collection 协议"></a>遵守 Collection 协议</h4><p>满足一个协议的最小需求已经被写在文档里了，Collection 就是这么做的:</p>
+<blockquote>
+<p>… 要使你的类型满足 Collection，你至少需要声明以下要求的内容:<br>→ startIndex 和 endIndex 属性<br>→ 至少能够读取你的类型中的元素的下标方法<br>→ 用来在集合索引之间进行步进的 index(after:) 方法。</p>
+</blockquote>
+<p>于是最后，我们需要实现的有:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">protocol Collection: Sequence &#123; </span><br><span class="line">/// ⼀一个表示集合中位置的类型</span><br><span class="line">associatedtype Index: Comparable</span><br><span class="line">/// ⼀一个⾮非空集合中⾸首个元素的位置</span><br><span class="line">var startIndex: Index &#123; get &#125;</span><br><span class="line">/// 集合中超过末位的位置---也就是⽐比最后⼀一个有效下标值⼤大 1 的位置 var endIndex: Index &#123; get &#125;</span><br><span class="line">/// 返回在给定索引之后的那个索引值 </span><br><span class="line">func index(after i: Index) -&gt; Index</span><br><span class="line">/// 访问特定位置的元素</span><br><span class="line">subscript(position: Index) -&gt; Element &#123; get &#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>让 FIFOQueue 满足 Collection 协议:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">extension FIFOQueue: Collection &#123;</span><br><span class="line">    public var startIndex: Int &#123;</span><br><span class="line">        return 0</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public var endIndex: Int &#123;</span><br><span class="line">        return left.count + right.count</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func index(after i: Int) -&gt; Int &#123;</span><br><span class="line">        precondition(i &lt; endIndex)</span><br><span class="line">        return i+1</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public subscript(position: Int) -&gt; Element &#123;</span><br><span class="line">        precondition((0..&lt;endIndex).contains(position), &quot;Index out of bounds&quot;)</span><br><span class="line">        if position &lt; left.endIndex &#123;</span><br><span class="line">            return left[left.count - position - 1]</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return right[position - left.count]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有了这几行代码，我们的队列已经拥有超过 40 个方法和属性供我们使用了。我们可以迭代队 列:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var q = FIFOQueue&lt;String&gt;()</span><br><span class="line">for x in [&quot;1&quot;, &quot;2&quot;, &quot;foo&quot;, &quot;3&quot;] &#123;</span><br><span class="line">  q.enqueue(x)</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">for s in q &#123;</span><br><span class="line">  print(s, terminator: &quot; &quot;)</span><br><span class="line">&#125; // 1 2 foo 3</span><br></pre></td></tr></table></figure>
+<p>我们可以将队列传递给接受序列的方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = Array(q) // [&quot;1&quot;, &quot;2&quot;, &quot;foo&quot;, &quot;3&quot;]</span><br><span class="line">a.append(contentsOf: q[2...3])</span><br><span class="line">a // [&quot;1&quot;, &quot;2&quot;, &quot;foo&quot;, &quot;3&quot;, &quot;foo&quot;, &quot;3&quot;]</span><br></pre></td></tr></table></figure>
+<p>我们可以调用那些 Sequence 的扩展方法和属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">q.map &#123; $0.uppercased() &#125; // [&quot;1&quot;, &quot;2&quot;, &quot;FOO&quot;, &quot;3&quot;] </span><br><span class="line">q.flatMap &#123; Int($0) &#125; // [1, 2, 3]</span><br><span class="line">q.filter &#123; $0.count &gt; 1 &#125; // [&quot;foo&quot;]</span><br><span class="line">q.sorted() // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;foo&quot;] </span><br><span class="line">q.joined(separator: &quot; &quot;) // 1 2 foo 3</span><br></pre></td></tr></table></figure>
+<p>我们也可以调用 Collection 的扩展方法和属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">q.isEmpty // false q.count // 4</span><br><span class="line">q.first // Optional(&quot;1&quot;)</span><br></pre></td></tr></table></figure>
+<h4 id="遵守-ExpressibleByArrayLiteral-协议"><a href="#遵守-ExpressibleByArrayLiteral-协议" class="headerlink" title="遵守 ExpressibleByArrayLiteral 协议"></a>遵守 ExpressibleByArrayLiteral 协议</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extension FIFOQueue: ExpressibleByArrayLiteral &#123; </span><br><span class="line">		public init(arrayLiteral elements: Element...) &#123;</span><br><span class="line">		left = elements.reversed()</span><br><span class="line">		right = [] </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们就可以用数组字面量来创建一个队列了:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let queue: FIFOQueue = [1,2,3] // FIFOQueue&lt;Int&gt;(left: [3, 2, 1], right: [])</span><br></pre></td></tr></table></figure>
+<p>【参考*王巍】</p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2019/01/09/Swift-进阶-第-4-课-集合类型协议/" title="Swift 进阶 第 4 课  集合类型协议">Swift 进阶 第 4 课  集合类型协议</a></h2>
+                <p class="excerpt">
+                
+                序列一个序列 (sequence) 代表的是一系列具有相同类型 的值，你可以对这些值进行迭代。遍历一个序列最简单的方式是使用 for 循环:
+123for element in someSequence &amp;#123; 	doSomething(with: element)&amp;#125;
+满足 Sequ
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2019-01-09T02:44:21.289Z" class="post-list__meta--date date">2019-01-09</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/2019/01/09/Swift-进阶-第-4-课-集合类型协议/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2019 徐雪勇 - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+       
+    </span>
+    <span class="footer__copyright">
+             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题，由<a href="https://monniya.com ">@Monniya</a> 修改自 <a href="https://github.com/lenbo-ma/hexo-theme-vno" target="_blank">Vno</a>, 原创出自<a href="http://github.com/onevcat/vno" target="_blank">onevcat</a>
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-78918255-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
