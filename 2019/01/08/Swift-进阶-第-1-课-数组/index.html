@@ -210,28 +210,8 @@ print(a, b)
 <p>let numbers = [30, 40, 20, 30, 30, 60, 10]<br>        let hh = numbers.accumulate(0, +)<br>        print(hh)<br>// [31, 71, 91, 121, 151, 211, 221]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### stride </span><br><span class="line">产生可迭代的浮点数 或者迭代不是 只+1</span><br></pre></td></tr></table></figure></p>
 <p>for f in stride(from: 0.1, through: 1.0, by: 0.4) {<br>  print(f)<br>}</p>
 <p>for f in stride(from: 0.1, to: 1.0, by: 0.3) {<br>  print(f)<br>}</p>
-<p>// through 和 to 的区别是是否包含最后一个值 <strong>through包含</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 遵守序列协议</span><br></pre></td></tr></table></figure></p>
-<p>struct PrefixIterator: IteratorProtocol {<br>    let string: String<br>    var offSet: String.Index</p>
-<pre><code>init(_ string: String) {
-   self.string = string
-   offSet = string.startIndex
-}
-
-mutating func next() -&gt; Substring? {
-   guard offSet &lt; string.endIndex else {
-       return nil
-   }
-   offSet = self.string.index(after: offSet)
-   return string[..&lt;offSet]
-}
-</code></pre><p>}</p>
-<p>// 迭代器使用<br>var prefixIterator = PrefixIterator(“hello”)<br>while let i = prefixIterator.next() {<br>  print(i)<br>}</p>
-<p>struct PrefixSequence: Sequence {<br>    let string: String</p>
-<pre><code>func makeIterator() -&gt; PrefixIterator {
-    return PrefixIterator(string)
-}
-</code></pre><p>}</p>
-<p>// 序列使用<br>let s = PrefixSequence(string: “hello world”).map { $0.uppercased() }<br>print(s)<br><code>`</code><br>【参考*王巍】</p>
+<p>// through 和 to 的区别是是否包含最后一个值 <strong>through包含</strong><br><code>`</code></p>
+<p>【参考*王巍】</p>
 
   </section>
 
